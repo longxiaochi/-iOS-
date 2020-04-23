@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+platform :ios,'10.0'
+
+target 'BlogClient' do
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'Kingfisher'
+  pod 'MJRefresh'
+  pod 'KakaJSON'
+  pod 'KingfisherWebP'
+end
