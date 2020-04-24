@@ -2,7 +2,7 @@
 //  TabBarViewController.swift
 //  BlogClient
 //
-//  Created by Long on 2020/4/23.
+//  Created by Long on 2020/4/24.
 //  Copyright © 2020 LongMac. All rights reserved.
 //
 
@@ -12,19 +12,21 @@ class TabBarViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let home = UINava
+          
+        tabBar.barTintColor = UIColor.white
+        
+        
+        
+//        let homeViewController = HomeViewController.init()
+//        let navigationViewController = NavigationViewController.init(rootViewController: homeViewController)
+//        tabBarViewController.addChild(navigationViewController)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func addChild(_ title: String, _ image: String, _ selectedImage: String, _ type: UIViewController.Type) {
+        let child = NavigationViewController(rootViewController: type.init())
+        child.title = title
+        child.tabBarItem.image = UIImage(named: image)
+        child.tabBarItem.selectedImage = UIImage(named: selectedImage)
+        child.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
     }
-    */
-
 }

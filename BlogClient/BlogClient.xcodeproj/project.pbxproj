@@ -15,7 +15,11 @@
 		D1ABD42D24511FAF009B72B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1ABD42B24511FAF009B72B9 /* LaunchScreen.storyboard */; };
 		D1ABD43824511FAF009B72B9 /* BlogClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD43724511FAF009B72B9 /* BlogClientTests.swift */; };
 		D1ABD44324511FB0009B72B9 /* BlogClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */; };
-		FDA3A70F2451C8BB00E80096 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA3A70E2451C8BB00E80096 /* TabBarViewController.swift */; };
+		FD49237124531CD0002D48DC /* Asyn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49237024531CD0002D48DC /* Asyn.swift */; };
+		FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */; };
+		FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA52452AF620062BAEE /* NavigationViewController.swift */; };
+		FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA72452B0330062BAEE /* UIBaseViewController.swift */; };
+		FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA92452B0610062BAEE /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +56,12 @@
 		D1ABD43E24511FB0009B72B9 /* BlogClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogClientUITests.swift; sourceTree = "<group>"; };
 		D1ABD44424511FB0009B72B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDA3A70E2451C8BB00E80096 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		FD49237024531CD0002D48DC /* Asyn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asyn.swift; sourceTree = "<group>"; };
+		FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		FD699AA52452AF620062BAEE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		FD699AA72452B0330062BAEE /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
+		FD699AA92452B0610062BAEE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		FD699AB2245318850062BAEE /* BlogClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlogClient-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +132,9 @@
 		D1ABD41F24511FAE009B72B9 /* BlogClient */ = {
 			isa = PBXGroup;
 			children = (
+				FD699AAF245317C00062BAEE /* Tools */,
+				FD699AAE2453176D0062BAEE /* Extension */,
+				FD699AAB2452BC300062BAEE /* Base */,
 				FDA3A7102451C8E300E80096 /* Home */,
 				FD07ABD12451BE43009135F0 /* Main */,
 				D1ABD450245121C7009B72B9 /* Resource */,
@@ -164,14 +176,40 @@
 			children = (
 				D1ABD42024511FAE009B72B9 /* AppDelegate.swift */,
 				D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */,
-				FDA3A70E2451C8BB00E80096 /* TabBarViewController.swift */,
+				FD699AB2245318850062BAEE /* BlogClient-Bridging-Header.h */,
+				FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */,
+				FD699AA52452AF620062BAEE /* NavigationViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		FD699AAB2452BC300062BAEE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				FD699AA72452B0330062BAEE /* UIBaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		FD699AAE2453176D0062BAEE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		FD699AAF245317C00062BAEE /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				FD49237024531CD0002D48DC /* Asyn.swift */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		FDA3A7102451C8E300E80096 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FD699AA92452B0610062BAEE /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -246,6 +284,7 @@
 				TargetAttributes = {
 					D1ABD41C24511FAE009B72B9 = {
 						CreatedOnToolsVersion = 11.1;
+						LastSwiftMigration = 1120;
 					};
 					D1ABD43224511FAF009B72B9 = {
 						CreatedOnToolsVersion = 11.1;
@@ -351,9 +390,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */,
 				D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */,
-				FDA3A70F2451C8BB00E80096 /* TabBarViewController.swift in Sources */,
+				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
+				FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
+				FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */,
+				FD49237124531CD0002D48DC /* Asyn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +570,7 @@
 			baseConfigurationReference = A92DD7B2F1F1D72DB207C847 /* Pods-BlogClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6M3H59V7X;
 				INFOPLIST_FILE = BlogClient/Resource/Info.plist;
@@ -536,6 +580,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = long.BlogClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlogClient/BlogClient-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -546,6 +592,7 @@
 			baseConfigurationReference = 5181F7ED6391AA3917EA5732 /* Pods-BlogClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U6M3H59V7X;
 				INFOPLIST_FILE = BlogClient/Resource/Info.plist;
@@ -555,6 +602,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = long.BlogClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlogClient/BlogClient-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

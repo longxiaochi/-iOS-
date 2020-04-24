@@ -9,4 +9,5 @@ target 'BlogClient' do
   pod 'MJRefresh'
   pod 'KakaJSON'
   pod 'KingfisherWebP'
+  pod 'R.swift'
 end
