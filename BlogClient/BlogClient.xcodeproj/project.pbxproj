@@ -8,6 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0086E9C04FB619977BE06A13 /* Pods_BlogClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4D66F7772FA58BCA76D5D0 /* Pods_BlogClient.framework */; };
+		D1002A0F245594A0001569C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1002A11245594A0001569C7 /* Localizable.strings */; };
+		D1002A17245596A9001569C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1002A19245596A9001569C7 /* InfoPlist.strings */; };
+		D1643F7A2455220E00DFAA37 /* HKGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F762455220E00DFAA37 /* HKGrotesk-SemiBold.ttf */; };
+		D1643F7B2455220E00DFAA37 /* HKGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F772455220E00DFAA37 /* HKGrotesk-Medium.ttf */; };
+		D1643F7C2455220E00DFAA37 /* HKGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F782455220E00DFAA37 /* HKGrotesk-Regular.ttf */; };
+		D1643F7D2455220E00DFAA37 /* HKGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F792455220E00DFAA37 /* HKGrotesk-Bold.ttf */; };
+		D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F8C245555B300DFAA37 /* NewsViewController.swift */; };
+		D1643F8F2455561800DFAA37 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F8E2455561800DFAA37 /* MeViewController.swift */; };
+		D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F902455563F00DFAA37 /* FlashViewController.swift */; };
+		D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F94245556A500DFAA37 /* LibraryViewController.swift */; };
+		D1643F972455711F00DFAA37 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1643F962455711F00DFAA37 /* Alamofire.framework */; };
+		D176017024548F6900705D2A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D176016F24548F6900705D2A /* R.generated.swift */; };
 		D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD42024511FAE009B72B9 /* AppDelegate.swift */; };
 		D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */; };
 		D1ABD42824511FAE009B72B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1ABD42624511FAE009B72B9 /* Main.storyboard */; };
@@ -43,6 +55,22 @@
 		5181F7ED6391AA3917EA5732 /* Pods-BlogClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlogClient.release.xcconfig"; path = "Target Support Files/Pods-BlogClient/Pods-BlogClient.release.xcconfig"; sourceTree = "<group>"; };
 		A92DD7B2F1F1D72DB207C847 /* Pods-BlogClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlogClient.debug.xcconfig"; path = "Target Support Files/Pods-BlogClient/Pods-BlogClient.debug.xcconfig"; sourceTree = "<group>"; };
 		CF4D66F7772FA58BCA76D5D0 /* Pods_BlogClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlogClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1002A10245594A0001569C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D1002A1224559653001569C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		D1002A1324559653001569C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		D1002A1424559654001569C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		D1002A18245596A9001569C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D1002A1A245596AC001569C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D1643F762455220E00DFAA37 /* HKGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
+		D1643F772455220E00DFAA37 /* HKGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Medium.ttf"; sourceTree = "<group>"; };
+		D1643F782455220E00DFAA37 /* HKGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Regular.ttf"; sourceTree = "<group>"; };
+		D1643F792455220E00DFAA37 /* HKGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Bold.ttf"; sourceTree = "<group>"; };
+		D1643F8C245555B300DFAA37 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		D1643F8E2455561800DFAA37 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		D1643F902455563F00DFAA37 /* FlashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashViewController.swift; sourceTree = "<group>"; };
+		D1643F94245556A500DFAA37 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		D1643F962455711F00DFAA37 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D176016F24548F6900705D2A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D1ABD41D24511FAE009B72B9 /* BlogClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1ABD42024511FAE009B72B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1643F972455711F00DFAA37 /* Alamofire.framework in Frameworks */,
 				0086E9C04FB619977BE06A13 /* Pods_BlogClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +122,7 @@
 		4CC5CC4B468DF3596E9CB560 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1643F962455711F00DFAA37 /* Alamofire.framework */,
 				CF4D66F7772FA58BCA76D5D0 /* Pods_BlogClient.framework */,
 			);
 			name = Frameworks;
@@ -105,6 +135,96 @@
 				5181F7ED6391AA3917EA5732 /* Pods-BlogClient.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D1643F73245521C700DFAA37 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D1643F75245521E000DFAA37 /* HKGrotesk */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D1643F75245521E000DFAA37 /* HKGrotesk */ = {
+			isa = PBXGroup;
+			children = (
+				D1643F792455220E00DFAA37 /* HKGrotesk-Bold.ttf */,
+				D1643F772455220E00DFAA37 /* HKGrotesk-Medium.ttf */,
+				D1643F782455220E00DFAA37 /* HKGrotesk-Regular.ttf */,
+				D1643F762455220E00DFAA37 /* HKGrotesk-SemiBold.ttf */,
+			);
+			path = HKGrotesk;
+			sourceTree = "<group>";
+		};
+		D1643F7F2455228F00DFAA37 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		D1643F8924552EFE00DFAA37 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				D1002A11245594A0001569C7 /* Localizable.strings */,
+				D1002A19245596A9001569C7 /* InfoPlist.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		D176016C24546A2700705D2A /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FDA3A7102451C8E300E80096 /* Blog */,
+				D17601712454951A00705D2A /* News */,
+				D1760174245495AA00705D2A /* Library */,
+				D17601722454957400705D2A /* Flash */,
+				D17601732454957B00705D2A /* Me */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D176016D24546A4300705D2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD699AB2245318850062BAEE /* BlogClient-Bridging-Header.h */,
+				D1ABD42624511FAE009B72B9 /* Main.storyboard */,
+				D1ABD42B24511FAF009B72B9 /* LaunchScreen.storyboard */,
+				D1ABD42E24511FAF009B72B9 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D17601712454951A00705D2A /* News */ = {
+			isa = PBXGroup;
+			children = (
+				D1643F8C245555B300DFAA37 /* NewsViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		D17601722454957400705D2A /* Flash */ = {
+			isa = PBXGroup;
+			children = (
+				D1643F902455563F00DFAA37 /* FlashViewController.swift */,
+			);
+			path = Flash;
+			sourceTree = "<group>";
+		};
+		D17601732454957B00705D2A /* Me */ = {
+			isa = PBXGroup;
+			children = (
+				D1643F8E2455561800DFAA37 /* MeViewController.swift */,
+			);
+			path = Me;
+			sourceTree = "<group>";
+		};
+		D1760174245495AA00705D2A /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				D1643F94245556A500DFAA37 /* LibraryViewController.swift */,
+			);
+			path = Library;
 			sourceTree = "<group>";
 		};
 		D1ABD41424511FAE009B72B9 = {
@@ -132,12 +252,13 @@
 		D1ABD41F24511FAE009B72B9 /* BlogClient */ = {
 			isa = PBXGroup;
 			children = (
+				D176016C24546A2700705D2A /* Classes */,
 				FD699AAF245317C00062BAEE /* Tools */,
 				FD699AAE2453176D0062BAEE /* Extension */,
 				FD699AAB2452BC300062BAEE /* Base */,
-				FDA3A7102451C8E300E80096 /* Home */,
 				FD07ABD12451BE43009135F0 /* Main */,
 				D1ABD450245121C7009B72B9 /* Resource */,
+				D176016D24546A4300705D2A /* Supporting Files */,
 			);
 			path = BlogClient;
 			sourceTree = "<group>";
@@ -163,9 +284,9 @@
 		D1ABD450245121C7009B72B9 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				D1ABD42624511FAE009B72B9 /* Main.storyboard */,
-				D1ABD42B24511FAF009B72B9 /* LaunchScreen.storyboard */,
-				D1ABD42E24511FAF009B72B9 /* Info.plist */,
+				D1643F8924552EFE00DFAA37 /* Strings */,
+				D1643F7F2455228F00DFAA37 /* Files */,
+				D1643F73245521C700DFAA37 /* Fonts */,
 				D1ABD42924511FAF009B72B9 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -175,10 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				D1ABD42024511FAE009B72B9 /* AppDelegate.swift */,
+				D176016F24548F6900705D2A /* R.generated.swift */,
 				D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */,
-				FD699AB2245318850062BAEE /* BlogClient-Bridging-Header.h */,
-				FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */,
-				FD699AA52452AF620062BAEE /* NavigationViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -186,6 +305,8 @@
 		FD699AAB2452BC300062BAEE /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */,
+				FD699AA52452AF620062BAEE /* NavigationViewController.swift */,
 				FD699AA72452B0330062BAEE /* UIBaseViewController.swift */,
 			);
 			path = Base;
@@ -206,12 +327,12 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		FDA3A7102451C8E300E80096 /* Home */ = {
+		FDA3A7102451C8E300E80096 /* Blog */ = {
 			isa = PBXGroup;
 			children = (
 				FD699AA92452B0610062BAEE /* HomeViewController.swift */,
 			);
-			path = Home;
+			path = Blog;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +343,7 @@
 			buildConfigurationList = D1ABD44724511FB0009B72B9 /* Build configuration list for PBXNativeTarget "BlogClient" */;
 			buildPhases = (
 				7B4698445FB866EE1AE15BC0 /* [CP] Check Pods Manifest.lock */,
+				D176016E24548CD800705D2A /* ShellScript */,
 				D1ABD41924511FAE009B72B9 /* Sources */,
 				D1ABD41A24511FAE009B72B9 /* Frameworks */,
 				D1ABD41B24511FAE009B72B9 /* Resources */,
@@ -303,6 +425,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = D1ABD41424511FAE009B72B9;
 			productRefGroup = D1ABD41E24511FAE009B72B9 /* Products */;
@@ -321,8 +444,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1643F7A2455220E00DFAA37 /* HKGrotesk-SemiBold.ttf in Resources */,
+				D1643F7B2455220E00DFAA37 /* HKGrotesk-Medium.ttf in Resources */,
+				D1643F7C2455220E00DFAA37 /* HKGrotesk-Regular.ttf in Resources */,
+				D1643F7D2455220E00DFAA37 /* HKGrotesk-Bold.ttf in Resources */,
+				D1002A0F245594A0001569C7 /* Localizable.strings in Resources */,
 				D1ABD42D24511FAF009B72B9 /* LaunchScreen.storyboard in Resources */,
 				D1ABD42A24511FAF009B72B9 /* Assets.xcassets in Resources */,
+				D1002A17245596A9001569C7 /* InfoPlist.strings in Resources */,
 				D1ABD42824511FAE009B72B9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +512,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D176016E24548CD800705D2A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -390,12 +538,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1643F8F2455561800DFAA37 /* MeViewController.swift in Sources */,
+				D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */,
 				FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */,
 				D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */,
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
+				D176017024548F6900705D2A /* R.generated.swift in Sources */,
 				FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
+				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,
 				FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */,
+				D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */,
 				FD49237124531CD0002D48DC /* Asyn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,10 +585,29 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		D1002A11245594A0001569C7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1002A10245594A0001569C7 /* en */,
+				D1002A1424559654001569C7 /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		D1002A19245596A9001569C7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1002A18245596A9001569C7 /* en */,
+				D1002A1A245596AC001569C7 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		D1ABD42624511FAE009B72B9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D1ABD42724511FAE009B72B9 /* Base */,
+				D1002A1224559653001569C7 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -444,6 +616,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D1ABD42C24511FAF009B72B9 /* Base */,
+				D1002A1324559653001569C7 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -455,6 +628,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -515,6 +689,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -571,16 +746,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6AJP77DB44;
-				INFOPLIST_FILE = BlogClient/Resource/Info.plist;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "BlogClient/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = long.BlogClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BlogClient/Main/BlogClient-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlogClient/Supporting Files/BlogClient-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -593,16 +769,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = U6M3H59V7X;
-				INFOPLIST_FILE = BlogClient/Resource/Info.plist;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "BlogClient/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = long.BlogClient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "BlogClient/Main/BlogClient-Bridging-Header.h";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlogClient/Supporting Files/BlogClient-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
