@@ -20,6 +20,7 @@
 		D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F94245556A500DFAA37 /* LibraryViewController.swift */; };
 		D1643F972455711F00DFAA37 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1643F962455711F00DFAA37 /* Alamofire.framework */; };
 		D176017024548F6900705D2A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D176016F24548F6900705D2A /* R.generated.swift */; };
+		D17D22B624565F7E007E008A /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17D22B524565F7E007E008A /* MeViewController.xib */; };
 		D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD42024511FAE009B72B9 /* AppDelegate.swift */; };
 		D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */; };
 		D1ABD42824511FAE009B72B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1ABD42624511FAE009B72B9 /* Main.storyboard */; };
@@ -71,6 +72,7 @@
 		D1643F94245556A500DFAA37 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		D1643F962455711F00DFAA37 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176016F24548F6900705D2A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		D17D22B524565F7E007E008A /* MeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		D1ABD41D24511FAE009B72B9 /* BlogClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1ABD42024511FAE009B72B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,7 +216,9 @@
 		D17601732454957B00705D2A /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				D1643F8E2455561800DFAA37 /* MeViewController.swift */,
+				D17D22B424565EC4007E008A /* Controller */,
+				D17D22B324565EBF007E008A /* View */,
+				D17D22B224565EBC007E008A /* Model */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -225,6 +229,29 @@
 				D1643F94245556A500DFAA37 /* LibraryViewController.swift */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		D17D22B224565EBC007E008A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D17D22B324565EBF007E008A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D17D22B424565EC4007E008A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D1643F8E2455561800DFAA37 /* MeViewController.swift */,
+				D17D22B524565F7E007E008A /* MeViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		D1ABD41424511FAE009B72B9 = {
@@ -446,6 +473,7 @@
 			files = (
 				D1643F7A2455220E00DFAA37 /* HKGrotesk-SemiBold.ttf in Resources */,
 				D1643F7B2455220E00DFAA37 /* HKGrotesk-Medium.ttf in Resources */,
+				D17D22B624565F7E007E008A /* MeViewController.xib in Resources */,
 				D1643F7C2455220E00DFAA37 /* HKGrotesk-Regular.ttf in Resources */,
 				D1643F7D2455220E00DFAA37 /* HKGrotesk-Bold.ttf in Resources */,
 				D1002A0F245594A0001569C7 /* Localizable.strings in Resources */,
