@@ -15,12 +15,10 @@
 		D1643F7C2455220E00DFAA37 /* HKGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F782455220E00DFAA37 /* HKGrotesk-Regular.ttf */; };
 		D1643F7D2455220E00DFAA37 /* HKGrotesk-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F792455220E00DFAA37 /* HKGrotesk-Bold.ttf */; };
 		D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F8C245555B300DFAA37 /* NewsViewController.swift */; };
-		D1643F8F2455561800DFAA37 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F8E2455561800DFAA37 /* MeViewController.swift */; };
 		D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F902455563F00DFAA37 /* FlashViewController.swift */; };
 		D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F94245556A500DFAA37 /* LibraryViewController.swift */; };
 		D1643F972455711F00DFAA37 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1643F962455711F00DFAA37 /* Alamofire.framework */; };
 		D176017024548F6900705D2A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D176016F24548F6900705D2A /* R.generated.swift */; };
-		D17D22B624565F7E007E008A /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17D22B524565F7E007E008A /* MeViewController.xib */; };
 		D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD42024511FAE009B72B9 /* AppDelegate.swift */; };
 		D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */; };
 		D1ABD42824511FAE009B72B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1ABD42624511FAE009B72B9 /* Main.storyboard */; };
@@ -28,6 +26,8 @@
 		D1ABD42D24511FAF009B72B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1ABD42B24511FAF009B72B9 /* LaunchScreen.storyboard */; };
 		D1ABD43824511FAF009B72B9 /* BlogClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD43724511FAF009B72B9 /* BlogClientTests.swift */; };
 		D1ABD44324511FB0009B72B9 /* BlogClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */; };
+		FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2ECD2A2456A18900B60518 /* MeViewController.swift */; };
+		FD2ECD2D2456A18900B60518 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD2ECD2B2456A18900B60518 /* MeViewController.xib */; };
 		FD49237124531CD0002D48DC /* Asyn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49237024531CD0002D48DC /* Asyn.swift */; };
 		FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */; };
 		FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA52452AF620062BAEE /* NavigationViewController.swift */; };
@@ -67,12 +67,10 @@
 		D1643F782455220E00DFAA37 /* HKGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Regular.ttf"; sourceTree = "<group>"; };
 		D1643F792455220E00DFAA37 /* HKGrotesk-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Bold.ttf"; sourceTree = "<group>"; };
 		D1643F8C245555B300DFAA37 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
-		D1643F8E2455561800DFAA37 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		D1643F902455563F00DFAA37 /* FlashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashViewController.swift; sourceTree = "<group>"; };
 		D1643F94245556A500DFAA37 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		D1643F962455711F00DFAA37 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176016F24548F6900705D2A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
-		D17D22B524565F7E007E008A /* MeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		D1ABD41D24511FAE009B72B9 /* BlogClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1ABD42024511FAE009B72B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +84,8 @@
 		D1ABD43E24511FB0009B72B9 /* BlogClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogClientUITests.swift; sourceTree = "<group>"; };
 		D1ABD44424511FB0009B72B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD2ECD2A2456A18900B60518 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		FD2ECD2B2456A18900B60518 /* MeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		FD49237024531CD0002D48DC /* Asyn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asyn.swift; sourceTree = "<group>"; };
 		FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		FD699AA52452AF620062BAEE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -248,8 +248,8 @@
 		D17D22B424565EC4007E008A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D1643F8E2455561800DFAA37 /* MeViewController.swift */,
-				D17D22B524565F7E007E008A /* MeViewController.xib */,
+				FD2ECD2A2456A18900B60518 /* MeViewController.swift */,
+				FD2ECD2B2456A18900B60518 /* MeViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -473,7 +473,7 @@
 			files = (
 				D1643F7A2455220E00DFAA37 /* HKGrotesk-SemiBold.ttf in Resources */,
 				D1643F7B2455220E00DFAA37 /* HKGrotesk-Medium.ttf in Resources */,
-				D17D22B624565F7E007E008A /* MeViewController.xib in Resources */,
+				FD2ECD2D2456A18900B60518 /* MeViewController.xib in Resources */,
 				D1643F7C2455220E00DFAA37 /* HKGrotesk-Regular.ttf in Resources */,
 				D1643F7D2455220E00DFAA37 /* HKGrotesk-Bold.ttf in Resources */,
 				D1002A0F245594A0001569C7 /* Localizable.strings in Resources */,
@@ -566,13 +566,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1643F8F2455561800DFAA37 /* MeViewController.swift in Sources */,
 				D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */,
 				FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */,
 				D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */,
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
 				D176017024548F6900705D2A /* R.generated.swift in Sources */,
 				FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */,
+				FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
 				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,
 				FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */,
