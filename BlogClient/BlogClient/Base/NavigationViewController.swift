@@ -12,8 +12,9 @@ class NavigationViewController: UINavigationController, UINavigationControllerDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self;
 
-        // Do any additional setup after loading the view.
+        
     }
 
     // MARK: - UINavigationControllerDelegate
@@ -24,6 +25,6 @@ class NavigationViewController: UINavigationController, UINavigationControllerDe
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
-        print("sdfasdfasd")
+        
     }
 }

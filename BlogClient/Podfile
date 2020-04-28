@@ -10,4 +10,5 @@ target 'BlogClient' do
   pod 'KakaJSON'
   pod 'KingfisherWebP'
   pod 'R.swift'
+  pod 'Masonry'
 end
