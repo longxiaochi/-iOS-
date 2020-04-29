@@ -20,7 +20,7 @@
 		D1643F972455711F00DFAA37 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1643F962455711F00DFAA37 /* Alamofire.framework */; };
 		D176017024548F6900705D2A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D176016F24548F6900705D2A /* R.generated.swift */; };
 		D1AB424D2457AF0E0051939B /* viewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AB424C2457AF0E0051939B /* viewProtocol.swift */; };
-		D1AB424F2457B4890051939B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AB424E2457B4890051939B /* UIViewExtension.swift */; };
+		D1AB424F2457B4890051939B /* UIView+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AB424E2457B4890051939B /* UIView+Lc.swift */; };
 		D1AB42512457B9380051939B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1AB42502457B9380051939B /* Assets.xcassets */; };
 		D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD42024511FAE009B72B9 /* AppDelegate.swift */; };
 		D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD42224511FAE009B72B9 /* SceneDelegate.swift */; };
@@ -28,6 +28,9 @@
 		D1ABD42D24511FAF009B72B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1ABD42B24511FAF009B72B9 /* LaunchScreen.storyboard */; };
 		D1ABD43824511FAF009B72B9 /* BlogClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD43724511FAF009B72B9 /* BlogClientTests.swift */; };
 		D1ABD44324511FB0009B72B9 /* BlogClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */; };
+		FD1BE3C12459A8840083711E /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C02459A8840083711E /* extension.swift */; };
+		FD1BE3C32459B3550083711E /* String+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C22459B3550083711E /* String+Lc.swift */; };
+		FD1EDC112457F0C2001419A9 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1EDC102457F0C2001419A9 /* UIScrollViewExtension.swift */; };
 		FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2ECD2A2456A18900B60518 /* MeViewController.swift */; };
 		FD49237124531CD0002D48DC /* Asyn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49237024531CD0002D48DC /* Asyn.swift */; };
 		FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */; };
@@ -73,7 +76,7 @@
 		D1643F962455711F00DFAA37 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D176016F24548F6900705D2A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D1AB424C2457AF0E0051939B /* viewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewProtocol.swift; sourceTree = "<group>"; };
-		D1AB424E2457B4890051939B /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = BlogClient/Protocol/UIViewExtension.swift; sourceTree = SOURCE_ROOT; };
+		D1AB424E2457B4890051939B /* UIView+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Lc.swift"; path = "BlogClient/Protocol/UIView+Lc.swift"; sourceTree = SOURCE_ROOT; };
 		D1AB42502457B9380051939B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1ABD41D24511FAE009B72B9 /* BlogClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlogClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1ABD42024511FAE009B72B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +90,9 @@
 		D1ABD43E24511FB0009B72B9 /* BlogClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogClientUITests.swift; sourceTree = "<group>"; };
 		D1ABD44424511FB0009B72B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD1BE3C02459A8840083711E /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		FD1BE3C22459B3550083711E /* String+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Lc.swift"; sourceTree = "<group>"; };
+		FD1EDC102457F0C2001419A9 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		FD2ECD2A2456A18900B60518 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		FD49237024531CD0002D48DC /* Asyn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asyn.swift; sourceTree = "<group>"; };
 		FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -352,7 +358,9 @@
 		FD699AAE2453176D0062BAEE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				D1AB424E2457B4890051939B /* UIViewExtension.swift */,
+				D1AB424E2457B4890051939B /* UIView+Lc.swift */,
+				FD1BE3C22459B3550083711E /* String+Lc.swift */,
+				FD1EDC102457F0C2001419A9 /* UIScrollViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -361,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				FD49237024531CD0002D48DC /* Asyn.swift */,
+				FD1BE3C02459A8840083711E /* extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -576,12 +585,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD1BE3C32459B3550083711E /* String+Lc.swift in Sources */,
 				D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */,
 				FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */,
 				D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */,
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
-				D1AB424F2457B4890051939B /* UIViewExtension.swift in Sources */,
+				D1AB424F2457B4890051939B /* UIView+Lc.swift in Sources */,
+				FD1EDC112457F0C2001419A9 /* UIScrollViewExtension.swift in Sources */,
 				D1AB424D2457AF0E0051939B /* viewProtocol.swift in Sources */,
+				FD1BE3C12459A8840083711E /* extension.swift in Sources */,
 				D176017024548F6900705D2A /* R.generated.swift in Sources */,
 				FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */,
 				FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */,

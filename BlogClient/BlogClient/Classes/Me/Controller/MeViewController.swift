@@ -22,13 +22,10 @@ class MeViewController: UIBaseViewController, InitViewProtocol, UIScrollViewDele
     }
     
     func InitView() {
-        scrollView = UIScrollView()
-        scrollView.showsVerticalScrollIndicator = scrollView.showsHorizontalScrollIndicator == false;
-        scrollView.delegate = self
-        scrollView.automaticallyAdjustsScrollIndicatorInsets = false;
+        scrollView = UIScrollView(frame:.zero, delegate: self, showIndicator: false)
         self.view.addSubview(scrollView)
 
-        backgroundImage = UIImageView(frame: CGRect.init(x: 0, y: 0, width:self.view.width , height: 265))
+        backgroundImage = UIImageView(frame: CGRect.init(x: 0, y: 0, width:self.view.lc.width , height: 265))
         backgroundImage.image = R.image.accountBackgroundImage()
         self.view.addSubview(backgroundImage)
     }
