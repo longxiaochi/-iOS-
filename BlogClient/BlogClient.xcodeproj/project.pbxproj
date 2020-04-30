@@ -18,6 +18,8 @@
 		D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F902455563F00DFAA37 /* FlashViewController.swift */; };
 		D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1643F94245556A500DFAA37 /* LibraryViewController.swift */; };
 		D1643F972455711F00DFAA37 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1643F962455711F00DFAA37 /* Alamofire.framework */; };
+		D16BEA98245A504E00FE779D /* UIScrollView+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BEA97245A504E00FE779D /* UIScrollView+Lc.swift */; };
+		D16BEA9A245A560800FE779D /* UIImageView+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16BEA99245A560800FE779D /* UIImageView+Lc.swift */; };
 		D176017024548F6900705D2A /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = D176016F24548F6900705D2A /* R.generated.swift */; };
 		D1AB424D2457AF0E0051939B /* viewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AB424C2457AF0E0051939B /* viewProtocol.swift */; };
 		D1AB424F2457B4890051939B /* UIView+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AB424E2457B4890051939B /* UIView+Lc.swift */; };
@@ -28,9 +30,8 @@
 		D1ABD42D24511FAF009B72B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1ABD42B24511FAF009B72B9 /* LaunchScreen.storyboard */; };
 		D1ABD43824511FAF009B72B9 /* BlogClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD43724511FAF009B72B9 /* BlogClientTests.swift */; };
 		D1ABD44324511FB0009B72B9 /* BlogClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */; };
-		FD1BE3C12459A8840083711E /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C02459A8840083711E /* extension.swift */; };
+		FD1BE3C12459A8840083711E /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C02459A8840083711E /* BaseExtension.swift */; };
 		FD1BE3C32459B3550083711E /* String+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C22459B3550083711E /* String+Lc.swift */; };
-		FD1EDC112457F0C2001419A9 /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1EDC102457F0C2001419A9 /* UIScrollViewExtension.swift */; };
 		FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2ECD2A2456A18900B60518 /* MeViewController.swift */; };
 		FD49237124531CD0002D48DC /* Asyn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49237024531CD0002D48DC /* Asyn.swift */; };
 		FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */; };
@@ -74,6 +75,8 @@
 		D1643F902455563F00DFAA37 /* FlashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashViewController.swift; sourceTree = "<group>"; };
 		D1643F94245556A500DFAA37 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
 		D1643F962455711F00DFAA37 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D16BEA97245A504E00FE779D /* UIScrollView+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Lc.swift"; sourceTree = "<group>"; };
+		D16BEA99245A560800FE779D /* UIImageView+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Lc.swift"; sourceTree = "<group>"; };
 		D176016F24548F6900705D2A /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		D1AB424C2457AF0E0051939B /* viewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewProtocol.swift; sourceTree = "<group>"; };
 		D1AB424E2457B4890051939B /* UIView+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Lc.swift"; path = "BlogClient/Protocol/UIView+Lc.swift"; sourceTree = SOURCE_ROOT; };
@@ -90,9 +93,8 @@
 		D1ABD43E24511FB0009B72B9 /* BlogClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlogClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogClientUITests.swift; sourceTree = "<group>"; };
 		D1ABD44424511FB0009B72B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FD1BE3C02459A8840083711E /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		FD1BE3C02459A8840083711E /* BaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
 		FD1BE3C22459B3550083711E /* String+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Lc.swift"; sourceTree = "<group>"; };
-		FD1EDC102457F0C2001419A9 /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
 		FD2ECD2A2456A18900B60518 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		FD49237024531CD0002D48DC /* Asyn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asyn.swift; sourceTree = "<group>"; };
 		FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -358,9 +360,11 @@
 		FD699AAE2453176D0062BAEE /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				FD1BE3C02459A8840083711E /* BaseExtension.swift */,
 				D1AB424E2457B4890051939B /* UIView+Lc.swift */,
 				FD1BE3C22459B3550083711E /* String+Lc.swift */,
-				FD1EDC102457F0C2001419A9 /* UIScrollViewExtension.swift */,
+				D16BEA97245A504E00FE779D /* UIScrollView+Lc.swift */,
+				D16BEA99245A560800FE779D /* UIImageView+Lc.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -369,7 +373,6 @@
 			isa = PBXGroup;
 			children = (
 				FD49237024531CD0002D48DC /* Asyn.swift */,
-				FD1BE3C02459A8840083711E /* extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -591,10 +594,10 @@
 				D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */,
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
 				D1AB424F2457B4890051939B /* UIView+Lc.swift in Sources */,
-				FD1EDC112457F0C2001419A9 /* UIScrollViewExtension.swift in Sources */,
 				D1AB424D2457AF0E0051939B /* viewProtocol.swift in Sources */,
-				FD1BE3C12459A8840083711E /* extension.swift in Sources */,
+				FD1BE3C12459A8840083711E /* BaseExtension.swift in Sources */,
 				D176017024548F6900705D2A /* R.generated.swift in Sources */,
+				D16BEA98245A504E00FE779D /* UIScrollView+Lc.swift in Sources */,
 				FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */,
 				FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
@@ -602,6 +605,7 @@
 				FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */,
 				D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */,
 				FD49237124531CD0002D48DC /* Asyn.swift in Sources */,
+				D16BEA9A245A560800FE779D /* UIImageView+Lc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
