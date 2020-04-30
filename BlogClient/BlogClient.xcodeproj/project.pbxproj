@@ -38,6 +38,12 @@
 		FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA52452AF620062BAEE /* NavigationViewController.swift */; };
 		FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA72452B0330062BAEE /* UIBaseViewController.swift */; };
 		FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA92452B0610062BAEE /* HomeViewController.swift */; };
+		FD9C897B245AA7BA00C6AC3A /* UITableView+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C897A245AA7BA00C6AC3A /* UITableView+Lc.swift */; };
+		FD9C897D245AAE3C00C6AC3A /* UIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C897C245AAE3C00C6AC3A /* UIBaseView.swift */; };
+		FD9C8983245AAF5900C6AC3A /* MeTableHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C8982245AAF5900C6AC3A /* MeTableHeadView.swift */; };
+		FD9C8985245AAF6500C6AC3A /* MeTableHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9C8984245AAF6500C6AC3A /* MeTableHeadView.xib */; };
+		FD9C8988245AE27400C6AC3A /* MeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */; };
+		FD9C8989245AE27400C6AC3A /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +108,12 @@
 		FD699AA72452B0330062BAEE /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		FD699AA92452B0610062BAEE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FD699AB2245318850062BAEE /* BlogClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlogClient-Bridging-Header.h"; sourceTree = "<group>"; };
+		FD9C897A245AA7BA00C6AC3A /* UITableView+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Lc.swift"; sourceTree = "<group>"; };
+		FD9C897C245AAE3C00C6AC3A /* UIBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseView.swift; sourceTree = "<group>"; };
+		FD9C8982245AAF5900C6AC3A /* MeTableHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeTableHeadView.swift; path = BlogClient/Base/MeTableHeadView.swift; sourceTree = SOURCE_ROOT; };
+		FD9C8984245AAF6500C6AC3A /* MeTableHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MeTableHeadView.xib; path = BlogClient/Base/MeTableHeadView.xib; sourceTree = SOURCE_ROOT; };
+		FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeTableViewCell.swift; path = BlogClient/Base/MeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MeTableViewCell.xib; path = BlogClient/Base/MeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +263,10 @@
 		D17D22B324565EBF007E008A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FD9C8982245AAF5900C6AC3A /* MeTableHeadView.swift */,
+				FD9C8984245AAF6500C6AC3A /* MeTableHeadView.xib */,
+				FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */,
+				FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +369,7 @@
 				FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */,
 				FD699AA52452AF620062BAEE /* NavigationViewController.swift */,
 				FD699AA72452B0330062BAEE /* UIBaseViewController.swift */,
+				FD9C897C245AAE3C00C6AC3A /* UIBaseView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -365,6 +382,7 @@
 				FD1BE3C22459B3550083711E /* String+Lc.swift */,
 				D16BEA97245A504E00FE779D /* UIScrollView+Lc.swift */,
 				D16BEA99245A560800FE779D /* UIImageView+Lc.swift */,
+				FD9C897A245AA7BA00C6AC3A /* UITableView+Lc.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -496,7 +514,9 @@
 			files = (
 				D1643F7A2455220E00DFAA37 /* HKGrotesk-SemiBold.ttf in Resources */,
 				D1643F7B2455220E00DFAA37 /* HKGrotesk-Medium.ttf in Resources */,
+				FD9C8989245AE27400C6AC3A /* MeTableViewCell.xib in Resources */,
 				D1643F7C2455220E00DFAA37 /* HKGrotesk-Regular.ttf in Resources */,
+				FD9C8985245AAF6500C6AC3A /* MeTableHeadView.xib in Resources */,
 				D1643F7D2455220E00DFAA37 /* HKGrotesk-Bold.ttf in Resources */,
 				D1002A0F245594A0001569C7 /* Localizable.strings in Resources */,
 				D1ABD42D24511FAF009B72B9 /* LaunchScreen.storyboard in Resources */,
@@ -593,6 +613,7 @@
 				FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */,
 				D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */,
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
+				FD9C897B245AA7BA00C6AC3A /* UITableView+Lc.swift in Sources */,
 				D1AB424F2457B4890051939B /* UIView+Lc.swift in Sources */,
 				D1AB424D2457AF0E0051939B /* viewProtocol.swift in Sources */,
 				FD1BE3C12459A8840083711E /* BaseExtension.swift in Sources */,
@@ -602,10 +623,13 @@
 				FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
 				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,
+				FD9C8988245AE27400C6AC3A /* MeTableViewCell.swift in Sources */,
 				FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */,
 				D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */,
 				FD49237124531CD0002D48DC /* Asyn.swift in Sources */,
 				D16BEA9A245A560800FE779D /* UIImageView+Lc.swift in Sources */,
+				FD9C897D245AAE3C00C6AC3A /* UIBaseView.swift in Sources */,
+				FD9C8983245AAF5900C6AC3A /* MeTableHeadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
