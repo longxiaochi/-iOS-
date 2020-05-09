@@ -38,7 +38,8 @@ class MeTableHeadView: UIBaseView {
     
     func configUI() {
         avatarImage.lc.addBorderAndCorner(borderWidth: 2.0, borderColor: R.color.white_FFFFFF() ?? UIColor.white, radius: 30)
-        avatarImage.image = R.image.tabBarItem_blog_selected()
+        avatarImage.image = R.image.accountAvatar()
+        avatarImage.backgroundColor = R.color.white_FFFFFF()
         
         userNameLable.font = R.font.hkGroteskBold(size: 14)
         userNameLable.textColor = R.color.white_FFFFFF()
@@ -46,20 +47,19 @@ class MeTableHeadView: UIBaseView {
         signLable.textColor = R.color.white_FFFFFF()
         
         middleView.backgroundColor = R.color.white_FFFFFF()
-        middleView.lc.addCorner(10)
+        middleView.lc.addShadow(shadowColor:R.color.black_000000_14(), shadowOffset: CGSize.zero, shadowOpacity: 1, shadowRadius: 5, viewCornerRadius: 10)
         
-        blogItemIcon.image = R.image.tabBarItem_blog()
-        blogItemLablel.text = "博客"
-        blogItemLablel.font = R.font.hkGroteskMedium(size: 12)
+        blogItemIcon.image = R.image.accountBlog()
+        blogItemLablel.text = R.string.localizable.myBlogs()
         blogItemLablel.textColor = R.color.black_4444()
-        
-        essayItemIcon.image = R.image.tabBarItem_blog()
-        essayItemLabel.text = "随笔"
+        blogItemLablel.font = R.font.hkGroteskMedium(size: 12)
+        essayItemIcon.image = R.image.accountEssay()
+        essayItemLabel.text = R.string.localizable.essay()
         essayItemLabel.font = R.font.hkGroteskMedium(size: 12)
         essayItemLabel.textColor = R.color.black_4444()
         
-        faveItemIcon.image = R.image.tabBarItem_blog()
-        faveItemLabel.text = "收藏"
+        faveItemIcon.image = R.image.accountFave()
+        faveItemLabel.text =  R.string.localizable.fave()
         faveItemLabel.font = R.font.hkGroteskMedium(size: 12)
         faveItemLabel.textColor = R.color.black_4444()
     }

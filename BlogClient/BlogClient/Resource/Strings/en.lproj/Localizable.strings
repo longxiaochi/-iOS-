@@ -5,8 +5,15 @@
   Created by LongMac on 2020/4/26.
   Copyright © 2020 LongMac. All rights reserved.
 */
+
+// TabBar
 "blog" = "Blog";
 "news" = "News";
 "flash" = "Flash";
 "library" = "Library";
 "me" = "Me";
+
+// Account
+"my blogs"="My blogs";
+"essay"="Essay";
+"fave"="Fave";

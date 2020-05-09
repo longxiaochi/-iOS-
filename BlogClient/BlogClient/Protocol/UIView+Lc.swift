@@ -49,5 +49,12 @@ extension LC where Base: UIView {
     }
     
     // 添加阴影
+    func addShadow(shadowColor: UIColor?, shadowOffset: CGSize, shadowOpacity: Float, shadowRadius: CGFloat, viewCornerRadius: CGFloat) {
+        base.layer.shadowColor = shadowColor?.cgColor
+        base.layer.shadowOffset = shadowOffset
+        base.layer.shadowOpacity = shadowOpacity
+        base.layer.shadowRadius = shadowRadius
+        base.layer.cornerRadius = viewCornerRadius
+    }
     
 }

@@ -25,10 +25,7 @@ class NavigationViewController: UINavigationController, UINavigationControllerDe
                 return false
             }
         }
-        
-        if isHiddenNavigation {
-            self.setNavigationBarHidden(true, animated: true)
-        }
+        self.setNavigationBarHidden(isHiddenNavigation, animated: true)
     }
     
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {

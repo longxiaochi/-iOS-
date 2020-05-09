@@ -5,8 +5,15 @@
   Created by LongMac on 2020/4/26.
   Copyright © 2020 LongMac. All rights reserved.
 */
+
+// TabBar
 "blog" = "博客";
 "news" = "新闻";
 "flash" = "闪存";
 "library" = "知识库";
 "me" = "我的";
+
+// Account
+"my blogs"="我的博客";
+"essay"="随笔";
+"fave"="收藏";
