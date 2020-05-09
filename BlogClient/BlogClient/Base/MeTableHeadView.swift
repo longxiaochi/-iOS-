@@ -8,7 +8,14 @@
 
 import UIKit
 
+@objc protocol MeTableHeadViewDelegate: NSObjectProtocol {
+    @objc func selectMyBlog()
+    @objc func selectEssay()
+    @objc func selectFave()
+}
+
 class MeTableHeadView: UIBaseView {
+    weak var delegate: MeTableHeadViewDelegate?
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var avatarImage: UIImageView!
@@ -21,6 +28,10 @@ class MeTableHeadView: UIBaseView {
     @IBOutlet weak var essayItemLabel: UILabel!
     @IBOutlet weak var faveItemIcon: UIImageView!
     @IBOutlet weak var faveItemLabel: UILabel!
+    
+    @IBOutlet weak var blogItem: UIView!
+    @IBOutlet weak var essayItem: UIView!
+    @IBOutlet weak var faveItem: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,31 +48,58 @@ class MeTableHeadView: UIBaseView {
     }
     
     func configUI() {
-        avatarImage.lc.addBorderAndCorner(borderWidth: 2.0, borderColor: R.color.white_FFFFFF() ?? UIColor.white, radius: 30)
+        
+        middleView.backgroundColor = R.color.white_FFFFFF()
+        middleView.lc.addShadow(shadowColor:R.color.black_000000_14(), shadowOffset: CGSize.zero, shadowOpacity: 1, shadowRadius: 5, viewCornerRadius: 10)
+        
+        // 用户信息
+        avatarImage.lc.addBorderAndCorner(borderWidth: 1.0, borderColor: R.color.white_FFFFFF() ?? UIColor.white, radius: 30)
         avatarImage.image = R.image.accountAvatar()
         avatarImage.backgroundColor = R.color.white_FFFFFF()
-        
         userNameLable.font = R.font.hkGroteskBold(size: 14)
         userNameLable.textColor = R.color.white_FFFFFF()
         signLable.font = R.font.hkGroteskMedium(size: 12)
         signLable.textColor = R.color.white_FFFFFF()
         
-        middleView.backgroundColor = R.color.white_FFFFFF()
-        middleView.lc.addShadow(shadowColor:R.color.black_000000_14(), shadowOffset: CGSize.zero, shadowOpacity: 1, shadowRadius: 5, viewCornerRadius: 10)
-        
+        // 博客
+        blogItem.lc.addTapGesture(target: self, action: #selector(blogItemClick))
         blogItemIcon.image = R.image.accountBlog()
         blogItemLablel.text = R.string.localizable.myBlogs()
-        blogItemLablel.textColor = R.color.black_4444()
-        blogItemLablel.font = R.font.hkGroteskMedium(size: 12)
+        blogItemLablel.textColor = R.color.black_444444()
+        blogItemLablel.font = R.font.stHeitiSCLight(size: 15)
+        
+        // 随笔
+        essayItem.lc.addTapGesture(target: self, action: #selector(essayItemClick))
         essayItemIcon.image = R.image.accountEssay()
         essayItemLabel.text = R.string.localizable.essay()
-        essayItemLabel.font = R.font.hkGroteskMedium(size: 12)
-        essayItemLabel.textColor = R.color.black_4444()
+        essayItemLabel.font = R.font.stHeitiSCLight(size: 15)
+        essayItemLabel.textColor = R.color.black_444444()
         
+        // 收藏
+        faveItem.lc.addTapGesture(target: self, action: #selector(faveItemClick))
         faveItemIcon.image = R.image.accountFave()
         faveItemLabel.text =  R.string.localizable.fave()
-        faveItemLabel.font = R.font.hkGroteskMedium(size: 12)
-        faveItemLabel.textColor = R.color.black_4444()
+        faveItemLabel.font = R.font.stHeitiSCLight(size: 15)
+        faveItemLabel.textColor = R.color.black_444444()
+        
+    }
+    
+    @objc func blogItemClick() {
+        if let _ = delegate?.responds(to: #selector(delegate?.selectMyBlog)) {
+            delegate?.selectMyBlog()
+        }
+    }
+    
+    @objc func essayItemClick() {
+        if let _ = delegate?.responds(to: #selector(delegate?.selectEssay)) {
+            delegate?.selectEssay()
+        }
+    }
+    
+    @objc func faveItemClick() {
+        if let _ = delegate?.responds(to: #selector(delegate?.selectFave)) {
+            delegate?.selectFave()
+        }
     }
 }
 

@@ -57,4 +57,21 @@ extension LC where Base: UIView {
         base.layer.cornerRadius = viewCornerRadius
     }
     
+    // MARK: - Gesture
+    func addTapGesture(target: Any?, action: Selector?) {
+        let tapGesture = UITapGestureRecognizer.init(target: target, action: action)
+        tapGesture.cancelsTouchesInView = true
+        base.isUserInteractionEnabled = true
+        base.addGestureRecognizer(tapGesture)
+    }
+    
+//    - (void)addTapGestureWithTarget:(id)target
+//                             action:(SEL)action{
+//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:target
+//                                                                                     action:action];
+//        tapGesture.cancelsTouchesInView = YES;
+//        tapGesture.delegate = target;
+//        self.userInteractionEnabled = YES;
+//        [self addGestureRecognizer:tapGesture];
+//    }
 }

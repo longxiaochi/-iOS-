@@ -18,8 +18,7 @@ class MeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        self.configCell()
+        self.selectionStyle = .none;
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,13 +27,13 @@ class MeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configCell() {
+    func configCell(icon: UIImage?, content: String, arrowIcon: UIImage?) {
         self.contentView.backgroundColor = R.color.white_FFFFFF()
-        iconImage.image = R.image.tabBarItem_flash()
-        contentLabel.text = "sdjfalsdjflasd"
-        contentLabel.font = R.font.hkGroteskMedium(size: 12)
-        contentLabel.textColor = R.color.black_4444()
-        arrowIcon.image = R.image.tabBarItem_flash()
+        contentLabel.font = R.font.stHeitiSCLight(size: 15)
+        contentLabel.textColor = R.color.black_444444()
+        
+        iconImage.image = icon
+        contentLabel.text = content
+        self.arrowIcon.image = arrowIcon
     }
-    
 }
