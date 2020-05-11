@@ -81,7 +81,6 @@ class MeTableHeadView: UIBaseView {
         faveItemLabel.text =  R.string.localizable.fave()
         faveItemLabel.font = R.font.stHeitiSCLight(size: 15)
         faveItemLabel.textColor = R.color.black_444444()
-        
     }
     
     @objc func blogItemClick() {

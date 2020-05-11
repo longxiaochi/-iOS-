@@ -35,6 +35,10 @@
 		FD0B3AE824667057009CFB7F /* ObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0B3AE724667057009CFB7F /* ObjectProtocol.swift */; };
 		FD0B3AEE2466C239009CFB7F /* Heiti-SC-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0B3AEC2466C238009CFB7F /* Heiti-SC-Medium.ttf */; };
 		FD0B3AEF2466C239009CFB7F /* Heiti-SC-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0B3AED2466C239009CFB7F /* Heiti-SC-Light.ttf */; };
+		FD1918632468FC0500AEDF79 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1918622468FC0500AEDF79 /* NetworkTool.swift */; };
+		FD1918662469314300AEDF79 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1918652469314300AEDF79 /* API.swift */; };
+		FD1918682469338F00AEDF79 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1918672469338F00AEDF79 /* OAuth.swift */; };
+		FD19186A24695FDD00AEDF79 /* FileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD19186924695FDD00AEDF79 /* FileHandler.swift */; };
 		FD1BE3C12459A8840083711E /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C02459A8840083711E /* BaseExtension.swift */; };
 		FD1BE3C32459B3550083711E /* String+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C22459B3550083711E /* String+Lc.swift */; };
 		FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2ECD2A2456A18900B60518 /* MeViewController.swift */; };
@@ -109,6 +113,10 @@
 		FD0B3AE724667057009CFB7F /* ObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectProtocol.swift; sourceTree = "<group>"; };
 		FD0B3AEC2466C238009CFB7F /* Heiti-SC-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heiti-SC-Medium.ttf"; sourceTree = "<group>"; };
 		FD0B3AED2466C239009CFB7F /* Heiti-SC-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heiti-SC-Light.ttf"; sourceTree = "<group>"; };
+		FD1918622468FC0500AEDF79 /* NetworkTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
+		FD1918652469314300AEDF79 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		FD1918672469338F00AEDF79 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OAuth.swift; path = BlogClient/Tools/OAuth.swift; sourceTree = SOURCE_ROOT; };
+		FD19186924695FDD00AEDF79 /* FileHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHandler.swift; sourceTree = "<group>"; };
 		FD1BE3C02459A8840083711E /* BaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
 		FD1BE3C22459B3550083711E /* String+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Lc.swift"; sourceTree = "<group>"; };
 		FD2ECD2A2456A18900B60518 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +275,7 @@
 		D17D22B224565EBC007E008A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FD1918672469338F00AEDF79 /* OAuth.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,8 +421,11 @@
 		FD699AAF245317C00062BAEE /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				FD1918652469314300AEDF79 /* API.swift */,
 				FD49237024531CD0002D48DC /* Asyn.swift */,
 				FD0B3AE324666439009CFB7F /* MethodMacros.swift */,
+				FD1918622468FC0500AEDF79 /* NetworkTool.swift */,
+				FD19186924695FDD00AEDF79 /* FileHandler.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -640,15 +652,19 @@
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
 				FD9C897B245AA7BA00C6AC3A /* UITableView+Lc.swift in Sources */,
 				D1AB424F2457B4890051939B /* UIView+Lc.swift in Sources */,
+				FD1918662469314300AEDF79 /* API.swift in Sources */,
 				D1AB424D2457AF0E0051939B /* ViewProtocol.swift in Sources */,
 				FD1BE3C12459A8840083711E /* BaseExtension.swift in Sources */,
 				D176017024548F6900705D2A /* R.generated.swift in Sources */,
 				FD0B3AE624666F3F009CFB7F /* Array+Lc.swift in Sources */,
 				D16BEA98245A504E00FE779D /* UIScrollView+Lc.swift in Sources */,
+				FD19186A24695FDD00AEDF79 /* FileHandler.swift in Sources */,
 				FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */,
 				FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */,
+				FD1918682469338F00AEDF79 /* OAuth.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
 				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,
+				FD1918632468FC0500AEDF79 /* NetworkTool.swift in Sources */,
 				FD9C8988245AE27400C6AC3A /* MeTableViewCell.swift in Sources */,
 				FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */,
 				D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */,

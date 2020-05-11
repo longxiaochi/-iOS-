@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class MeViewController: UIBaseViewController {
     let bgImageHeight: CGFloat = 230
 
@@ -57,6 +56,10 @@ extension MeViewController: InitViewProtocol {
 extension MeViewController: MeTableHeadViewDelegate {
     func selectMyBlog() {
         log("selectMyBlog")
+        
+        NetworkTool.sendGetRequest(url: API.url.blogpostsSitehome, parameter: nil) { responds in
+            log(responds.result)
+        }
     }
     
     func selectEssay() {

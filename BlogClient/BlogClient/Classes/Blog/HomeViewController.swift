@@ -13,7 +13,7 @@ class HomeViewController: UIBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        self.view.backgroundColor = R.color.red()
+        self.view.backgroundColor = R.color.gray_F1F3F2()
     }
     
 
