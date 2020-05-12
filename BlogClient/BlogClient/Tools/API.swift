@@ -14,10 +14,10 @@ struct API {
         static let baseOauthUrl = "https://oauth.cnblogs.com/"
         
         // MARK: - 客户端授权
-        static let connectToken = baseOauthUrl + "connect/token"
+        static let connectToken = Self.oauthUrl("connect/token")
         
         // MARK: - 博客
-        static let blogpostsSitehome = baseApiUrl + "blogposts/@sitehome"
+        static let blogpostsSitehome = Self.url("blogposts/@sitehome")
         
         
         // API
@@ -57,4 +57,10 @@ enum FilePath {
     
 }
 
+enum UniversalString {
+    enum keyPath {
+        static let estimatedProgress = "estimatedProgress"
+        static let title = "title"
+    }
+}
 

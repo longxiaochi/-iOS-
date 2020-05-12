@@ -53,6 +53,7 @@
 		FD9C8985245AAF6500C6AC3A /* MeTableHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9C8984245AAF6500C6AC3A /* MeTableHeadView.xib */; };
 		FD9C8988245AE27400C6AC3A /* MeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */; };
 		FD9C8989245AE27400C6AC3A /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */; };
+		FDC24AAB246A95AD0075867E /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC24AAA246A95AD0075867E /* WKWebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		FD9C8984245AAF6500C6AC3A /* MeTableHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MeTableHeadView.xib; path = BlogClient/Base/MeTableHeadView.xib; sourceTree = SOURCE_ROOT; };
 		FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeTableViewCell.swift; path = BlogClient/Base/MeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MeTableViewCell.xib; path = BlogClient/Base/MeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		FDC24AAA246A95AD0075867E /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,7 @@
 				D176016C24546A2700705D2A /* Classes */,
 				D1AB424B2457AEE40051939B /* Protocol */,
 				FD699AAF245317C00062BAEE /* Tools */,
+				FDC24AA7246A94E70075867E /* Custom */,
 				FD699AAE2453176D0062BAEE /* Extension */,
 				FD699AAB2452BC300062BAEE /* Base */,
 				FD07ABD12451BE43009135F0 /* Main */,
@@ -436,6 +439,30 @@
 				FD699AA92452B0610062BAEE /* HomeViewController.swift */,
 			);
 			path = Blog;
+			sourceTree = "<group>";
+		};
+		FDC24AA7246A94E70075867E /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				FDC24AA9246A95540075867E /* View */,
+				FDC24AA8246A95340075867E /* Controller */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		FDC24AA8246A95340075867E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FDC24AAA246A95AD0075867E /* WKWebViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FDC24AA9246A95540075867E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -660,6 +687,7 @@
 				D16BEA98245A504E00FE779D /* UIScrollView+Lc.swift in Sources */,
 				FD19186A24695FDD00AEDF79 /* FileHandler.swift in Sources */,
 				FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */,
+				FDC24AAB246A95AD0075867E /* WKWebViewController.swift in Sources */,
 				FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */,
 				FD1918682469338F00AEDF79 /* OAuth.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,

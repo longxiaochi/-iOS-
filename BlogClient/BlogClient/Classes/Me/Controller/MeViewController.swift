@@ -30,7 +30,7 @@ class MeViewController: UIBaseViewController {
 
 // MARK: - InitViewProtocol
 extension MeViewController: InitViewProtocol {
-    func InitView() {
+    func initView() {
         backgroundImage = UIImageView.lc.initImageView(frame: CGRect.init(x: 0, y: 0, width:self.view.lc.width , height: bgImageHeight), image: R.image.accountBackgroundImage())
         self.view.addSubview(backgroundImage)
         
@@ -45,7 +45,7 @@ extension MeViewController: InitViewProtocol {
         self.view.addSubview(tableView)
     }
     
-    func AutoLayoutView() {
+    func autoLayoutView() {
         tableView.mas_makeConstraints { (make) in
             make?.edges.mas_equalTo()(self.view)?.offset()(0)
         }
@@ -57,7 +57,7 @@ extension MeViewController: MeTableHeadViewDelegate {
     func selectMyBlog() {
         log("selectMyBlog")
         
-        NetworkTool.sendGetRequest(url: API.url.blogpostsSitehome, parameter: nil) { responds in
+        NetworkTool.request(url: API.url.blogpostsSitehome, parameter: nil) { responds in
             log(responds.result)
         }
     }

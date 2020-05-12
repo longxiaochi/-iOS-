@@ -42,7 +42,33 @@ class OAuth: NSObject, Convertible, NSSecureCoding{
     }
     
     static var supportsSecureCoding: Bool { true }
+    
+    
+    
+    // 本地是否存在授权信息
+    static func isLocalExistOauthData() -> Bool {
+        guard let _ = FileHandler.shareInstance.readData(from: FilePath.oauthFilePath) else { return false }
+        return true
+    }
+    
+    // token是否已失效
+    static func isAccessTokenExpired() -> Bool {
+        guard let data = FileHandler.shareInstance.readData(from: FilePath.oauthFilePath) else { return true }
+        guard let model: OAuth = try? NSKeyedUnarchiver.unarchivedObject(ofClass: OAuth.self, from: data) else { return  true }
+        
+        if Date(timeIntervalSince1970: Double(model.expiresIn)).compare(Date()) == .orderedDescending {
+            return false
+        }
+        return true
+    }
 }
+
+
+
+
+
+
+
 
 //extension OAuth: CustomStringConvertible, CustomDebugStringConvertible {
 //    override var description: String {

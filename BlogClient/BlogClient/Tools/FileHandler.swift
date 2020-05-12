@@ -24,4 +24,7 @@ class FileHandler {
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else { return nil }
         return data
     }
+    
+    
+    
 }

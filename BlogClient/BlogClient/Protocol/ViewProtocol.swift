@@ -9,13 +9,13 @@
 import Foundation
 
 protocol InitViewProtocol {
-    func InitView()
-    func AutoLayoutView()
+    func initView()
+    func autoLayoutView()
 }
 
 extension InitViewProtocol {
     func setupUI () {
-        self.InitView()
-        self.AutoLayoutView()
+        self.initView()
+        self.autoLayoutView()
     }
 }
