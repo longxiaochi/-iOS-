@@ -25,6 +25,12 @@ class MeViewController: UIBaseViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = R.color.white_FFFFFF()
         self.setupUI()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
 }
 
@@ -54,6 +60,12 @@ extension MeViewController: InitViewProtocol {
 
 // MARK: - MeTableHeadViewDelegate
 extension MeViewController: MeTableHeadViewDelegate {
+    func selectAvatar() {
+        
+        let loginViewController = LoginViewController()
+        self.navigationController?.pushViewController(loginViewController, animated: true)
+    }
+    
     func selectMyBlog() {
         log("selectMyBlog")
         

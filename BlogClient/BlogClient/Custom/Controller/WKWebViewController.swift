@@ -13,12 +13,10 @@ class WKWebViewController: UIBaseViewController {
     
     var wkWebView: WKWebView! = nil
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
     }
-    
 }
 
 // MARK: - InitViewProtocol
@@ -29,6 +27,7 @@ extension WKWebViewController: InitViewProtocol {
         self.view.addSubview(wkWebView)
         
         // 加载动画
+        self.view.showHUD()
     }
     
     func autoLayoutView() {
@@ -66,9 +65,57 @@ extension WKWebViewController: InitViewProtocol {
 }
 
 extension WKWebViewController {
+    func postJs(_ url: URLConvertible, params: String) -> String {
+        let postFunc =
+                  """
+                        function post(path, params) {
+                        var method = "post";
+                        var form = document.createElement("form");
+                        form.setAttribute("method", method);
+                        form.setAttribute("action", path);
+
+                        for(var key in params) {
+                            if(params.hasOwnProperty(key)) {
+                                var hiddenField = document.createElement("input");
+                                hiddenField.setAttribute("type", "hidden");
+                                hiddenField.setAttribute("name", key);
+                                hiddenField.setAttribute("value", params[key]);
+
+                                form.appendChild(hiddenField);
+                            }
+                        }
+                        document.body.appendChild(form);
+                        form.submit();
+                        }
+                    """
+//        return postFunc
+        
+        
+        let js = "\(postFunc)post(\(url),\(params))"
+        return js
+    }
+}
+
+// MARK: - KVO
+extension WKWebViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let kp = keyPath, kp == UniversalString.keyPath.estimatedProgress {
-            
+        
+        guard let kp = keyPath else { return }
+        
+        if kp == UniversalString.keyPath.estimatedProgress {
+            if let ch = change {
+                let progress = ch[.newKey] as? Double
+                if let pg = progress {
+                    // 当前的进度
+                    
+                }
+            }
+        } else if kp == UniversalString.keyPath.title {
+            if let ch = change {
+                guard let title = ch[.newKey] as? String else { return }
+                // 可以设置网页的标题
+                
+            }
         }
     }
 }
@@ -85,7 +132,7 @@ extension WKWebViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        
+        self.view.hideHUD()
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -101,11 +148,11 @@ extension WKWebViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
+        self.view.hideHUD()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        
+        self.view.hideHUD()
     }
  
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
@@ -113,7 +160,7 @@ extension WKWebViewController: WKNavigationDelegate {
     }
     
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {
-        
+        self.view.hideHUD()
     }
 }
 

@@ -52,7 +52,7 @@ class Async {
         let item = DispatchWorkItem(block: task)
         DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + seconds, execute: item)
         if let main = mainTask {
-            DispatchQueue.main.async(execute: main)
+            item.notify(queue: DispatchQueue.main, execute: main)
         }
         return item
     }

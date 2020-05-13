@@ -17,6 +17,7 @@ PODS:
     - libwebp/demux
   - libwebp/webp (1.1.0)
   - Masonry (1.1.0)
+  - MBProgressHUD (1.2.0)
   - MJRefresh (3.4.1)
   - R.swift (5.2.0):
     - R.swift.Library (~> 5.2.0)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Kingfisher
   - KingfisherWebP
   - Masonry
+  - MBProgressHUD
   - MJRefresh
   - R.swift
   - SwiftyJSON
@@ -41,6 +43,7 @@ SPEC REPOS:
     - KingfisherWebP
     - libwebp
     - Masonry
+    - MBProgressHUD
     - MJRefresh
     - R.swift
     - R.swift.Library
@@ -53,11 +56,12 @@ SPEC CHECKSUMS:
   KingfisherWebP: 50d8389a48a9004c36e655470ccbff96de1ced9c
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
   R.swift: f58c441eb72a18702be4d13825c32f79c06fd6a0
   R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 80e9a3dbcd53527fd0026a8834eb1e611e751f0b
+PODFILE CHECKSUM: 1d7f6d05e2ffa108d5c00e56995a20875d28f0c2
 
 COCOAPODS: 1.9.1

@@ -9,6 +9,7 @@
 import UIKit
 
 @objc protocol MeTableHeadViewDelegate: NSObjectProtocol {
+    @objc func selectAvatar()
     @objc func selectMyBlog()
     @objc func selectEssay()
     @objc func selectFave()
@@ -53,6 +54,7 @@ class MeTableHeadView: UIBaseView {
         middleView.lc.addShadow(shadowColor:R.color.black_000000_14(), shadowOffset: CGSize.zero, shadowOpacity: 1, shadowRadius: 5, viewCornerRadius: 10)
         
         // 用户信息
+        avatarImage.lc.addTapGesture(target: self, action: #selector(avatarImageClick))
         avatarImage.lc.addBorderAndCorner(borderWidth: 1.0, borderColor: R.color.white_FFFFFF() ?? UIColor.white, radius: 30)
         avatarImage.image = R.image.accountAvatar()
         avatarImage.backgroundColor = R.color.white_FFFFFF()
@@ -81,6 +83,12 @@ class MeTableHeadView: UIBaseView {
         faveItemLabel.text =  R.string.localizable.fave()
         faveItemLabel.font = R.font.stHeitiSCLight(size: 15)
         faveItemLabel.textColor = R.color.black_444444()
+    }
+    
+    @objc func avatarImageClick() {
+        if let _ = delegate?.responds(to: #selector(delegate?.selectAvatar)) {
+            delegate?.selectAvatar()
+        }
     }
     
     @objc func blogItemClick() {

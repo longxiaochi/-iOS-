@@ -11,4 +11,5 @@ target 'BlogClient' do
   pod 'KingfisherWebP'
   pod 'R.swift'
   pod 'Masonry'
+  pod 'MBProgressHUD'
 end
