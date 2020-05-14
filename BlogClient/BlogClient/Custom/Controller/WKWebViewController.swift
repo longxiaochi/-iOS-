@@ -12,10 +12,33 @@ import WebKit
 class WKWebViewController: UIBaseViewController {
     
     var wkWebView: WKWebView! = nil
+    var requestUrl: String? = nil
+
+    init(url: String) {
+        requestUrl = url
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        wkWebView.removeObserver(self, forKeyPath: US.keyPath.estimatedProgress, context: nil)
+         wkWebView.removeObserver(self, forKeyPath: US.keyPath.title, context: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.view.showHUD()
+        
+        if let urlStr = requestUrl {
+            guard let encodingUrl = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else { return }
+            guard let url = URL(string: encodingUrl) else { return }
+            let request = URLRequest.init(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 60)
+            wkWebView.load(request)
+        }
     }
 }
 
@@ -25,9 +48,6 @@ extension WKWebViewController: InitViewProtocol {
         // wkwebview
         wkWebView = initWKWebView()
         self.view.addSubview(wkWebView)
-        
-        // 加载动画
-        self.view.showHUD()
     }
     
     func autoLayoutView() {
@@ -42,8 +62,8 @@ extension WKWebViewController: InitViewProtocol {
         wkWebView.navigationDelegate = self
         wkWebView.uiDelegate = self
         
-        wkWebView.addObserver(self, forKeyPath: UniversalString.keyPath.estimatedProgress, options: .new, context: nil)
-        wkWebView.addObserver(self, forKeyPath: UniversalString.keyPath.title, options: .new, context: nil)
+        wkWebView.addObserver(self, forKeyPath: US.keyPath.estimatedProgress, options: .new, context: nil)
+        wkWebView.addObserver(self, forKeyPath: US.keyPath.title, options: .new, context: nil)
         return wkWebView
     }
     
@@ -60,6 +80,9 @@ extension WKWebViewController: InitViewProtocol {
     
     func userContentController() -> WKUserContentController {
         let userContentController = WKUserContentController()
+        let source: String = "var meta = document.createElement('meta');" + "meta.name = 'viewport';" + "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" + "var head = document.getElementsByTagName('head')[0];" + "head.appendChild(meta);";
+        let userScript: WKUserScript = WKUserScript(source: source, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
+        userContentController.addUserScript(userScript)
         return userContentController
     }
 }
@@ -88,8 +111,6 @@ extension WKWebViewController {
                         form.submit();
                         }
                     """
-//        return postFunc
-        
         
         let js = "\(postFunc)post(\(url),\(params))"
         return js
@@ -102,7 +123,7 @@ extension WKWebViewController {
         
         guard let kp = keyPath else { return }
         
-        if kp == UniversalString.keyPath.estimatedProgress {
+        if kp == US.keyPath.estimatedProgress {
             if let ch = change {
                 let progress = ch[.newKey] as? Double
                 if let pg = progress {
@@ -110,7 +131,7 @@ extension WKWebViewController {
                     
                 }
             }
-        } else if kp == UniversalString.keyPath.title {
+        } else if kp == US.keyPath.title {
             if let ch = change {
                 guard let title = ch[.newKey] as? String else { return }
                 // 可以设置网页的标题
@@ -128,7 +149,7 @@ extension WKWebViewController: WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didReceiveServerRedirectForProvisionalNavigation navigation: WKNavigation!) {
-        
+        log("didReceiveServerRedirectForProvisionalNavigation")
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
@@ -156,7 +177,12 @@ extension WKWebViewController: WKNavigationDelegate {
     }
  
     func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        log("AuthChallengeDisposition")
         
+        if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
+            let card = URLCredential.init(trust: challenge.protectionSpace.serverTrust!)
+            completionHandler(URLSession.AuthChallengeDisposition.useCredential, card)
+        }
     }
     
     func webViewWebContentProcessDidTerminate(_ webView: WKWebView) {

@@ -61,8 +61,10 @@ extension MeViewController: InitViewProtocol {
 // MARK: - MeTableHeadViewDelegate
 extension MeViewController: MeTableHeadViewDelegate {
     func selectAvatar() {
-        
-        let loginViewController = LoginViewController()
+        let parameter = "\(API.rpk.client_id)=\(API.rpv.client_id)&\(API.rpk.scope)=\(API.rpv.scope)&\(API.rpk.response_type)=\(API.rpv.response_type)&\(API.rpk.redirect_uri)=\(API.rpv.redirect_uri)&\(API.rpk.state)=\(API.rpv.state)&\(API.rpk.nonce)=\(API.rpv.nonce)"
+        let url = API.url.connectAuthorize + "?\(parameter)"
+        let loginViewController = LoginViewController(url: url)
+        loginViewController.hidesBottomBarWhenPushed = true;
         self.navigationController?.pushViewController(loginViewController, animated: true)
     }
     

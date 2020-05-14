@@ -19,4 +19,27 @@ extension LC where Base: ExpressibleByStringLiteral {
         }
         return count
     }
+    
+    func urlParameterValue(_ parameter: String) -> String? {
+        let url = base as! NSString
+        let paras = url.components(separatedBy: "&") as NSArray
+        
+        let target = paras.filter { (element) -> Bool in
+            let ele = element as! NSString
+            return ele.contains("\(parameter)=")
+        }
+        
+        if target.count <= 0 {
+            return nil
+        }
+        
+        let str = target.first as! NSString
+        let range = str.range(of: "\(parameter)=", options: .caseInsensitive)
+        if range.location == NSNotFound {
+            return nil
+        }
+        
+        let value = str.substring(with: NSRange(location: range.location + range.length, length: str.length - (range.location + range.length)))
+        return value
+    }
 }

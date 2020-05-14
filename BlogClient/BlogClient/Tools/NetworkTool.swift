@@ -24,7 +24,7 @@ class NetworkTool {
             let authHeader = HTTPHeader.authorization(username: API.rpv.client_id, password: API.rpv.client_secret)
             AF.request(API.url.connectToken, method: .post, parameters: [API.rpk.grant_type : API.rpv.client_credentials], headers: HTTPHeaders([authHeader])).responseJSON { response in
                 
-                guard let dict = response.value else { return }
+                guard let dict = response.value else { return callBack(response) }
                 let jsons = SwiftyJSON.JSON(dict).dictionaryValue
                 let model: OAuth = KakaJSON.model(from: jsons, OAuth.self)
                 

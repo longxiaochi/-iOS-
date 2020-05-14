@@ -44,6 +44,7 @@
 		FD1BE3C12459A8840083711E /* BaseExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C02459A8840083711E /* BaseExtension.swift */; };
 		FD1BE3C32459B3550083711E /* String+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1BE3C22459B3550083711E /* String+Lc.swift */; };
 		FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2ECD2A2456A18900B60518 /* MeViewController.swift */; };
+		FD3C58CB246D2F73007FB0F9 /* StoreHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3C58CA246D2F73007FB0F9 /* StoreHelper.swift */; };
 		FD49237124531CD0002D48DC /* Asyn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD49237024531CD0002D48DC /* Asyn.swift */; };
 		FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */; };
 		FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA52452AF620062BAEE /* NavigationViewController.swift */; };
@@ -125,6 +126,7 @@
 		FD1BE3C02459A8840083711E /* BaseExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseExtension.swift; sourceTree = "<group>"; };
 		FD1BE3C22459B3550083711E /* String+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Lc.swift"; sourceTree = "<group>"; };
 		FD2ECD2A2456A18900B60518 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		FD3C58CA246D2F73007FB0F9 /* StoreHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreHelper.swift; sourceTree = "<group>"; };
 		FD49237024531CD0002D48DC /* Asyn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asyn.swift; sourceTree = "<group>"; };
 		FD699AA32452AF3D0062BAEE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		FD699AA52452AF620062BAEE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -443,6 +445,7 @@
 				FD0B3AE324666439009CFB7F /* MethodMacros.swift */,
 				FD1918622468FC0500AEDF79 /* NetworkTool.swift */,
 				FD19186924695FDD00AEDF79 /* FileHandler.swift */,
+				FD3C58CA246D2F73007FB0F9 /* StoreHelper.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				FDC24AAB246A95AD0075867E /* WKWebViewController.swift in Sources */,
 				FD2ECD2C2456A18900B60518 /* MeViewController.swift in Sources */,
 				FD0ADC56246BCC6800ECEDB1 /* UIView+HUD.swift in Sources */,
+				FD3C58CB246D2F73007FB0F9 /* StoreHelper.swift in Sources */,
 				FD1918682469338F00AEDF79 /* OAuth.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
 				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,

@@ -8,6 +8,9 @@
 
 import Foundation
 
+let kAppBundleIdentifier = Bundle.main.bundleIdentifier ?? ""
+
+
 // MARK: - Log
 func log<T>(_ msg: T, file: NSString = #file, line: Int = #line, fn: String = #function) {
     #if DEBUG

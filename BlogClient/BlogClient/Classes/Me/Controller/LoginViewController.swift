@@ -7,40 +7,50 @@
 //
 
 import UIKit
+import WebKit
 
 class LoginViewController: WKWebViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    
-        do {
-            let parameter = [API.rpk.client_id : API.rpv.client_id,
-                             API.rpk.scope : API.rpv.scope,
-                             API.rpk.response_type : API.rpv.response_type,
-                             API.rpk.redirect_uri : API.rpv.redirect_uri,
-                             API.rpk.state : API.rpv.state,
-                             API.rpk.nonce : API.rpv.nonce]
-//            let data = try JSONSerialization.data(withJSONObject: parameter, options: .prettyPrinted)
-//            let json = try JSON(data: data)
-            
-            let encoder = JSONEncoder()
-            if let jsonData = try? encoder.encode(parameter) {
-                if let jsonString = String(data: jsonData, encoding: .utf8) {
-                    let js = postJs(API.url.connectAuthorize, params: jsonString)
-//                    wkWebView.evaluateJavaScript(js, completionHandler: )
-                    wkWebView.evaluateJavaScript(js) { (obj, error) in
-                        log(error)
+    override func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        if let url = webView.url?.absoluteString {
+            if url.hasPrefix("https://oauth.cnblogs.com/auth/callback") {
+                let code = url.lc.urlParameterValue("code")
+                
+                log("code = \(code!)")
+                StoreHelper.storeValue(code, forKey: US.key.code)
+                decisionHandler(.allow)
+                
+                let parameter = [API.rpk.client_id : API.rpv.client_id,
+                                 API.rpk.client_secret : API.rpv.client_secret,
+                                 API.rpk.grant_type : API.rpv.grant_type_authorization_code,
+                                 API.rpk.code : StoreHelper.valueForKey(US.key.code) ?? "",
+                                 API.rpk.redirect_uri : API.rpv.redirect_uri
+                ]
+                NetworkTool.request(url: API.url.connectToken, method: .post, parameter: parameter) {
+                    response in
+                    
+                    guard let dict = response.value else {
+                        // 请求失败了
+                        return
+                    }
+                    let jsons = SwiftyJSON.JSON(dict).dictionaryValue
+                    let model: OAuth = KakaJSON.model(from: jsons, OAuth.self)
+                    
+                    let result = FileHandler.shareInstance.storeData(model, to: FilePath.oauthFilePath)
+                    if !result {
+                        log("文件存储失败")
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
                     }
                 }
-                
+            } else {
+                decisionHandler(.allow)
             }
-            
-        } catch let error {
-            log(error)
+        } else {
+            decisionHandler(.allow)
         }
     }
-    
-   
 }
 
 

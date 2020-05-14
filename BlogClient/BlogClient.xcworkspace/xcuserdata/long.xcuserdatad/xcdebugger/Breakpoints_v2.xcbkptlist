@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
             uuid = "0EBE24CE-119D-479C-87F7-2CF3B68A11D8"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             symbolName = "UIViewAlertForUnsatisfiableConstraints"
@@ -16,7 +16,7 @@
             <Locations>
                <Location
                   uuid = "0EBE24CE-119D-479C-87F7-2CF3B68A11D8 - ba3ad5676a792f38"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "UIViewAlertForUnsatisfiableConstraints"
@@ -30,81 +30,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AC4DADA4-9E7E-479B-B655-44321735BA8C"
+            uuid = "E29FDBD7-85BE-4FCC-AE1F-B9F800195E02"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlogClient/Custom/Controller/WKWebViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "webView(_:didStartProvisionalNavigation:)"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "webView(_:didFail:withError:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DFA57FF8-E334-47ED-8504-70544B09A4DC"
+            uuid = "5945756F-0ED6-4A66-AE5F-1CCFA62F0B3D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "BlogClient/Classes/Me/Controller/LoginViewController.swift"
+            filePath = "BlogClient/Custom/Controller/WKWebViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "webView(_:didFinish:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "033F4634-2772-4362-BDA1-6D45AA64A458"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BlogClient/Classes/Me/Controller/LoginViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "033F4634-2772-4362-BDA1-6D45AA64A458 - af2dd3188792bc53"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "BlogClient.LoginViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "BlogClient"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/long/Desktop/LongData/iOSApp/BlogClient/BlogClient/BlogClient/Classes/Me/Controller/LoginViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "1929">
-               </Location>
-               <Location
-                  uuid = "033F4634-2772-4362-BDA1-6D45AA64A458 - 6e05dd825c5c8ed4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Any&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in BlogClient.LoginViewController.viewDidLoad() -&gt; ()"
-                  moduleName = "BlogClient"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/long/Desktop/LongData/iOSApp/BlogClient/BlogClient/BlogClient/Classes/Me/Controller/LoginViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "84">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

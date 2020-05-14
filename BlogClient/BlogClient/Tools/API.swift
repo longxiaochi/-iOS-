@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct API {
-    struct url {
+enum API {
+    enum url {
         static let baseApiUrl = "https://api.cnblogs.com/api/"
         static let baseOauthUrl = "https://oauth.cnblogs.com/"
         
@@ -33,19 +33,22 @@ struct API {
     }
     
     // 请求参数的Key  request parameter key
-    struct rpk {
+    enum rpk {
         static let grant_type = "grant_type"
         
         static let client_id = "client_id"
+        static let client_secret = "client_secret"
         static let scope = "scope"
         static let response_type = "response_type"
         static let redirect_uri = "redirect_uri"
         static let state = "state"
         static let nonce = "nonce"
+        
+        static let code = "code"
     }
 
     // 请求参数的Value  request parameter value
-    struct rpv {
+    enum rpv {
         // client_id
         static let client_id = "f12f7276-f09d-4979-9288-6ba71b303fb6"
         // client_secret
@@ -59,6 +62,9 @@ struct API {
         static let redirect_uri = "https://oauth.cnblogs.com/auth/callback"
         static let state = "cnblogs.com"
         static let nonce = "cnblogs.com"
+        
+        static let grant_type_password = "password"
+        static let grant_type_authorization_code = "authorization_code"
     }
 }
 
@@ -72,10 +78,16 @@ enum FilePath {
     
 }
 
-enum UniversalString {
+//UniversalString
+enum US {
     enum keyPath {
         static let estimatedProgress = "estimatedProgress"
         static let title = "title"
     }
+    
+    enum key {
+        static let code = "code"
+    }
+    
 }
 
