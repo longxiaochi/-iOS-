@@ -20,6 +20,16 @@ extension LC where Base: ExpressibleByStringLiteral {
         return count
     }
     
+    func stringWidth(font: UIFont?, maxWidth: CGFloat) -> CGFloat {
+        let string = base as! String
+        let lable: UILabel = UILabel()
+        lable.font = font ?? UIFont.systemFont(ofSize: 12)
+        lable.text = string
+        lable.numberOfLines = 0
+        let size: CGSize = lable.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
+        return size.width
+    }
+    
     func urlParameterValue(_ parameter: String) -> String? {
         let url = base as! NSString
         let paras = url.components(separatedBy: "&") as NSArray
@@ -42,4 +52,5 @@ extension LC where Base: ExpressibleByStringLiteral {
         let value = str.substring(with: NSRange(location: range.location + range.length, length: str.length - (range.location + range.length)))
         return value
     }
+    
 }

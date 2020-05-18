@@ -12,6 +12,8 @@ class MeViewController: UIBaseViewController {
     let bgImageHeight: CGFloat = 230
 
     var tableView: UITableView!
+    var tableHeadView: MeTableHeadView!
+    var tableFooterView: MeTableFooterView!
     var backgroundImage: UIImageView!
     let dataSource = [
         [R.image.accountSetting() as Any, R.string.localizable.setting(), R.image.rightArrow() as Any],
@@ -25,12 +27,27 @@ class MeViewController: UIBaseViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor = R.color.white_FFFFFF()
         self.setupUI()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        if !User.exist() {
+            // 如果没有个人信息，则进行请求
+            UserService.getUserInfo { (result, status) in
+                switch status {
+                case .success :
+                    guard let user: User = result as? User else { return log("转换个人信息失败") }
+                    KakaJSON.write(user, to: FilePath.userPath)
+//                    let headView: MeTableHeadView? = self.tableView?.tableHeaderView as? MeTableHeadView
+                    self.tableHeadView.updateHeadView(avatarUrl: user.avatarUrl, userName: user.displayName, sign: "加油~")
+                    self.tableFooterView.isHidden = false
+                    log("获取个人信息成功")
+                case .failure :
+                    log("获取个人信息失败\(result)")
+                }
+            }
+        }
     }
 }
 
@@ -44,9 +61,20 @@ extension MeViewController: InitViewProtocol {
         tableView.backgroundColor = UIColor.clear
         tableView.register(R.nib.meTableViewCell)
         
-        let tableHeadView = MeTableHeadView(frame: CGRect.init(x: 0, y: 0, width: self.view.lc.width, height: 290))
+        tableFooterView = MeTableFooterView(frame: CGRect.init(x: 0, y: 0, width: self.view.lc.width, height: 80))
+        tableFooterView.delegate = self
+        tableFooterView.isHidden = true
+        tableView.tableFooterView = tableFooterView
+        
+        tableHeadView = MeTableHeadView(frame: CGRect.init(x: 0, y: 0, width: self.view.lc.width, height: 290))
         tableHeadView.delegate = self
         tableView.tableHeaderView = tableHeadView
+        if User.exist() {
+            if let user: User = KakaJSON.read(User.self, from: FilePath.userPath) {
+                tableHeadView.updateHeadView(avatarUrl: user.avatarUrl, userName: user.displayName, sign: "加油~")
+                tableFooterView.isHidden = false
+            }
+        }
         
         self.view.addSubview(tableView)
     }
@@ -55,6 +83,15 @@ extension MeViewController: InitViewProtocol {
         tableView.mas_makeConstraints { (make) in
             make?.edges.mas_equalTo()(self.view)?.offset()(0)
         }
+    }
+}
+
+// MARK: - MeTableFooterViewDelegate
+extension MeViewController: MeTableFooterViewDelegate {
+    func logout() {
+        KakaJSON.write("", to: FilePath.userPath)
+        tableHeadView.updateHeadView(avatarUrl: "", userName: "", sign: "加油~")
+        tableFooterView.isHidden = true
     }
 }
 

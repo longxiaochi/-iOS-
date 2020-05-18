@@ -12,10 +12,7 @@ class NetworkTool {
     public static func request(url: URLConvertible, method: HTTPMethod = .get, parameter: Parameters?, callBack: @escaping (AFDataResponse<Any>) -> Void) {
         // 每次请求都需要判断当前是否存在token，并判断有效期
         if (OAuth.isLocalExistOauthData() && !OAuth.isAccessTokenExpired()) {
-            
-            guard let data = FileHandler.shareInstance.readData(from: FilePath.oauthFilePath) else { return }
-            guard let model: OAuth = try? NSKeyedUnarchiver.unarchivedObject(ofClass: OAuth.self, from: data) else { return }
-            
+            guard let model: OAuth = KakaJSON.read(OAuth.self, from: FilePath.oauthFilePath) else { return }
             let header = HTTPHeader.authorization(bearerToken: model.accessToken)
             AF.request(url, method: method, parameters: parameter, headers: HTTPHeaders([header])).responseJSON { response in
                 callBack(response)
@@ -27,11 +24,7 @@ class NetworkTool {
                 guard let dict = response.value else { return callBack(response) }
                 let jsons = SwiftyJSON.JSON(dict).dictionaryValue
                 let model: OAuth = KakaJSON.model(from: jsons, OAuth.self)
-                
-                let result = FileHandler.shareInstance.storeData(model, to: FilePath.oauthFilePath)
-                if !result {
-                    log("文件存储失败")
-                }
+                KakaJSON.write(model, to: FilePath.oauthFilePath)
                 
                 // 先获取授权数据， 然后才能正常请求数据
                 let requestHeader = HTTPHeader.authorization(bearerToken: model.accessToken)

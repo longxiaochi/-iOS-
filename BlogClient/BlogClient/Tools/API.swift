@@ -21,6 +21,10 @@ enum API {
         static let blogpostsSitehome = Self.url("blogposts/@sitehome")
         
         
+        // MARK: - 用户信息
+        static let apiUsers = Self.url("users")
+
+        
         // API
         static func url(_ path: String) -> String {
             baseApiUrl + path
@@ -73,8 +77,8 @@ enum FilePath {
     // Document 目录
     static var documentPath = NSHomeDirectory() + "/Documents"
     // 认证文件
-    static let oauthFilePath = documentPath + "/client_credentials_oauth"
-    
+    static let oauthFilePath = documentPath + "/client_credentials_oauth.json"
+    static let userPath = documentPath + "/user.json"
     
 }
 

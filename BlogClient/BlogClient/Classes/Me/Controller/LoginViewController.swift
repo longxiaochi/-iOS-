@@ -35,11 +35,7 @@ class LoginViewController: WKWebViewController {
                     let jsons = SwiftyJSON.JSON(dict).dictionaryValue
                     let model: OAuth = KakaJSON.model(from: jsons, OAuth.self)
                     
-                    let result = FileHandler.shareInstance.storeData(model, to: FilePath.oauthFilePath)
-                    if !result {
-                        log("文件存储失败")
-                    }
-                    
+                    KakaJSON.write(model, to: FilePath.oauthFilePath)
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
                     }

@@ -42,9 +42,9 @@ extension LC where Base: UIView {
     }
     
     // 添加边框和圆角
-    func addBorderAndCorner(borderWidth: CGFloat, borderColor: UIColor, radius: CGFloat) {
+    func addBorderAndCorner(borderWidth: CGFloat, borderColor: UIColor?, radius: CGFloat) {
         base.layer.borderWidth = borderWidth
-        base.layer.borderColor = borderColor.cgColor
+        base.layer.borderColor = borderColor?.cgColor
         addCorner(radius)
     }
     

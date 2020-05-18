@@ -55,7 +55,7 @@ class MeTableHeadView: UIBaseView {
         
         // 用户信息
         avatarImage.lc.addTapGesture(target: self, action: #selector(avatarImageClick))
-        avatarImage.lc.addBorderAndCorner(borderWidth: 1.0, borderColor: R.color.white_FFFFFF() ?? UIColor.white, radius: 30)
+        avatarImage.lc.addBorderAndCorner(borderWidth: 2.0, borderColor: R.color.white_FFFFFF() ?? UIColor.white, radius: 30)
         avatarImage.image = R.image.accountAvatar()
         avatarImage.backgroundColor = R.color.white_FFFFFF()
         userNameLable.font = R.font.hkGroteskBold(size: 14)
@@ -83,6 +83,17 @@ class MeTableHeadView: UIBaseView {
         faveItemLabel.text =  R.string.localizable.fave()
         faveItemLabel.font = R.font.stHeitiSCLight(size: 15)
         faveItemLabel.textColor = R.color.black_444444()
+    }
+    
+    func updateHeadView(avatarUrl: String, userName: String, sign: String) {
+        if avatarUrl.hasSuffix("simple_avatar.gif") {
+            
+        } else {
+            avatarImage.kf.setImage(with: URL(string: avatarUrl), placeholder: R.image.accountAvatar())
+        }
+        
+        userNameLable.text = userName
+        signLable.text = sign
     }
     
     @objc func avatarImageClick() {

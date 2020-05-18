@@ -8,9 +8,9 @@
 
 import Foundation
 
-class OAuth: NSObject, Convertible, NSSecureCoding{
+class OAuth: Convertible{
     var accessToken: String    // access_token 存储OAuth登录所需的access_token
-    var expiresIn: Int         // expires_in OAuth登录后，access_token过期时间
+    var expiresIn: Date        // expires_in OAuth登录后，access_token过期时间
     var tokenType: String      // token的类型
     var refreshToken: String   // refresh_token access_token过期后，不需要让用户重新登录，直接使用refresh_token重新登录
     
@@ -18,56 +18,42 @@ class OAuth: NSObject, Convertible, NSSecureCoding{
         return property.name.kj.underlineCased()
     }
     
-    required override init() {
+    func kj_modelValue(from jsonValue: Any?,
+                       _ property: Property) -> Any? {
+        if property.name == "expiresIn" {
+            if case .some(let value) = jsonValue {
+                let number = "\(value)"
+                if var val = Double(number) {
+                    val += Date().timeIntervalSince1970
+                    return ConvertibleConfig.modelValue(from: val, property, Self.self)
+                }
+            }
+        }
+        return ConvertibleConfig.modelValue(from: jsonValue, property, Self.self)
+    }
+    
+    required init() {
         accessToken = ""
-        expiresIn = 0
+        expiresIn = Date()
         tokenType = ""
         refreshToken = ""
-        
-        super.init()
     }
-    
-    required init?(coder: NSCoder) {
-        accessToken = coder.decodeObject(forKey: "accessToken") as! String
-        expiresIn = coder.decodeInteger(forKey: "expiresIn")
-        tokenType = coder.decodeObject(forKey: "tokenType") as! String
-        refreshToken = coder.decodeObject(forKey: "refreshToken") as! String
-    }
-    
-    func encode(with coder: NSCoder) {
-        coder.encode(accessToken, forKey: "accessToken")
-        coder.encode(expiresIn, forKey: "expiresIn")
-        coder.encode(tokenType, forKey: "tokenType")
-        coder.encode(refreshToken, forKey: "refreshToken")
-    }
-    
-    static var supportsSecureCoding: Bool { true }
-    
-    
     
     // 本地是否存在授权信息
     static func isLocalExistOauthData() -> Bool {
-        guard let _ = FileHandler.shareInstance.readData(from: FilePath.oauthFilePath) else { return false }
+        guard let _ = read(OAuth.self, from: FilePath.oauthFilePath) else { return true }
         return true
     }
     
     // token是否已失效
     static func isAccessTokenExpired() -> Bool {
-        guard let data = FileHandler.shareInstance.readData(from: FilePath.oauthFilePath) else { return true }
-        guard let model: OAuth = try? NSKeyedUnarchiver.unarchivedObject(ofClass: OAuth.self, from: data) else { return  true }
-        
-        if Date(timeIntervalSince1970: Double(model.expiresIn)).compare(Date()) == .orderedDescending {
+        guard let model: OAuth = read(OAuth.self, from: FilePath.oauthFilePath) else { return true }
+        if model.expiresIn.compare(Date()) == .orderedDescending {
             return false
         }
         return true
     }
 }
-
-
-
-
-
-
 
 
 //extension OAuth: CustomStringConvertible, CustomDebugStringConvertible {

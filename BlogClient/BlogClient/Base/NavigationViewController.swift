@@ -34,6 +34,6 @@ class NavigationViewController: UINavigationController, UINavigationControllerDe
     
     // 需要隐藏导航栏的viewController
     func hiddenNavigationController() -> [UIViewController.Type] {
-        return [MeViewController.self, WKWebViewController.self]
+        return [MeViewController.self, WKWebViewController.self, HomeViewController.self]
     }
 }
