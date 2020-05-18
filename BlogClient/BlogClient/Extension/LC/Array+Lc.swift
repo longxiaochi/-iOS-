@@ -19,5 +19,11 @@ extension LC where Base: ArrayType {
         }
         return nil
     }
+    
+    func isValidIndex(_ index: Int) -> Bool {
+        let arr = base as! [Any]
+        if index > arr.count - 1 || index < 0 { return false }
+        return true
+    }
 }
 

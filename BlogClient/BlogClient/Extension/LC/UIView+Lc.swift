@@ -32,6 +32,12 @@ extension LC where Base: UIView {
     var center: CGPoint {
         CGPoint(x: self.x/2, y: self.y/2)
     }
+    var right: CGFloat {
+        self.x + self.width
+    }
+    var left: CGFloat {
+        self.x
+    }
     
     // MARK: - Corner
     

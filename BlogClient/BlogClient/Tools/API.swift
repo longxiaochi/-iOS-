@@ -87,6 +87,7 @@ enum US {
     enum keyPath {
         static let estimatedProgress = "estimatedProgress"
         static let title = "title"
+        static let contentOffset = "contentOffset"
     }
     
     enum key {
