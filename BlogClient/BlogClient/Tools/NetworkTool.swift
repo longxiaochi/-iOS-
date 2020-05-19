@@ -14,6 +14,7 @@ class NetworkTool {
         if (OAuth.isLocalExistOauthData() && !OAuth.isAccessTokenExpired()) {
             guard let model: OAuth = KakaJSON.read(OAuth.self, from: FilePath.oauthFilePath) else { return }
             let header = HTTPHeader.authorization(bearerToken: model.accessToken)
+            log(model.accessToken) // modify by longchi
             AF.request(url, method: method, parameters: parameter, headers: HTTPHeaders([header])).responseJSON { response in
                 callBack(response)
             }
@@ -26,6 +27,7 @@ class NetworkTool {
                 let model: OAuth = KakaJSON.model(from: jsons, OAuth.self)
                 KakaJSON.write(model, to: FilePath.oauthFilePath)
                 
+                log(model.accessToken)   // modify by longchi
                 // 先获取授权数据， 然后才能正常请求数据
                 let requestHeader = HTTPHeader.authorization(bearerToken: model.accessToken)
                 AF.request(url, method: method, parameters: parameter, headers: HTTPHeaders([requestHeader])).responseJSON { response in

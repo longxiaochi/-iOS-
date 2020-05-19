@@ -39,7 +39,6 @@ class MeViewController: UIBaseViewController {
                 case .success :
                     guard let user: User = result as? User else { return log("转换个人信息失败") }
                     KakaJSON.write(user, to: FilePath.userPath)
-//                    let headView: MeTableHeadView? = self.tableView?.tableHeaderView as? MeTableHeadView
                     self.tableHeadView.updateHeadView(avatarUrl: user.avatarUrl, userName: user.displayName, sign: "加油~")
                     self.tableFooterView.isHidden = false
                     log("获取个人信息成功")
@@ -57,7 +56,7 @@ extension MeViewController: InitViewProtocol {
         backgroundImage = UIImageView.lc.initImageView(frame: CGRect.init(x: 0, y: 0, width:self.view.lc.width , height: bgImageHeight), image: R.image.accountBackgroundImage())
         self.view.addSubview(backgroundImage)
         
-        tableView = UITableView.lc.initTableView(frame: .zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none)
+        tableView = UITableView.lc.initTableView(frame: .zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none, showIndicator: false)
         tableView.backgroundColor = UIColor.clear
         tableView.register(R.nib.meTableViewCell)
         
@@ -66,7 +65,7 @@ extension MeViewController: InitViewProtocol {
         tableFooterView.isHidden = true
         tableView.tableFooterView = tableFooterView
         
-        tableHeadView = MeTableHeadView(frame: CGRect.init(x: 0, y: 0, width: self.view.lc.width, height: 290))
+        tableHeadView = MeTableHeadView(frame: CGRect.init(x: 0, y: 0, width: self.view.lc.width, height: isIphoneX() ? 290 : 270))
         tableHeadView.delegate = self
         tableView.tableHeaderView = tableHeadView
         if User.exist() {
@@ -107,10 +106,6 @@ extension MeViewController: MeTableHeadViewDelegate {
     
     func selectMyBlog() {
         log("selectMyBlog")
-        
-        NetworkTool.request(url: API.url.blogpostsSitehome, parameter: nil) { responds in
-            log(responds.result)
-        }
     }
     
     func selectEssay() {

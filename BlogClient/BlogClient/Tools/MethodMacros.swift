@@ -11,6 +11,8 @@ import Foundation
 let kAppBundleIdentifier = Bundle.main.bundleIdentifier ?? ""
 let kStatusBarHeight: CGFloat = isIphoneX() ? 44 : 20
 let kNavigationBarHeight: CGFloat = isIphoneX() ? 88 : 64
+let kScreenWidth: CGFloat = UIScreen.main.bounds.size.width    // 暂只支持竖屏
+let kScreenHeight: CGFloat = UIScreen.main.bounds.size.height
 
 // MARK: - Log
 func log<T>(_ msg: T, file: NSString = #file, line: Int = #line, fn: String = #function) {
@@ -68,6 +70,7 @@ func isIphone6P() -> Bool {
     }
     return false
 }
+
 
 
 

@@ -10,7 +10,7 @@ import UIKit
 
 class HomeViewController: UIBaseViewController {
     var navigationBarView: NavigationBarView!
-    var mainScrollView: UIScrollView!
+    var scrollPageView: ScrollPageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,7 +18,12 @@ class HomeViewController: UIBaseViewController {
         
         // longxiaochi
         self.setupUI()
-        navigationBarView.loadTabMenu([TabMenuItem("博客"), TabMenuItem("最新"), TabMenuItem("最近")])
+        navigationBarView.loadTabMenu(tabMenu())
+        scrollPageView.loadPage(tabMenu())
+    }
+    
+    func tabMenu() -> [TabMenuItem] {
+        [TabMenuItem("博客"), TabMenuItem("最新"), TabMenuItem("最近")]
     }
 }
 
@@ -29,7 +34,9 @@ extension HomeViewController: InitViewProtocol {
         navigationBarView.delegate = self
         self.view.addSubview(navigationBarView)
         
-        mainScrollView = UIScrollView.lc.initScrollView(frame: CGRect.zero, delegate: self, showIndicator: false)
+        scrollPageView = ScrollPageView(frame: CGRect.zero)
+        scrollPageView.delegate = self
+        self.view.addSubview(scrollPageView)
     }
     
     func autoLayoutView() {
@@ -37,6 +44,12 @@ extension HomeViewController: InitViewProtocol {
             make?.top.mas_equalTo()(self.view)?.offset()(kStatusBarHeight)
             make?.leading.trailing()?.mas_equalTo()(self.view)?.offset()(0)
             make?.height.mas_equalTo()(44)
+        }
+        
+        scrollPageView.mas_makeConstraints { (make) in
+            make?.top.mas_equalTo()(navigationBarView.mas_bottom)?.offset()(0)
+            make?.leading.trailing()?.mas_equalTo()(self.view)?.offset()(0)
+            make?.bottom.mas_equalTo()(self.view)?.offset()(0)
         }
     }
 }
@@ -59,4 +72,19 @@ extension HomeViewController: NavigationBarViewDelegate {
 
 extension HomeViewController: UIScrollViewDelegate {
     
+}
+
+extension HomeViewController: ScrollPageViewDelegate {
+    func pageScrollView(_ scrollView: ScrollPageView, pageViewForIndex index: Int) -> PageView {
+        if index == 0 {
+            return HomePageView()
+        }
+        return PageView()
+    }
+    
+    func pageScrollview(_ scrollView: ScrollPageView, loadDataForPageView pageView: PageView, index: Int) {
+        if let homePageView = pageView as? HomePageView {
+            homePageView.loadPageData()
+        }
+    }
 }

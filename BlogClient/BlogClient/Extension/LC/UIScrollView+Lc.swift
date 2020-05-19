@@ -20,4 +20,18 @@ extension LC where Base: UIScrollView {
         }
         return scrollView;
     }
+    
+    // MARK: 生成一个UIScrollView
+    static func initScrollView(frame: CGRect, delegate: UIScrollViewDelegate, showIndicator: Bool, pageEnable: Bool, bounces: Bool) -> UIScrollView {
+        let scrollView = UIScrollView(frame: frame)
+        scrollView.showsVerticalScrollIndicator = showIndicator
+        scrollView.showsHorizontalScrollIndicator = showIndicator
+        scrollView.isPagingEnabled = pageEnable
+        scrollView.delegate = delegate
+        scrollView.bounces = bounces
+        if #available(iOS 11, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }
+        return scrollView;
+    }
 }

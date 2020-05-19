@@ -9,11 +9,13 @@
 import Foundation
 
 extension LC where Base: UITableView {
-    static func initTableView(frame: CGRect, style: UITableView.Style, delegate: UITableViewDelegate?, dataSource: UITableViewDataSource?, separatorStyle: UITableViewCell.SeparatorStyle) -> UITableView {
+    static func initTableView(frame: CGRect, style: UITableView.Style, delegate: UITableViewDelegate?, dataSource: UITableViewDataSource?, separatorStyle: UITableViewCell.SeparatorStyle, showIndicator: Bool) -> UITableView {
         let tableView = UITableView(frame: frame, style: style)
         tableView.delegate = delegate
         tableView.dataSource = dataSource
         tableView.separatorStyle = separatorStyle
+        tableView.showsHorizontalScrollIndicator = showIndicator
+        tableView.showsVerticalScrollIndicator = showIndicator
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .never
         }

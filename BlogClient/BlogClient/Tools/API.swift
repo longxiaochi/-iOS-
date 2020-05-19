@@ -49,6 +49,8 @@ enum API {
         static let nonce = "nonce"
         
         static let code = "code"
+        static let pageIndex = "pageIndex"
+        static let pageSize = "pageSize"
     }
 
     // 请求参数的Value  request parameter value
@@ -57,7 +59,6 @@ enum API {
         static let client_id = "f12f7276-f09d-4979-9288-6ba71b303fb6"
         // client_secret
         static let client_secret = "bN1ZviZgoC-IyYix-DlSuCjZ3KdixeJEkMdTVazfJA5D07R-nCxlGTFsEA4FLkq9o0C9_9k5D5Ea-qbv"
-        
         static let client_credentials = "client_credentials"
         
         
@@ -69,6 +70,7 @@ enum API {
         
         static let grant_type_password = "password"
         static let grant_type_authorization_code = "authorization_code"
+    
     }
 }
 
