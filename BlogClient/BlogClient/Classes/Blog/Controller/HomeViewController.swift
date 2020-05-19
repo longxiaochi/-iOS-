@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIBaseViewController {
     var navigationBarView: NavigationBarView!
+    var mainScrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +18,8 @@ class HomeViewController: UIBaseViewController {
         
         // longxiaochi
         self.setupUI()
-        
-        
-        
+        navigationBarView.loadTabMenu([TabMenuItem("博客"), TabMenuItem("最新"), TabMenuItem("最近")])
     }
-
 }
 
 // MARK: - InitViewProtocol
@@ -30,11 +28,13 @@ extension HomeViewController: InitViewProtocol {
         navigationBarView = NavigationBarView(frame: CGRect.zero)
         navigationBarView.delegate = self
         self.view.addSubview(navigationBarView)
+        
+        mainScrollView = UIScrollView.lc.initScrollView(frame: CGRect.zero, delegate: self, showIndicator: false)
     }
     
     func autoLayoutView() {
         navigationBarView.mas_makeConstraints { (make) in
-            make?.top.mas_equalTo()(self.view)?.offset()(43)
+            make?.top.mas_equalTo()(self.view)?.offset()(kStatusBarHeight)
             make?.leading.trailing()?.mas_equalTo()(self.view)?.offset()(0)
             make?.height.mas_equalTo()(44)
         }
@@ -55,4 +55,8 @@ extension HomeViewController: NavigationBarViewDelegate {
         // TODO: 点击菜单回调
         
     }
+}
+
+extension HomeViewController: UIScrollViewDelegate {
+    
 }

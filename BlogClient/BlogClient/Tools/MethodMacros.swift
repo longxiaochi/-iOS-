@@ -9,8 +9,8 @@
 import Foundation
 
 let kAppBundleIdentifier = Bundle.main.bundleIdentifier ?? ""
-let kStatusBarHeight = isIphoneX() ? 44 : 20
-//let kNavigationBarHeight = isIphoneX() ? 
+let kStatusBarHeight: CGFloat = isIphoneX() ? 44 : 20
+let kNavigationBarHeight: CGFloat = isIphoneX() ? 88 : 64
 
 // MARK: - Log
 func log<T>(_ msg: T, file: NSString = #file, line: Int = #line, fn: String = #function) {
@@ -28,8 +28,6 @@ func isArray(_ value: Any) -> Bool {
 func isArrayType(_ type: Any.Type) -> Bool {
     type is ArrayType.Type
 }
-
-
 
 // MARK: - 机型判断
 func isIphoneX() -> Bool {

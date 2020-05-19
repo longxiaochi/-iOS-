@@ -14,6 +14,7 @@
 		D14D44BC246F917000C5EE81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D44BB246F917000C5EE81 /* User.swift */; };
 		D14D44BE246FFD4100C5EE81 /* MeTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D44BD246FFD4100C5EE81 /* MeTableFooterView.swift */; };
 		D14D44C0246FFDDC00C5EE81 /* UIButton+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D44BF246FFDDC00C5EE81 /* UIButton+Lc.swift */; };
+		D14E7B5B2472C87200D4C21B /* TabMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14E7B5A2472C87200D4C21B /* TabMenuItem.swift */; };
 		D1643F7A2455220E00DFAA37 /* HKGrotesk-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F762455220E00DFAA37 /* HKGrotesk-SemiBold.ttf */; };
 		D1643F7B2455220E00DFAA37 /* HKGrotesk-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F772455220E00DFAA37 /* HKGrotesk-Medium.ttf */; };
 		D1643F7C2455220E00DFAA37 /* HKGrotesk-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D1643F782455220E00DFAA37 /* HKGrotesk-Regular.ttf */; };
@@ -96,6 +97,7 @@
 		D14D44BB246F917000C5EE81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D14D44BD246FFD4100C5EE81 /* MeTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeTableFooterView.swift; sourceTree = "<group>"; };
 		D14D44BF246FFDDC00C5EE81 /* UIButton+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Lc.swift"; sourceTree = "<group>"; };
+		D14E7B5A2472C87200D4C21B /* TabMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabMenuItem.swift; path = BlogClient/Extension/LC/TabMenuItem.swift; sourceTree = SOURCE_ROOT; };
 		D1643F762455220E00DFAA37 /* HKGrotesk-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-SemiBold.ttf"; sourceTree = "<group>"; };
 		D1643F772455220E00DFAA37 /* HKGrotesk-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Medium.ttf"; sourceTree = "<group>"; };
 		D1643F782455220E00DFAA37 /* HKGrotesk-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Regular.ttf"; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 		FD20AB09247282EC009E3971 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D14E7B5A2472C87200D4C21B /* TabMenuItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				FD0B3AE824667057009CFB7F /* ObjectProtocol.swift in Sources */,
 				FD0B3AE424666439009CFB7F /* MethodMacros.swift in Sources */,
 				FD9C8983245AAF5900C6AC3A /* MeTableHeadView.swift in Sources */,
+				D14E7B5B2472C87200D4C21B /* TabMenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

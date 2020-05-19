@@ -8,13 +8,6 @@
 
 import UIKit
 
-class TabMenuItem: TabMenuItemProtocol {
-    var title: String
-    init(_ title: String) {
-        self.title = title
-    }
-}
-
 @objc protocol NavigationBarViewDelegate: NSObjectProtocol {
     @objc func logoAction()
     @objc func searchAction()
@@ -29,7 +22,6 @@ class NavigationBarView: UIBaseView {
     var rightIcon: UIImageView!
     
     init() {
-//        fatalError("init has not been implemented")
         super.init(frame: CGRect.zero)
     }
     
@@ -37,11 +29,18 @@ class NavigationBarView: UIBaseView {
         super.init(frame: frame)
         self.setupUI()
         
-        tabMenuView.loadTabMenu(datas: [TabMenuItem("博客"), TabMenuItem("最新"), TabMenuItem("最近")], selectedIndex: 1)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: - Public Method
+extension NavigationBarView {
+    func loadTabMenu(_ datas: [TabMenuItemProtocol]) {
+        tabMenuView.loadTabMenu(datas: datas, selectedIndex: 0)
     }
 }
 
