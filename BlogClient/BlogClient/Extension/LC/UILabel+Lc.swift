@@ -10,7 +10,7 @@ import Foundation
 
 extension UILabel: LCCompatible {}
 extension LC: LCCompatible where Base: UILabel {
-    static func initLable(frame: CGRect, title: String, textColor: UIColor?, font: UIFont?, numberOfLines: Int = 1) -> UILabel {
+    static func initLable(frame: CGRect, title: String = "", textColor: UIColor?, font: UIFont?, numberOfLines: Int = 1) -> UILabel {
         let label: UILabel = UILabel(frame: frame)
         label.text = title
         label.font = font

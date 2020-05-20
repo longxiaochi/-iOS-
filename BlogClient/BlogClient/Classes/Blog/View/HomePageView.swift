@@ -55,6 +55,7 @@ extension HomePageView {
 extension HomePageView: InitViewProtocol {
     func initView() {
         tableView = UITableView.lc.initTableView(frame: CGRect.zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none, showIndicator: false)
+        tableView.register(HomePageViewCell.self, forCellReuseIdentifier: NSStringFromClass(HomePageViewCell.self))
         self.addSubview(tableView)
     }
     
@@ -67,7 +68,9 @@ extension HomePageView: InitViewProtocol {
 
 // MARK: - UITableViewDelegate
 extension HomePageView: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        250
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -77,8 +80,9 @@ extension HomePageView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = "sdsdfsdf"
+        guard let itemModel = dataSource.lc.objectAtIndex(indexPath.row) as? BlogItem else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(HomePageViewCell.self), for: indexPath) as? HomePageViewCell else { return UITableViewCell() }
+        cell.configCell(withItemModel: itemModel)
         return cell
     }
 }

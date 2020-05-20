@@ -87,7 +87,7 @@ class MeTableHeadView: UIBaseView {
     
     func updateHeadView(avatarUrl: String, userName: String, sign: String) {
         if avatarUrl.hasSuffix("simple_avatar.gif") {
-            
+            //modify by longchi
         } else {
             avatarImage.kf.setImage(with: URL(string: avatarUrl), placeholder: R.image.accountAvatar())
         }

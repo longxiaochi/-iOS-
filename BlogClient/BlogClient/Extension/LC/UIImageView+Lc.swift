@@ -12,6 +12,7 @@ extension LC where Base: UIImageView {
     static func initImageView(frame: CGRect, image: UIImage?) -> UIImageView {
         let imageView = UIImageView(frame: frame)
         imageView.image = image
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }
 }

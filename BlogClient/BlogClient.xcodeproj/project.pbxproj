@@ -47,6 +47,10 @@
 		FD0B3AE824667057009CFB7F /* ObjectProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0B3AE724667057009CFB7F /* ObjectProtocol.swift */; };
 		FD0B3AEE2466C239009CFB7F /* Heiti-SC-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0B3AEC2466C238009CFB7F /* Heiti-SC-Medium.ttf */; };
 		FD0B3AEF2466C239009CFB7F /* Heiti-SC-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD0B3AED2466C239009CFB7F /* Heiti-SC-Light.ttf */; };
+		FD1450AF2474F6F100FA1CAB /* HomePageViewCellHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1450AE2474F6F100FA1CAB /* HomePageViewCellHeadView.swift */; };
+		FD1450B1247513DE00FA1CAB /* Date+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1450B0247513DE00FA1CAB /* Date+Lc.swift */; };
+		FD1450B324754AEE00FA1CAB /* HomePageViewCellBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1450B224754AEE00FA1CAB /* HomePageViewCellBottomView.swift */; };
+		FD1450B524754EA300FA1CAB /* IconLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1450B424754EA300FA1CAB /* IconLabelView.swift */; };
 		FD1918632468FC0500AEDF79 /* NetworkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1918622468FC0500AEDF79 /* NetworkTool.swift */; };
 		FD1918662469314300AEDF79 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1918652469314300AEDF79 /* API.swift */; };
 		FD1918682469338F00AEDF79 /* OAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1918672469338F00AEDF79 /* OAuth.swift */; };
@@ -143,6 +147,10 @@
 		FD0B3AE724667057009CFB7F /* ObjectProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectProtocol.swift; sourceTree = "<group>"; };
 		FD0B3AEC2466C238009CFB7F /* Heiti-SC-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heiti-SC-Medium.ttf"; sourceTree = "<group>"; };
 		FD0B3AED2466C239009CFB7F /* Heiti-SC-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Heiti-SC-Light.ttf"; sourceTree = "<group>"; };
+		FD1450AE2474F6F100FA1CAB /* HomePageViewCellHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewCellHeadView.swift; sourceTree = "<group>"; };
+		FD1450B0247513DE00FA1CAB /* Date+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Lc.swift"; sourceTree = "<group>"; };
+		FD1450B224754AEE00FA1CAB /* HomePageViewCellBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewCellBottomView.swift; sourceTree = "<group>"; };
+		FD1450B424754EA300FA1CAB /* IconLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconLabelView.swift; sourceTree = "<group>"; };
 		FD1918622468FC0500AEDF79 /* NetworkTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTool.swift; sourceTree = "<group>"; };
 		FD1918652469314300AEDF79 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		FD1918672469338F00AEDF79 /* OAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OAuth.swift; path = BlogClient/Classes/Me/Model/OAuth.swift; sourceTree = SOURCE_ROOT; };
@@ -463,6 +471,7 @@
 				FD0B3AE524666F3F009CFB7F /* Array+Lc.swift */,
 				D14D44BF246FFDDC00C5EE81 /* UIButton+Lc.swift */,
 				D10268C224743679007C8C87 /* UILabel+Lc.swift */,
+				FD1450B0247513DE00FA1CAB /* Date+Lc.swift */,
 			);
 			path = LC;
 			sourceTree = "<group>";
@@ -489,6 +498,9 @@
 			children = (
 				FD3934F32473C08400D03B02 /* HomePageView.swift */,
 				D10268C024741DEA007C8C87 /* HomePageViewCell.swift */,
+				FD1450AE2474F6F100FA1CAB /* HomePageViewCellHeadView.swift */,
+				FD1450B224754AEE00FA1CAB /* HomePageViewCellBottomView.swift */,
+				FD1450B424754EA300FA1CAB /* IconLabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -801,6 +813,7 @@
 				D10268C124741DEA007C8C87 /* HomePageViewCell.swift in Sources */,
 				D1AB424D2457AF0E0051939B /* ViewProtocol.swift in Sources */,
 				FD1BE3C12459A8840083711E /* BaseExtension.swift in Sources */,
+				FD1450B524754EA300FA1CAB /* IconLabelView.swift in Sources */,
 				D176017024548F6900705D2A /* R.generated.swift in Sources */,
 				FD0AADEA2473B4D5003CA43B /* PageView.swift in Sources */,
 				FD0B3AE624666F3F009CFB7F /* Array+Lc.swift in Sources */,
@@ -809,6 +822,7 @@
 				FD0AADE824739F8C003CA43B /* ScrollPageView.swift in Sources */,
 				D16BEA98245A504E00FE779D /* UIScrollView+Lc.swift in Sources */,
 				FD19186A24695FDD00AEDF79 /* FileHandler.swift in Sources */,
+				FD1450B324754AEE00FA1CAB /* HomePageViewCellBottomView.swift in Sources */,
 				FD3934FA2473D55600D03B02 /* BlogItem.swift in Sources */,
 				FD699AA42452AF3D0062BAEE /* TabBarViewController.swift in Sources */,
 				D13E7DC22470E25A003318BD /* TabMenuView.swift in Sources */,
@@ -818,6 +832,7 @@
 				FD3C58CB246D2F73007FB0F9 /* StoreHelper.swift in Sources */,
 				FD1918682469338F00AEDF79 /* OAuth.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
+				FD1450B1247513DE00FA1CAB /* Date+Lc.swift in Sources */,
 				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,
 				FD1918632468FC0500AEDF79 /* NetworkTool.swift in Sources */,
 				FD3934F62473C4F700D03B02 /* HomeService.swift in Sources */,
@@ -826,6 +841,7 @@
 				FD3934F42473C08400D03B02 /* HomePageView.swift in Sources */,
 				FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */,
 				D1643F95245556A500DFAA37 /* LibraryViewController.swift in Sources */,
+				FD1450AF2474F6F100FA1CAB /* HomePageViewCellHeadView.swift in Sources */,
 				FD20AB0C2472837C009E3971 /* NavigationBarView.swift in Sources */,
 				FD49237124531CD0002D48DC /* Asyn.swift in Sources */,
 				D16BEA9A245A560800FE779D /* UIImageView+Lc.swift in Sources */,
