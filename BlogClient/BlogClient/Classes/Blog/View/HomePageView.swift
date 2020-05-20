@@ -39,7 +39,7 @@ extension HomePageView {
         HomeService.getHomeBlogInfo(pageSize: 20, pageIndex: 1) { [weak self] (result, status) in
             switch status {
             case .success:
-                let items = result as! [BlogItem]
+                guard let items = result as? [BlogItem] else { return }
                 self?.dataSource = items
                 self?.tableView.reloadData()
             case .failure:

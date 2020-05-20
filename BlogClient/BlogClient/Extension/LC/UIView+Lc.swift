@@ -71,13 +71,5 @@ extension LC where Base: UIView {
         base.addGestureRecognizer(tapGesture)
     }
     
-//    - (void)addTapGestureWithTarget:(id)target
-//                             action:(SEL)action{
-//        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:target
-//                                                                                     action:action];
-//        tapGesture.cancelsTouchesInView = YES;
-//        tapGesture.delegate = target;
-//        self.userInteractionEnabled = YES;
-//        [self addGestureRecognizer:tapGesture];
-//    }
+    
 }

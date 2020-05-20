@@ -10,6 +10,8 @@
 		0086E9C04FB619977BE06A13 /* Pods_BlogClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF4D66F7772FA58BCA76D5D0 /* Pods_BlogClient.framework */; };
 		D1002A0F245594A0001569C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1002A11245594A0001569C7 /* Localizable.strings */; };
 		D1002A17245596A9001569C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1002A19245596A9001569C7 /* InfoPlist.strings */; };
+		D10268C124741DEA007C8C87 /* HomePageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10268C024741DEA007C8C87 /* HomePageViewCell.swift */; };
+		D10268C324743679007C8C87 /* UILabel+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10268C224743679007C8C87 /* UILabel+Lc.swift */; };
 		D13E7DC22470E25A003318BD /* TabMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13E7DC12470E25A003318BD /* TabMenuView.swift */; };
 		D14D44BC246F917000C5EE81 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D44BB246F917000C5EE81 /* User.swift */; };
 		D14D44BE246FFD4100C5EE81 /* MeTableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14D44BD246FFD4100C5EE81 /* MeTableFooterView.swift */; };
@@ -98,6 +100,8 @@
 		D1002A1424559654001569C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		D1002A18245596A9001569C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D1002A1A245596AC001569C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		D10268C024741DEA007C8C87 /* HomePageViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewCell.swift; sourceTree = "<group>"; };
+		D10268C224743679007C8C87 /* UILabel+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Lc.swift"; sourceTree = "<group>"; };
 		D13E7DC12470E25A003318BD /* TabMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabMenuView.swift; path = BlogClient/Custom/View/TabMenuView/TabMenuView.swift; sourceTree = SOURCE_ROOT; };
 		D14D44BB246F917000C5EE81 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D14D44BD246FFD4100C5EE81 /* MeTableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeTableFooterView.swift; sourceTree = "<group>"; };
@@ -458,6 +462,7 @@
 				FD9C897A245AA7BA00C6AC3A /* UITableView+Lc.swift */,
 				FD0B3AE524666F3F009CFB7F /* Array+Lc.swift */,
 				D14D44BF246FFDDC00C5EE81 /* UIButton+Lc.swift */,
+				D10268C224743679007C8C87 /* UILabel+Lc.swift */,
 			);
 			path = LC;
 			sourceTree = "<group>";
@@ -483,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				FD3934F32473C08400D03B02 /* HomePageView.swift */,
+				D10268C024741DEA007C8C87 /* HomePageViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -784,6 +790,7 @@
 				FD1BE3C32459B3550083711E /* String+Lc.swift in Sources */,
 				D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */,
 				D14D44BE246FFD4100C5EE81 /* MeTableFooterView.swift in Sources */,
+				D10268C324743679007C8C87 /* UILabel+Lc.swift in Sources */,
 				FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */,
 				D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */,
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
@@ -791,6 +798,7 @@
 				D1C0D199246F8DD20075EE7E /* UserService.swift in Sources */,
 				D1AB424F2457B4890051939B /* UIView+Lc.swift in Sources */,
 				FD1918662469314300AEDF79 /* API.swift in Sources */,
+				D10268C124741DEA007C8C87 /* HomePageViewCell.swift in Sources */,
 				D1AB424D2457AF0E0051939B /* ViewProtocol.swift in Sources */,
 				FD1BE3C12459A8840083711E /* BaseExtension.swift in Sources */,
 				D176017024548F6900705D2A /* R.generated.swift in Sources */,

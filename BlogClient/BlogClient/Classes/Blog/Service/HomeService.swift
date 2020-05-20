@@ -25,7 +25,7 @@ class HomeService {
                 }
             case .failure(let error):
                 log("fail")
-                callBack(error, .success)
+                callBack(error, .failure)
             }
         }
     }
