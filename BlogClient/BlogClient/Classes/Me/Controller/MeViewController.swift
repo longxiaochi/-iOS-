@@ -53,7 +53,7 @@ class MeViewController: UIBaseViewController {
 // MARK: - InitViewProtocol
 extension MeViewController: InitViewProtocol {
     func initView() {
-        backgroundImage = UIImageView.lc.initImageView(frame: CGRect.init(x: 0, y: 0, width:self.view.lc.width , height: bgImageHeight), image: R.image.accountBackgroundImage())
+        backgroundImage = UIImageView.lc.initImageView(frame: CGRect.init(x: 0, y: 0, width:self.view.lc.width , height: bgImageHeight), image: R.image.accountBackgroundImage(), contentModel: .scaleAspectFill)
         self.view.addSubview(backgroundImage)
         
         tableView = UITableView.lc.initTableView(frame: .zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none, showIndicator: false)

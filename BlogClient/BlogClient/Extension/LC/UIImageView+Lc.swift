@@ -9,10 +9,10 @@
 import Foundation
 
 extension LC where Base: UIImageView {
-    static func initImageView(frame: CGRect, image: UIImage?) -> UIImageView {
+    static func initImageView(frame: CGRect, image: UIImage?, contentModel: UIView.ContentMode = .scaleAspectFit) -> UIImageView {
         let imageView = UIImageView(frame: frame)
         imageView.image = image
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = contentModel
         return imageView
     }
 }
