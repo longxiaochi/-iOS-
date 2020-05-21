@@ -49,7 +49,7 @@ extension HomeViewController: InitViewProtocol {
         scrollPageView.mas_makeConstraints { (make) in
             make?.top.mas_equalTo()(navigationBarView.mas_bottom)?.offset()(0)
             make?.leading.trailing()?.mas_equalTo()(self.view)?.offset()(0)
-            make?.bottom.mas_equalTo()(self.view)?.offset()(0)
+            make?.bottom.mas_equalTo()(self.view)?.offset()(-kBottomTabBarHeight)
         }
     }
 }

@@ -30,6 +30,20 @@ extension LC where Base: ExpressibleByStringLiteral {
         return size.width
     }
     
+    func stringHeight(font: UIFont?, maxWidth: CGFloat, lineSpace: CGFloat) -> CGFloat {
+        let string = base as! String
+        let lable: UILabel = UILabel()
+        lable.font = font ?? UIFont.systemFont(ofSize: 12)
+        let attributeStr = NSMutableAttributedString.init(string: string)
+        let paragraphStyle = NSMutableParagraphStyle.init()
+        paragraphStyle.lineSpacing = lineSpace
+        attributeStr.addAttributes([NSAttributedString.Key.paragraphStyle : paragraphStyle], range: NSMakeRange(0, string.count))
+        lable.attributedText = attributeStr
+        lable.numberOfLines = 0
+        let size: CGSize = lable.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
+        return size.height
+    }
+    
     func urlParameterValue(_ parameter: String) -> String? {
         let url = base as! NSString
         let paras = url.components(separatedBy: "&") as NSArray

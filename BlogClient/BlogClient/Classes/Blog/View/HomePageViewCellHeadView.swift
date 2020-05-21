@@ -9,6 +9,8 @@
 import UIKit
 
 class HomePageViewCellHeadView: UIBaseView {
+    static let kHeadViewHeight: CGFloat = 40
+    
     var avatarView: UIImageView!
     var blogNameLabel: UILabel!
     var postTimeLabel: UILabel!
@@ -34,14 +36,14 @@ class HomePageViewCellHeadView: UIBaseView {
 extension HomePageViewCellHeadView: InitViewProtocol {
     func initView() {
         avatarView = UIImageView.lc.initImageView(frame: CGRect.zero, image: R.image.accountBlog())  // modify by longchi
-        avatarView.lc.addCorner(25)
+        avatarView.lc.addCorner(Self.kHeadViewHeight/2)
         self.addSubview(avatarView)
         
         nameAndTimeView = UIView()
         self.addSubview(nameAndTimeView)
         
-        blogNameLabel = UILabel.lc.initLable(frame: CGRect.zero, textColor: R.color.black_444444(), font: R.font.stHeitiSCMedium(size: 18))
-        postTimeLabel = UILabel.lc.initLable(frame: CGRect.zero, textColor: R.color.black_444444(), font: R.font.stHeitiSCLight(size: 12))
+        blogNameLabel = UILabel.lc.initLable(frame: CGRect.zero, textColor: R.color.black_444444(), font: R.font.stHeitiSCMedium(size: 16))
+        postTimeLabel = UILabel.lc.initLable(frame: CGRect.zero, textColor: R.color.black_444444(), font: R.font.hkGroteskRegular(size: 12))
         nameAndTimeView.addSubview(blogNameLabel)
         nameAndTimeView.addSubview(postTimeLabel)
         
@@ -54,7 +56,7 @@ extension HomePageViewCellHeadView: InitViewProtocol {
             make?.top.mas_equalTo()(self)?.offset()(0)
             make?.leading.mas_equalTo()(self)?.offset()(15)
             make?.centerY.mas_equalTo()(self)?.offset()(0)
-            make?.size.mas_equalTo()(CGSize(width: 50, height: 50))
+            make?.size.mas_equalTo()(CGSize(width: Self.kHeadViewHeight, height: Self.kHeadViewHeight))
             make?.bottom.mas_equalTo()(self)?.offset()(0)
         }
         leftIconView.mas_makeConstraints { (make) in

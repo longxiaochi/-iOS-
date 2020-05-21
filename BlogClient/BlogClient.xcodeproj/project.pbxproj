@@ -75,6 +75,9 @@
 		FD9C8988245AE27400C6AC3A /* MeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */; };
 		FD9C8989245AE27400C6AC3A /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */; };
 		FDC24AAB246A95AD0075867E /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC24AAA246A95AD0075867E /* WKWebViewController.swift */; };
+		FDC792312476578E002222CD /* HKGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC792302476578E002222CD /* HKGrotesk-Light.ttf */; };
+		FDC7923324768BD4002222CD /* UIBaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC7923224768BD4002222CD /* UIBaseTableView.swift */; };
+		FDC792352476A0CC002222CD /* TablePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC792342476A0CC002222CD /* TablePageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +179,9 @@
 		FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeTableViewCell.swift; path = BlogClient/Base/MeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MeTableViewCell.xib; path = BlogClient/Base/MeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		FDC24AAA246A95AD0075867E /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		FDC792302476578E002222CD /* HKGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Light.ttf"; sourceTree = "<group>"; };
+		FDC7923224768BD4002222CD /* UIBaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTableView.swift; sourceTree = "<group>"; };
+		FDC792342476A0CC002222CD /* TablePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +241,7 @@
 		D1643F75245521E000DFAA37 /* HKGrotesk */ = {
 			isa = PBXGroup;
 			children = (
+				FDC792302476578E002222CD /* HKGrotesk-Light.ttf */,
 				D1643F792455220E00DFAA37 /* HKGrotesk-Bold.ttf */,
 				D1643F772455220E00DFAA37 /* HKGrotesk-Medium.ttf */,
 				D1643F782455220E00DFAA37 /* HKGrotesk-Regular.ttf */,
@@ -446,6 +453,7 @@
 			children = (
 				FD0AADE724739F8C003CA43B /* ScrollPageView.swift */,
 				FD0AADE92473B4D5003CA43B /* PageView.swift */,
+				FDC792342476A0CC002222CD /* TablePageView.swift */,
 			);
 			path = ScrollPageView;
 			sourceTree = "<group>";
@@ -528,6 +536,7 @@
 				FD699AA52452AF620062BAEE /* NavigationViewController.swift */,
 				FD699AA72452B0330062BAEE /* UIBaseViewController.swift */,
 				FD9C897C245AAE3C00C6AC3A /* UIBaseView.swift */,
+				FDC7923224768BD4002222CD /* UIBaseTableView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -707,6 +716,7 @@
 				FD0B3AEE2466C239009CFB7F /* Heiti-SC-Medium.ttf in Resources */,
 				D1643F7C2455220E00DFAA37 /* HKGrotesk-Regular.ttf in Resources */,
 				FD9C8985245AAF6500C6AC3A /* MeTableHeadView.xib in Resources */,
+				FDC792312476578E002222CD /* HKGrotesk-Light.ttf in Resources */,
 				FD0B3AEF2466C239009CFB7F /* Heiti-SC-Light.ttf in Resources */,
 				D1643F7D2455220E00DFAA37 /* HKGrotesk-Bold.ttf in Resources */,
 				D1002A0F245594A0001569C7 /* Localizable.strings in Resources */,
@@ -835,7 +845,9 @@
 				FD1450B1247513DE00FA1CAB /* Date+Lc.swift in Sources */,
 				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,
 				FD1918632468FC0500AEDF79 /* NetworkTool.swift in Sources */,
+				FDC7923324768BD4002222CD /* UIBaseTableView.swift in Sources */,
 				FD3934F62473C4F700D03B02 /* HomeService.swift in Sources */,
+				FDC792352476A0CC002222CD /* TablePageView.swift in Sources */,
 				D14D44C0246FFDDC00C5EE81 /* UIButton+Lc.swift in Sources */,
 				FD9C8988245AE27400C6AC3A /* MeTableViewCell.swift in Sources */,
 				FD3934F42473C08400D03B02 /* HomePageView.swift in Sources */,

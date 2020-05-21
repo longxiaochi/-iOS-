@@ -87,11 +87,11 @@ extension LC where Base == Date {
         if deltaSeconds < 5 {
             timeInfo = "刚刚"
         } else if deltaSeconds < 60 {
-            timeInfo = "\(Int(ceil(deltaSeconds)))秒前"
+            timeInfo = "\(Int(ceil(deltaSeconds))) 秒前"
         } else if deltaSeconds < 120 {
             timeInfo = "1分钟前"
         } else if deltaMinutes < 60 {
-            timeInfo = "\(Int(ceil(deltaMinutes)))分钟前"
+            timeInfo = "\(Int(ceil(deltaMinutes))) 分钟前"
         } else if deltaMinutes < 120 {
             timeInfo = "1小时前"
         } else if deltaMinutes < (24 * 60) {

@@ -25,6 +25,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>HKGrotesk-Bold.ttf</string>
+		<string>HKGrotesk-Medium.ttf</string>
+		<string>HKGrotesk-Regular.ttf</string>
+		<string>HKGrotesk-SemiBold.ttf</string>
+		<string>HKGrotesk-Light.ttf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

@@ -9,6 +9,7 @@
 import UIKit
 
 class HomePageViewCellBottomView: UIBaseView {
+    static let kBottomViewHeight: CGFloat = 20
     var faveView: IconLabelView!  // 收藏
     var commentView: IconLabelView!   // 评论
     var lookView: IconLabelView!  // 浏览
@@ -42,21 +43,21 @@ extension HomePageViewCellBottomView: InitViewProtocol {
     }
     
     func autoLayoutView() {
-        faveView.mas_makeConstraints { (make) in
+        lookView.mas_makeConstraints { (make) in
             make?.leading.top().bottom().mas_equalTo()(self)?.offset()(0)
-            make?.height.mas_equalTo()(20)
+            make?.height.mas_equalTo()(Self.kBottomViewHeight)
         }
         
         commentView.mas_makeConstraints { (make) in
             make?.centerX.mas_equalTo()(self.mas_centerX)
             make?.centerY.mas_equalTo()(self.mas_centerY)?.offset()(0)
-            make?.height.mas_equalTo()(20)
+            make?.height.mas_equalTo()(Self.kBottomViewHeight)
         }
         
-        lookView.mas_makeConstraints { (make) in
+        faveView.mas_makeConstraints { (make) in
             make?.trailing.mas_equalTo()(self)?.offset()(0)
             make?.centerY.mas_equalTo()(self.mas_centerY)?.offset()(0)
-            make?.height.mas_equalTo()(20)
+            make?.height.mas_equalTo()(18)
         }
     }
 }
