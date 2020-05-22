@@ -76,7 +76,6 @@
 		FD9C8989245AE27400C6AC3A /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */; };
 		FDC24AAB246A95AD0075867E /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC24AAA246A95AD0075867E /* WKWebViewController.swift */; };
 		FDC792312476578E002222CD /* HKGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC792302476578E002222CD /* HKGrotesk-Light.ttf */; };
-		FDC7923324768BD4002222CD /* UIBaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC7923224768BD4002222CD /* UIBaseTableView.swift */; };
 		FDC792352476A0CC002222CD /* TablePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC792342476A0CC002222CD /* TablePageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -180,7 +179,6 @@
 		FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MeTableViewCell.xib; path = BlogClient/Base/MeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		FDC24AAA246A95AD0075867E /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		FDC792302476578E002222CD /* HKGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Light.ttf"; sourceTree = "<group>"; };
-		FDC7923224768BD4002222CD /* UIBaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseTableView.swift; sourceTree = "<group>"; };
 		FDC792342476A0CC002222CD /* TablePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -536,7 +534,6 @@
 				FD699AA52452AF620062BAEE /* NavigationViewController.swift */,
 				FD699AA72452B0330062BAEE /* UIBaseViewController.swift */,
 				FD9C897C245AAE3C00C6AC3A /* UIBaseView.swift */,
-				FDC7923224768BD4002222CD /* UIBaseTableView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -845,7 +842,6 @@
 				FD1450B1247513DE00FA1CAB /* Date+Lc.swift in Sources */,
 				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,
 				FD1918632468FC0500AEDF79 /* NetworkTool.swift in Sources */,
-				FDC7923324768BD4002222CD /* UIBaseTableView.swift in Sources */,
 				FD3934F62473C4F700D03B02 /* HomeService.swift in Sources */,
 				FDC792352476A0CC002222CD /* TablePageView.swift in Sources */,
 				D14D44C0246FFDDC00C5EE81 /* UIButton+Lc.swift in Sources */,

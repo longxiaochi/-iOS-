@@ -12,10 +12,13 @@ class HomePageView: PageView {
     var tableView: UITableView!
     var dataSource: [BlogItem] = [BlogItem]()
     var isRequesting: Bool = false
+    var curIndex: Int = 1
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupUI()
+        tableView.lc.enableRefreshHeader()
+        tableView.lc.enableRefreshFooter()
     }
     
     required init?(coder: NSCoder) {
@@ -28,22 +31,38 @@ extension HomePageView {
     // load data
     func loadPageData() {
         if dataSource.count == 0  {
-            requestData()
+            requestData(isLoadMore: false) { _ in }
         }
     }
-    
+}
+
+// MARK: - Request
+extension HomePageView {
     // request
-    func requestData() {
-        if (isRequesting) { return }
+    func requestData(isLoadMore: Bool, callBack: @escaping CallBack) {
+        if (isRequesting) {
+            return callBack(false)
+        }
         isRequesting = true
-        HomeService.getHomeBlogInfo(pageSize: 20, pageIndex: 1) { [weak self] (result, status) in
+        let pageIndex = isLoadMore ? curIndex : 1
+        HomeService.getHomeBlogInfo(pageSize: 20, pageIndex: pageIndex) { [weak self] (result, status) in
             switch status {
             case .success:
-                guard let items = result as? [BlogItem] else { return }
-                self?.dataSource = items
+                guard let items = result as? [BlogItem] else { return callBack(false) }
+                if isLoadMore {
+                    self?.dataSource.append(contentsOf: items)
+                    self?.curIndex += 1
+                } else {
+                    self?.dataSource.removeAll()
+                    self?.dataSource = items
+                    self?.curIndex = 1
+                }
+                
                 self?.tableView.reloadData()
+                callBack(true)
             case .failure:
                 log("fail")
+                callBack(false)
             }
             
             self?.isRequesting = false
@@ -51,10 +70,11 @@ extension HomePageView {
     }
 }
 
+
 // MARK: - InitViewProtocol
 extension HomePageView: InitViewProtocol {
     func initView() {
-        tableView = UITableView.lc.initTableView(frame: CGRect.zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none, showIndicator: false)
+        tableView = UITableView.lc.initTableView(frame: CGRect.zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none, showIndicator: true)
         tableView.register(HomePageViewCell.self, forCellReuseIdentifier: NSStringFromClass(HomePageViewCell.self))
         self.addSubview(tableView)
     }
@@ -71,6 +91,16 @@ extension HomePageView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         250
     }
+    
+   // 下拉加载
+      func refreshRequest(callBack: @escaping CallBack) {
+          requestData(isLoadMore: false, callBack: callBack)
+      }
+      
+      // 下拉加载
+      func loadMoreRequest(callBack: @escaping CallBack) {
+          requestData(isLoadMore: true, callBack: callBack)
+      }
 }
 
 // MARK: - UITableViewDataSource

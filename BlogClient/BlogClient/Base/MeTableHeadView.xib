@@ -19,6 +19,7 @@
                 <outlet property="faveItem" destination="0LB-po-Sz7" id="CbF-Rs-CxF"/>
                 <outlet property="faveItemIcon" destination="sSO-MX-ZVN" id="zBV-fJ-9kP"/>
                 <outlet property="faveItemLabel" destination="sU7-y9-hdw" id="at9-N6-jtc"/>
+                <outlet property="headViewTopConstraint" destination="uje-hh-4gi" id="ddz-fT-Wqy"/>
                 <outlet property="middleView" destination="yd3-bz-VMT" id="ucN-53-Mou"/>
                 <outlet property="signLable" destination="xfH-Oe-PKw" id="XNs-bn-RAB"/>
                 <outlet property="userNameLable" destination="qkO-Se-pNc" id="zVG-ts-8hv"/>

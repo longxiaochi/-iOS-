@@ -29,6 +29,7 @@ class MeTableHeadView: UIBaseView {
     @IBOutlet weak var essayItemLabel: UILabel!
     @IBOutlet weak var faveItemIcon: UIImageView!
     @IBOutlet weak var faveItemLabel: UILabel!
+    @IBOutlet weak var headViewTopConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var blogItem: UIView!
     @IBOutlet weak var essayItem: UIView!
@@ -49,7 +50,7 @@ class MeTableHeadView: UIBaseView {
     }
     
     func configUI() {
-        
+        headViewTopConstraint.constant = isIphoneX() ? 100 : 80
         middleView.backgroundColor = R.color.white_FFFFFF()
         middleView.lc.addShadow(shadowColor:R.color.black_000000_14(), shadowOffset: CGSize.zero, shadowOpacity: 1, shadowRadius: 5, viewCornerRadius: 10)
         
