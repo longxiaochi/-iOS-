@@ -25,7 +25,7 @@ class TabBarViewController: UITabBarController {
         child.title = title
         child.tabBarItem.image = image
         child.tabBarItem.selectedImage = selectedImage?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        child.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: R.color.red_F15A43()], for: .selected)
+        child.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: R.color.red_F15A43() ?? UIColor.red], for: .selected)
         self.addChild(child);
     }
 }

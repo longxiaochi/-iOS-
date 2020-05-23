@@ -67,4 +67,15 @@ extension LC where Base: ExpressibleByStringLiteral {
         return value
     }
     
+    func stringToDate(withFormat format: String) -> Date? {
+        let str = base as! String
+        
+        let dateFormatter = DateFormatter.init()
+        dateFormatter.dateFormat = format
+        dateFormatter.locale = Locale.init(identifier: "zh_CN")
+        dateFormatter.timeZone = TimeZone.init(identifier: "UTC")
+        let date = dateFormatter.date(from: str)
+        return date
+    }
+    
 }

@@ -8,9 +8,14 @@
 
 import UIKit
 
+@objc protocol HomePageViewCellHeadViewDelegate: NSObjectProtocol {
+    @objc func avatarAction()
+}
+
 class HomePageViewCellHeadView: UIBaseView {
     static let kHeadViewHeight: CGFloat = 40
     
+    weak var delegate: HomePageViewCellHeadViewDelegate?
     var avatarView: UIImageView!
     var blogNameLabel: UILabel!
     var postTimeLabel: UILabel!
@@ -31,11 +36,18 @@ class HomePageViewCellHeadView: UIBaseView {
         blogNameLabel.text = blogName
         postTimeLabel.text = postTime
     }
+    
+    @objc func avatarAction() {
+        if let _ = delegate?.responds(to: #selector(delegate?.avatarAction)) {
+            delegate?.avatarAction()
+        }
+    }
 }
 
 extension HomePageViewCellHeadView: InitViewProtocol {
     func initView() {
         avatarView = UIImageView.lc.initImageView(frame: CGRect.zero, image: R.image.accountBlog())  // modify by longchi
+        avatarView.lc.addTapGesture(target: self, action: #selector(avatarAction))
         avatarView.lc.addCorner(Self.kHeadViewHeight/2)
         self.addSubview(avatarView)
         

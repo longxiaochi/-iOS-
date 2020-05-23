@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct LC<Base> {
+class LC<Base> {
     let base: Base
     init(_ base: Base) {
         self.base = base

@@ -8,7 +8,16 @@
 
 import UIKit
 
+@objc protocol HomePageViewCellDelegate: NSObjectProtocol {
+    @objc func faveAction()
+    @objc func commentAction()
+    @objc func lookAction()
+    @objc func avatarAction()
+}
+
 class HomePageViewCell: UITableViewCell {
+    weak var delegate: HomePageViewCellDelegate?
+    
     static let kHeadViewTopConstraint: CGFloat = 10
     static let kTitleLabelTopConstraint: CGFloat = 10
     static let kDesLabelTopConstraint: CGFloat = 5
@@ -64,6 +73,7 @@ extension HomePageViewCell {
 extension HomePageViewCell: InitViewProtocol {
     func initView() {
         headView = HomePageViewCellHeadView(frame: CGRect.zero)
+        headView.delegate = self
         contentView.addSubview(headView)
         
         titleLabel = UILabel.lc.initLable(frame: CGRect.zero, title: "", textColor: R.color.black_444444(), font: R.font.stHeitiSCMedium(size: 16), numberOfLines: 0)
@@ -72,6 +82,7 @@ extension HomePageViewCell: InitViewProtocol {
         contentView.addSubview(desLabel)
         
         bottomView = HomePageViewCellBottomView(frame: CGRect.zero)
+        bottomView.delegate = self
         contentView.addSubview(bottomView)
         
         bottomLineView = UIView()
@@ -111,6 +122,31 @@ extension HomePageViewCell: InitViewProtocol {
     }
 }
 
+extension HomePageViewCell: HomePageViewCellBottomViewDelegate {
+    func faveAction() {
+        if let _ = delegate?.responds(to: #selector(delegate?.faveAction)) {
+            delegate?.faveAction()
+        }
+    }
+    
+    func commentAction() {
+        if let _ = delegate?.responds(to: #selector(delegate?.commentAction)) {
+            delegate?.commentAction()
+        }
+    }
+    
+    func lookAction() {
+        if let _ = delegate?.responds(to: #selector(delegate?.lookAction)) {
+            delegate?.lookAction()
+        }
+    }
+}
 
-
+extension HomePageViewCell: HomePageViewCellHeadViewDelegate {
+    func avatarAction() {
+        if let _ = delegate?.responds(to: #selector(delegate?.avatarAction)) {
+            delegate?.avatarAction()
+        }
+    }
+}
 

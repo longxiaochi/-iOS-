@@ -8,8 +8,16 @@
 
 import UIKit
 
+@objc protocol HomePageViewCellBottomViewDelegate: NSObjectProtocol {
+    @objc func faveAction()
+    @objc func commentAction()
+    @objc func lookAction()
+}
+
 class HomePageViewCellBottomView: UIBaseView {
     static let kBottomViewHeight: CGFloat = 20
+    
+    weak var delegate: HomePageViewCellBottomViewDelegate?
     var faveView: IconLabelView!  // 收藏
     var commentView: IconLabelView!   // 评论
     var lookView: IconLabelView!  // 浏览
@@ -33,12 +41,15 @@ class HomePageViewCellBottomView: UIBaseView {
 extension HomePageViewCellBottomView: InitViewProtocol {
     func initView() {
         faveView = IconLabelView(frame: CGRect.zero)
+        faveView.lc.addTapGesture(target: self, action: #selector(faveAction))
         self.addSubview(faveView)
         
         commentView = IconLabelView(frame: CGRect.zero)
+        commentView.lc.addTapGesture(target: self, action: #selector(commentAction))
         self.addSubview(commentView)
     
         lookView = IconLabelView(frame: CGRect.zero)
+        lookView.lc.addTapGesture(target: self, action: #selector(lookAction))
         self.addSubview(lookView)
     }
     
@@ -61,6 +72,28 @@ extension HomePageViewCellBottomView: InitViewProtocol {
         }
     }
 }
+
+
+extension HomePageViewCellBottomView {
+    @objc func faveAction() {
+        if let _ = delegate?.responds(to: #selector(delegate?.faveAction)) {
+            delegate?.faveAction()
+        }
+    }
+    
+    @objc func commentAction() {
+        if let _ = delegate?.responds(to: #selector(delegate?.commentAction)) {
+            delegate?.commentAction()
+        }
+    }
+    
+    @objc func lookAction() {
+        if let _ = delegate?.responds(to: #selector(delegate?.lookAction)) {
+            delegate?.lookAction()
+        }
+    }
+}
+
 
 
 

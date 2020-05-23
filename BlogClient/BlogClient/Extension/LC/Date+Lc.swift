@@ -79,27 +79,29 @@ extension LC where Base == Date {
         return formatStr
     }
     
+    
+    
     static func timeAgoWithDate(_ date: Date) -> String {
         let deltaSeconds: TimeInterval = fabs(date.timeIntervalSinceNow)
         let deltaMinutes: TimeInterval = deltaSeconds / 60.0;
         
         var timeInfo = ""
         if deltaSeconds < 5 {
-            timeInfo = "刚刚"
+            timeInfo = R.string.localizable.justNow()
         } else if deltaSeconds < 60 {
-            timeInfo = "\(Int(ceil(deltaSeconds))) 秒前"
+            timeInfo = R.string.localizable.secondBefore(Int(ceil(deltaSeconds)))
         } else if deltaSeconds < 120 {
-            timeInfo = "1分钟前"
+            timeInfo = R.string.localizable.minuteBefore(1)
         } else if deltaMinutes < 60 {
-            timeInfo = "\(Int(ceil(deltaMinutes))) 分钟前"
+            timeInfo = R.string.localizable.minuteBefore(Int(ceil(deltaMinutes)))
         } else if deltaMinutes < 120 {
-            timeInfo = "1小时前"
+            timeInfo = R.string.localizable.hoursBefore(1)
         } else if deltaMinutes < (24 * 60) {
-            timeInfo = "\(Int(floor(deltaMinutes/60))) 小时前"
+            timeInfo = R.string.localizable.hoursBefore(Int(floor(deltaMinutes/60)))
         } else if deltaMinutes < 2 * 24 * 60 {
-            timeInfo = "昨天"
+            timeInfo = R.string.localizable.yesterdayTime(Self.formatDateToString(date, format: "HH:mm"))
         } else {
-            timeInfo = Self.formatDateToString(date, format: "MMM dd, yyyy")
+            timeInfo = Self.formatDateToString(date, format: "yyyy-MM-dd HH:mm")
         }
         
         return timeInfo

@@ -49,6 +49,20 @@ struct BlogItem: Convertible {
             return ""
         }
     }
+    
+    // "yyyy-MM-dd'T'HH:mm:ss.SSS Z"
+    func kj_modelValue(from jsonValue: Any?,
+                       _ property: Property) -> Any? {
+        if property.name == "postDate" {
+            if case .some(let value) = jsonValue {
+                if let date = "\(value)".lc.stringToDate(withFormat: "yyyy-MM-dd'T'HH:mm:SS") {
+                    return ConvertibleConfig.modelValue(from: date, property, Self.self)
+                }
+            }
+        }
+        return ConvertibleConfig.modelValue(from: jsonValue, property, Self.self)
+    }
+    
 }
 
 

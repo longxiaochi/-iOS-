@@ -75,6 +75,7 @@ extension HomePageView {
 extension HomePageView: InitViewProtocol {
     func initView() {
         tableView = UITableView.lc.initTableView(frame: CGRect.zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none, showIndicator: true)
+        tableView.refreshDelegate = self
         tableView.register(HomePageViewCell.self, forCellReuseIdentifier: NSStringFromClass(HomePageViewCell.self))
         self.addSubview(tableView)
     }
@@ -86,21 +87,31 @@ extension HomePageView: InitViewProtocol {
     }
 }
 
+// MARK: - RefreshDelegate
+extension HomePageView: RefreshDelegate {
+    // 下拉加载
+    func refreshRequest(callBack: @escaping CallBack) {
+        requestData(isLoadMore: false, callBack: callBack)
+    }
+    
+    // 下拉加载
+    func loadMoreRequest(callBack: @escaping CallBack) {
+        requestData(isLoadMore: true, callBack: callBack)
+    }
+}
+
 // MARK: - UITableViewDelegate
 extension HomePageView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        250
+        guard let itemModel = dataSource.lc.objectAtIndex(indexPath.row) as? BlogItem else { return 0 }
+        return HomePageViewCell.cellHeight(itemModel)
     }
     
-   // 下拉加载
-      func refreshRequest(callBack: @escaping CallBack) {
-          requestData(isLoadMore: false, callBack: callBack)
-      }
-      
-      // 下拉加载
-      func loadMoreRequest(callBack: @escaping CallBack) {
-          requestData(isLoadMore: true, callBack: callBack)
-      }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let itemModel = dataSource.lc.objectAtIndex(indexPath.row) as? BlogItem else { return }
+        
+//        let wkWebView = WKWebViewController(url: itemModel.url)
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -113,7 +124,26 @@ extension HomePageView: UITableViewDataSource {
         guard let itemModel = dataSource.lc.objectAtIndex(indexPath.row) as? BlogItem else { return UITableViewCell() }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(HomePageViewCell.self), for: indexPath) as? HomePageViewCell else { return UITableViewCell() }
         cell.configCell(withItemModel: itemModel)
+        cell.delegate = self
         return cell
     }
 }
 
+// MARK: - HomePageViewCellDelegate
+extension HomePageView: HomePageViewCellDelegate {
+    func faveAction() {
+        log("faveAction")
+    }
+    
+    func commentAction() {
+        log("commentAction")
+    }
+    
+    func lookAction() {
+        log("lookAction")
+    }
+    
+    func avatarAction() {
+        log("avatarAction")
+    }
+}

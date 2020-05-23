@@ -21,3 +21,10 @@
 "feedback"="Feedback";
 "about"="About";
 "logout"="Logout";
+
+// Time
+"justNow"="Just now";
+"secondBefore"="%i seconds ago";
+"minuteBefore"="%i minutes ago";
+"hoursBefore"="%i hours ago";
+"yesterdayTime"="Yesterday %@";
