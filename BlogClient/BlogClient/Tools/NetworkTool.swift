@@ -25,6 +25,7 @@ class NetworkTool {
                 guard let dict = response.value else { return callBack(response) }
                 let jsons = SwiftyJSON.JSON(dict).dictionaryValue
                 let model: OAuth = KakaJSON.model(from: jsons, OAuth.self)
+                model.expiresDate = Date().addingTimeInterval(model.expiresIn)
                 KakaJSON.write(model, to: FilePath.oauthFilePath)
                 
                 log(model.accessToken)   // modify by longchi

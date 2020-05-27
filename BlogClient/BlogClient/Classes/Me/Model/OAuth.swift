@@ -10,7 +10,8 @@ import Foundation
 
 class OAuth: Convertible{
     var accessToken: String    // access_token 存储OAuth登录所需的access_token
-    var expiresIn: Date        // expires_in OAuth登录后，access_token过期时间
+    var expiresIn: Double      // expires_in OAuth登录后，access_token过期时间，时间戳
+    var expiresDate: Date      // 失效的日期，date类型
     var tokenType: String      // token的类型
     var refreshToken: String   // refresh_token access_token过期后，不需要让用户重新登录，直接使用refresh_token重新登录
     
@@ -18,23 +19,24 @@ class OAuth: Convertible{
         return property.name.kj.underlineCased()
     }
     
-    func kj_modelValue(from jsonValue: Any?,
-                       _ property: Property) -> Any? {
-        if property.name == "expiresIn" {
-            if case .some(let value) = jsonValue {
-                let number = "\(value)"
-                if var val = Double(number) {
-                    val += Date().timeIntervalSince1970
-                    return ConvertibleConfig.modelValue(from: val, property, Self.self)
-                }
-            }
-        }
-        return ConvertibleConfig.modelValue(from: jsonValue, property, Self.self)
-    }
+//    func kj_modelValue(from jsonValue: Any?,
+//                       _ property: Property) -> Any? {
+//        if property.name == "expiresIn" {
+//            if case .some(let value) = jsonValue {
+//                let number = "\(value)"
+//                if var val = Double(number) {
+//                    val += Date().timeIntervalSince1970
+//                    return ConvertibleConfig.modelValue(from: val, property, Self.self)
+//                }
+//            }
+//        }
+//        return ConvertibleConfig.modelValue(from: jsonValue, property, Self.self)
+//    }
     
     required init() {
         accessToken = ""
-        expiresIn = Date()
+        expiresIn = 0
+        expiresDate = Date()
         tokenType = ""
         refreshToken = ""
     }
@@ -48,20 +50,9 @@ class OAuth: Convertible{
     // token是否已失效
     static func isAccessTokenExpired() -> Bool {
         guard let model: OAuth = read(OAuth.self, from: FilePath.oauthFilePath) else { return true }
-        if model.expiresIn.compare(Date()) == .orderedDescending {
+        if model.expiresDate.compare(Date()) == .orderedDescending {
             return false
         }
         return true
     }
 }
-
-
-//extension OAuth: CustomStringConvertible, CustomDebugStringConvertible {
-//    override var description: String {
-//        "accessToken: \(accessToken), \n expiresIn: \(expiresIn), \n tokenType: \(tokenType), \n refreshToken: \(refreshToken)"
-//    }
-//
-//    override var debugDescription: String {
-//        "accessToken: \(accessToken), \n expiresIn: \(expiresIn), \n tokenType: \(tokenType), \n refreshToken: \(refreshToken)"
-//    }
-//}

@@ -72,6 +72,43 @@ func isIphone6P() -> Bool {
     return false
 }
 
+// MARK: - HTML模板
+func ContentHTMLTemplateWithArgs(titleFontSize: CGFloat, titleFontColor: String, timeFontSize: CGFloat, timeFontColor: String, bodyFontSize: CGFloat, bodyFontColor: String, title: String, time: String, body: String) -> String {
+    """
+    <html>
+       <head>
+           <meta charset=\"utf-8\">
+           <meta name=\"viewport\" content=\"width=device-width,inital-scale=1.0,maximum-scale=1.0,user-scalable=no;\" />
+           <meta id=\"vp\" name=\"viewport\" content=\"width=device-width, user-scalable=no,maximum-scale=1.0,initial-scale=1\" />
+           <meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />
+           <meta name=\"apple-mobile-web-app-status-bar-style\" content=\"black\" />
+           <meta name=\"format-detection\" content=\"telephone=no\" />
+           <style type=\"text/css\">
+               p.normal {font-weight: normal; font-size: \(titleFontSize); color: \(titleFontColor); font-family: sans-serif;}
+               p.thick {font-weight: lighter; font-size: \(timeFontSize); color: \(timeFontColor); font-family: sans-serif;}
+               body {font-size: \(bodyFontSize); color: \(bodyFontColor); font-family: sans-serif;}
+           </style>
+            <script type='text/javascript'>
+            window.onload = function(){
+            var maxwidth = document.body.clientWidth;
+            for(i=0; i<document.images.length;i++) {
+                var myimg = document.images[i];
+                if(myimg.width > maxwidth) {
+                    myimg.style.width = '100%';
+                    myimg.style.height = 'auto';
+                }
+            }
+            }
+            </script>
+       </head>
+       <body>
+       <p><p class=\"normal\">\(title)</p>
+       <p><p class=\"thick\">\(time)</p>
+       \(body)
+       </body>
+    </html>
+    """
+}
 
 
 

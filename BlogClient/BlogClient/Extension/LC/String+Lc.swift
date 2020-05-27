@@ -73,7 +73,7 @@ extension LC where Base: ExpressibleByStringLiteral {
         let dateFormatter = DateFormatter.init()
         dateFormatter.dateFormat = format
         dateFormatter.locale = Locale.init(identifier: "zh_CN")
-        dateFormatter.timeZone = TimeZone.init(identifier: "UTC")
+        dateFormatter.timeZone = TimeZone.init(secondsFromGMT: 8*3600)
         let date = dateFormatter.date(from: str)
         return date
     }

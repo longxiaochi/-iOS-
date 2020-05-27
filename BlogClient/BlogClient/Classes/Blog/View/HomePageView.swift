@@ -45,7 +45,7 @@ extension HomePageView {
         }
         isRequesting = true
         let pageIndex = isLoadMore ? curIndex : 1
-        HomeService.getHomeBlogInfo(pageSize: 20, pageIndex: pageIndex) { [weak self] (result, status) in
+        HomeService.getHomeBlogListInfo(pageSize: 20, pageIndex: pageIndex) { [weak self] (result, status) in
             switch status {
             case .success:
                 guard let items = result as? [BlogItem] else { return callBack(false) }
@@ -55,10 +55,11 @@ extension HomePageView {
                 } else {
                     self?.dataSource.removeAll()
                     self?.dataSource = items
-                    self?.curIndex = 1
+                    self?.curIndex = 2
                 }
-                
-                self?.tableView.reloadData()
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
                 callBack(true)
             case .failure:
                 log("fail")
@@ -109,8 +110,25 @@ extension HomePageView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let itemModel = dataSource.lc.objectAtIndex(indexPath.row) as? BlogItem else { return }
+        let url = API.url.blogpostsBody(blogId: "\(itemModel.id)")
         
-//        let wkWebView = WKWebViewController(url: itemModel.url)
+        HomeService.getHomeBlogInfo(url: url) { [weak self] (responseObject, status) in
+            switch status {
+            case .success:
+                if let body = responseObject as? String {
+                    let HTMLString = ContentHTMLTemplateWithArgs(titleFontSize: 24.0, titleFontColor: "#000000", timeFontSize: 16.0, timeFontColor: "#5F5F5F", bodyFontSize: 16.0, bodyFontColor: "#3F3F3F", title: itemModel.title, time: Date.lc.timeAgoWithDate(itemModel.postDate), body: body)
+                    self?.openArtical(HTMLString: HTMLString)
+                }
+            case .failure:
+                log("失败了")
+            }
+        }
+    }
+    
+    func openArtical(HTMLString: String) {
+        let displayContentVc = DisplayContentViewController(HTMLString: HTMLString)
+        displayContentVc.hidesBottomBarWhenPushed = true
+        NavigationViewController.pushViewController(displayContentVc, animation: true)
     }
 }
 

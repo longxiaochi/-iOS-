@@ -26,6 +26,10 @@ extension LC where Base: UITableView {
         tableView.separatorStyle = separatorStyle
         tableView.showsHorizontalScrollIndicator = showIndicator
         tableView.showsVerticalScrollIndicator = showIndicator
+        tableView.estimatedRowHeight = 0
+        tableView.estimatedSectionFooterHeight = 0
+        tableView.estimatedSectionHeaderHeight = 0
+        
         if #available(iOS 11.0, *) {
             tableView.contentInsetAdjustmentBehavior = .never
         }

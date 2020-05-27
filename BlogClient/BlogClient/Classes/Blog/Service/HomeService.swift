@@ -9,7 +9,8 @@
 import Foundation
 
 class HomeService {
-    static func getHomeBlogInfo(pageSize: Int, pageIndex: Int, callBack: @escaping ServiceCompleteBlock) {
+    // 首页博文列表
+    static func getHomeBlogListInfo(pageSize: Int, pageIndex: Int, callBack: @escaping ServiceCompleteBlock) {
         let parameter = [API.rpk.pageIndex : pageIndex, API.rpk.pageSize : pageSize]
         NetworkTool.request(url: API.url.blogpostsSitehome, parameter: parameter) { (response) in
         
@@ -25,6 +26,18 @@ class HomeService {
                 }
             case .failure(let error):
                 log("fail")
+                callBack(error, .failure)
+            }
+        }
+    }
+    
+    // 首页博文内容
+    static func getHomeBlogInfo(url: String, callBack: @escaping ServiceCompleteBlock) {
+        NetworkTool.request(url: url, parameter: nil) { (response) in
+            switch response.result {
+            case .success(let result):
+                callBack(result, .success)
+            case .failure(let error):
                 callBack(error, .failure)
             }
         }

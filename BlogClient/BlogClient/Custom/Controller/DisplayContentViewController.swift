@@ -1,22 +1,32 @@
 //
-//  WKWebViewController.swift
+//  DisplayContentViewController.swift
 //  BlogClient
 //
-//  Created by Long on 2020/5/12.
+//  Created by Long on 2020/5/27.
 //  Copyright © 2020 LongMac. All rights reserved.
 //
 
 import UIKit
 import WebKit
 
-class WKWebViewController: UIBaseViewController {
-    
+class DisplayContentViewController: UIBaseViewController {
+    var statusBarView: UIView! = nil
     var wkWebView: WKWebView! = nil
     var requestUrl: String? = nil
+    var HTMLString: String? = nil
 
-    init(url: String) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    convenience init(url: String) {
+        self.init(nibName: nil, bundle: nil)
         requestUrl = url
-        super.init(nibName: nil, bundle: nil)
+    }
+    
+    convenience init(HTMLString: String) {
+        self.init(nibName: nil, bundle: nil)
+        self.HTMLString = HTMLString
     }
 
     required init?(coder: NSCoder) {
@@ -38,21 +48,32 @@ class WKWebViewController: UIBaseViewController {
             guard let url = URL(string: encodingUrl) else { return }
             let request = URLRequest.init(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 60)
             wkWebView.load(request)
+        } else if let HTMLStr = HTMLString {
+            wkWebView.loadHTMLString(HTMLStr, baseURL: nil)
         }
     }
 }
 
 // MARK: - InitViewProtocol
-extension WKWebViewController: InitViewProtocol {
+extension DisplayContentViewController: InitViewProtocol {
     func initView() {
+        statusBarView = UIView.init()
+        statusBarView.backgroundColor = R.color.white_FFFFFF()
+        self.view.addSubview(statusBarView)
+        
         // wkwebview
         wkWebView = initWKWebView()
         self.view.addSubview(wkWebView)
     }
     
     func autoLayoutView() {
+        statusBarView.mas_makeConstraints { (make) in
+            make?.leading.trailing()?.top()?.mas_equalTo()(self.view)?.offset()(0)
+            make?.height.mas_equalTo()(kStatusBarHeight)
+        }
         wkWebView.mas_makeConstraints { (make) in
-            make?.leading.trailing()?.top()?.bottom()?.mas_equalTo()(self.view)?.offset()(0)
+            make?.top.mas_equalTo()(statusBarView.mas_bottom)?.offset()(0)
+            make?.leading.trailing()?.bottom()?.mas_equalTo()(self.view)?.offset()(0)
         }
     }
     
@@ -80,14 +101,14 @@ extension WKWebViewController: InitViewProtocol {
     
     func userContentController() -> WKUserContentController {
         let userContentController = WKUserContentController()
-        let source: String = "var meta = document.createElement('meta');" + "meta.name = 'viewport';" + "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" + "var head = document.getElementsByTagName('head')[0];" + "head.appendChild(meta);";
-        let userScript: WKUserScript = WKUserScript(source: source, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
-        userContentController.addUserScript(userScript)
+//        let source: String = "var meta = document.createElement('meta');" + "meta.name = 'viewport';" + "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';" + "var head = document.getElementsByTagName('head')[0];" + "head.appendChild(meta);";
+//        let userScript: WKUserScript = WKUserScript(source: source, injectionTime: WKUserScriptInjectionTime.atDocumentEnd, forMainFrameOnly: false)
+//        userContentController.addUserScript(userScript)
         return userContentController
     }
 }
 
-extension WKWebViewController {
+extension DisplayContentViewController {
     func postJs(_ url: URLConvertible, params: String) -> String {
         let postFunc =
                   """
@@ -118,7 +139,7 @@ extension WKWebViewController {
 }
 
 // MARK: - KVO
-extension WKWebViewController {
+extension DisplayContentViewController {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         guard let kp = keyPath else { return }
@@ -142,7 +163,7 @@ extension WKWebViewController {
 }
 
 // MARK: - WKNavigationDelegate
-extension WKWebViewController: WKNavigationDelegate {
+extension DisplayContentViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         
@@ -170,6 +191,27 @@ extension WKWebViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         self.view.hideHUD()
+        
+        let str = """
+                    var script = document.createElement('script');
+                    script.type = 'text/javascript';
+                    script.text = function ResizeImages() {
+                        var myimg,oldwidth;
+                        var maxwidth = %f;
+                        for(i=0;i <document.images.length;i++){
+                            myimg = document.images[i];
+                            if(myimg.width > maxwidth) {
+                                oldwidth = myimg.width;
+                                myimg.width = %f;
+                            }
+                        }
+                    };
+                    document.getElementsByTagName('head')[0].appendChild(script);
+                  """
+        
+        let js = "\(str)\(kScreenWidth)\(kScreenWidth - 15)"
+        webView.evaluateJavaScript(js, completionHandler: nil)
+        webView.evaluateJavaScript("ResizeImages();", completionHandler: nil)
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -193,6 +235,7 @@ extension WKWebViewController: WKNavigationDelegate {
 }
 
 // MARK: - WKUIDelegate
-extension WKWebViewController: WKUIDelegate {
+extension DisplayContentViewController: WKUIDelegate {
     
 }
+

@@ -62,7 +62,6 @@ struct BlogItem: Convertible {
         }
         return ConvertibleConfig.modelValue(from: jsonValue, property, Self.self)
     }
-    
 }
 
 

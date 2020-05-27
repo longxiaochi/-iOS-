@@ -106,6 +106,9 @@ extension MeViewController: MeTableHeadViewDelegate {
     
     func selectMyBlog() {
         log("selectMyBlog")
+        
+        let webVC = WKWebViewController(url: "http://www.cnblogs.com/haoyunlaile/p/12960441.html")
+        self.navigationController?.pushViewController(webVC, animated: true)
     }
     
     func selectEssay() {

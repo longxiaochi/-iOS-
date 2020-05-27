@@ -38,6 +38,8 @@
 		D1ABD43824511FAF009B72B9 /* BlogClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD43724511FAF009B72B9 /* BlogClientTests.swift */; };
 		D1ABD44324511FB0009B72B9 /* BlogClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */; };
 		D1C0D199246F8DD20075EE7E /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C0D198246F8DD20075EE7E /* UserService.swift */; };
+		FD09A080247E466C003AC714 /* UIWindow+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09A07F247E466C003AC714 /* UIWindow+Extension.swift */; };
+		FD09A084247E4CC5003AC714 /* DisplayContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD09A083247E4CC5003AC714 /* DisplayContentViewController.swift */; };
 		FD0AADE824739F8C003CA43B /* ScrollPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0AADE724739F8C003CA43B /* ScrollPageView.swift */; };
 		FD0AADEA2473B4D5003CA43B /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0AADE92473B4D5003CA43B /* PageView.swift */; };
 		FD0ADC56246BCC6800ECEDB1 /* UIView+HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0ADC55246BCC6800ECEDB1 /* UIView+HUD.swift */; };
@@ -140,6 +142,8 @@
 		D1ABD44224511FB0009B72B9 /* BlogClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogClientUITests.swift; sourceTree = "<group>"; };
 		D1ABD44424511FB0009B72B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1C0D198246F8DD20075EE7E /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FD09A07F247E466C003AC714 /* UIWindow+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extension.swift"; sourceTree = "<group>"; };
+		FD09A083247E4CC5003AC714 /* DisplayContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayContentViewController.swift; sourceTree = "<group>"; };
 		FD0AADE724739F8C003CA43B /* ScrollPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollPageView.swift; sourceTree = "<group>"; };
 		FD0AADE92473B4D5003CA43B /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		FD0ADC55246BCC6800ECEDB1 /* UIView+HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+HUD.swift"; sourceTree = "<group>"; };
@@ -543,6 +547,7 @@
 			children = (
 				FD0ADC54246BCBF900ECEDB1 /* LC */,
 				FD0ADC55246BCC6800ECEDB1 /* UIView+HUD.swift */,
+				FD09A07F247E466C003AC714 /* UIWindow+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -584,6 +589,7 @@
 			isa = PBXGroup;
 			children = (
 				FDC24AAA246A95AD0075867E /* WKWebViewController.swift */,
+				FD09A083247E4CC5003AC714 /* DisplayContentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -810,6 +816,7 @@
 				D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */,
 				D14D44BE246FFD4100C5EE81 /* MeTableFooterView.swift in Sources */,
 				D10268C324743679007C8C87 /* UILabel+Lc.swift in Sources */,
+				FD09A080247E466C003AC714 /* UIWindow+Extension.swift in Sources */,
 				FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */,
 				D1ABD42124511FAE009B72B9 /* AppDelegate.swift in Sources */,
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
@@ -840,6 +847,7 @@
 				FD1918682469338F00AEDF79 /* OAuth.swift in Sources */,
 				D1ABD42324511FAE009B72B9 /* SceneDelegate.swift in Sources */,
 				FD1450B1247513DE00FA1CAB /* Date+Lc.swift in Sources */,
+				FD09A084247E4CC5003AC714 /* DisplayContentViewController.swift in Sources */,
 				D1643F8D245555B300DFAA37 /* NewsViewController.swift in Sources */,
 				FD1918632468FC0500AEDF79 /* NetworkTool.swift in Sources */,
 				FD3934F62473C4F700D03B02 /* HomeService.swift in Sources */,

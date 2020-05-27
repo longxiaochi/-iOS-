@@ -34,7 +34,7 @@ class LoginViewController: WKWebViewController {
                     }
                     let jsons = SwiftyJSON.JSON(dict).dictionaryValue
                     let model: OAuth = KakaJSON.model(from: jsons, OAuth.self)
-                    
+                    model.expiresDate = Date().addingTimeInterval(model.expiresIn)
                     KakaJSON.write(model, to: FilePath.oauthFilePath)
                     DispatchQueue.main.async {
                         self.navigationController?.popViewController(animated: true)
