@@ -8,32 +8,45 @@
 
 import Kingfisher
 import CoreGraphics
+import Foundation
+
+#if SWIFT_PACKAGE
+import KingfisherWebP_ObjC
+#endif
 
 // MARK: - Image Representation
 extension KingfisherWrapper where Base: KFCrossPlatformImage {
-    public func webpRepresentation() -> Data? {
-        if let result = animatedWebPRepresentation() {
+    /// isLossy  (0=lossy , 1=lossless (default)).
+    /// Note that the default values are isLossy= false and quality=75.0f
+    public func webpRepresentation(isLossy: Bool = false, quality: Float = 75.0) -> Data? {
+        if let result = animatedWebPRepresentation(isLossy: isLossy, quality: quality) {
             return result
         }
-        if let cgImage = base.cgImage {
-            return WebPDataCreateWithImage(cgImage) as Data?
+        #if os(macOS)
+        if let cgImage = base.cgImage(forProposedRect: nil, context: nil, hints: nil) {
+            return WebPDataCreateWithImage(cgImage, isLossy, quality) as Data?
         }
+        #else
+        if let cgImage = base.cgImage {
+            return WebPDataCreateWithImage(cgImage, isLossy, quality) as Data?
+        }
+        #endif
         return nil
     }
 
-    private func animatedWebPRepresentation() -> Data? {
-        #if swift(>=4.1)
+    /// isLossy  (0=lossy , 1=lossless (default)).
+    /// Note that the default values are isLossy= false and quality=75.0f
+    private func animatedWebPRepresentation(isLossy: Bool = false, quality: Float = 75.0) -> Data? {
+        #if os(macOS)
+        return nil
+        #else
         guard let images = base.images?.compactMap({ $0.cgImage }) else {
             return nil
         }
-        #else
-        guard let images = base.images?.flatMap({ $0.cgImage }) else {
-            return nil
-        }
-        #endif
         let imageInfo = [ kWebPAnimatedImageFrames: images,
                           kWebPAnimatedImageDuration: NSNumber(value: base.duration) ] as [CFString : Any]
-        return WebPDataCreateWithAnimatedImageInfo(imageInfo as CFDictionary) as Data?
+        return WebPDataCreateWithAnimatedImageInfo(imageInfo as CFDictionary, isLossy, quality) as Data?
+        #endif
     }
 }
 
@@ -44,12 +57,22 @@ extension KingfisherWrapper where Base: KFCrossPlatformImage {
         if (frameCount == 0) {
             return nil
         }
-
+        
+        #if os(macOS)
+        guard let cgImage = WebPImageCreateWithData(webpData as CFData) else {
+            return nil
+        }
+        let image = KFCrossPlatformImage(cgImage: cgImage, size: .zero)
+        image.kf.imageFrameCount = Int(frameCount)
+        return image
+        #else
         if (frameCount == 1 || onlyFirstFrame) {
             guard let cgImage = WebPImageCreateWithData(webpData as CFData) else {
                 return nil
             }
-            return KFCrossPlatformImage(cgImage: cgImage, scale: scale, orientation: .up)
+            let image = KFCrossPlatformImage(cgImage: cgImage, scale: scale, orientation: .up)
+            image.kf.imageFrameCount = Int(frameCount)
+            return image
         }
 
         // MARK: Animated images
@@ -60,9 +83,11 @@ extension KingfisherWrapper where Base: KFCrossPlatformImage {
             return nil
         }
         let uiFrames = cgFrames.map { KFCrossPlatformImage(cgImage: $0, scale: scale, orientation: .up) }
-
         let duration = (animationInfo[kWebPAnimatedImageDuration] as? NSNumber).flatMap { $0.doubleValue as TimeInterval } ?? 0.1 * TimeInterval(frameCount)
-        return KFCrossPlatformImage.animatedImage(with: uiFrames, duration: duration)
+        let image = KFCrossPlatformImage.animatedImage(with: uiFrames, duration: duration)
+        image?.kf.imageFrameCount = Int(frameCount)
+        return image
+        #endif
     }
 }
 

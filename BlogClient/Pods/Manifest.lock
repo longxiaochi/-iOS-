@@ -1,28 +1,26 @@
 PODS:
-  - Alamofire (5.1.0)
+  - Alamofire (5.6.4)
   - KakaJSON (1.1.2)
-  - Kingfisher (5.13.4):
-    - Kingfisher/Core (= 5.13.4)
-  - Kingfisher/Core (5.13.4)
-  - KingfisherWebP (0.7.0):
-    - Kingfisher (~> 5.8)
-    - libwebp (>= 0.5.0)
-  - libwebp (1.1.0):
-    - libwebp/demux (= 1.1.0)
-    - libwebp/mux (= 1.1.0)
-    - libwebp/webp (= 1.1.0)
-  - libwebp/demux (1.1.0):
+  - Kingfisher (6.3.1)
+  - KingfisherWebP (1.3.0):
+    - Kingfisher (~> 6.2)
+    - libwebp (>= 1.1.0)
+  - libwebp (1.2.4):
+    - libwebp/demux (= 1.2.4)
+    - libwebp/mux (= 1.2.4)
+    - libwebp/webp (= 1.2.4)
+  - libwebp/demux (1.2.4):
     - libwebp/webp
-  - libwebp/mux (1.1.0):
+  - libwebp/mux (1.2.4):
     - libwebp/demux
-  - libwebp/webp (1.1.0)
+  - libwebp/webp (1.2.4)
   - Masonry (1.1.0)
   - MBProgressHUD (1.2.0)
-  - MJRefresh (3.4.1)
-  - R.swift (5.2.0):
-    - R.swift.Library (~> 5.2.0)
-  - R.swift.Library (5.2.0)
-  - SwiftyJSON (5.0.0)
+  - MJRefresh (3.7.5)
+  - R.swift (6.1.0):
+    - R.swift.Library (~> 5.3.0)
+  - R.swift.Library (5.3.0)
+  - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -50,18 +48,18 @@ SPEC REPOS:
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
   KakaJSON: cc5ff50a8c1cfbb09413db8496cb709a209e6137
-  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
-  KingfisherWebP: 50d8389a48a9004c36e655470ccbff96de1ced9c
-  libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
+  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
+  KingfisherWebP: dec17a5eb1af2658791bde1f93ae9a853678f826
+  libwebp: f62cb61d0a484ba548448a4bd52aabf150ff6eef
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
-  MJRefresh: 3153c59a363159092c08b2177ec3a7d09f90bfaf
-  R.swift: f58c441eb72a18702be4d13825c32f79c06fd6a0
-  R.swift.Library: 5ba4f1631300caf9a4d890186930da85d540769d
-  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
+  R.swift: ec98ff71c4ab2f6fd01dd077e5afd15e63a4834c
+  R.swift.Library: 0fc583cb55a99e28901299cc451614cad1161962
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
 PODFILE CHECKSUM: 1d7f6d05e2ffa108d5c00e56995a20875d28f0c2
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.11.3

@@ -11,6 +11,7 @@
 #endif
 
 #import "CGImage+WebP.h"
+#import "KingfisherWebP.h"
 
 FOUNDATION_EXPORT double KingfisherWebPVersionNumber;
 FOUNDATION_EXPORT const unsigned char KingfisherWebPVersionString[];

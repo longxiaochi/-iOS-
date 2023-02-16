@@ -1,6 +1,6 @@
 # KingfisherWebP
 
-[![CI Status](http://img.shields.io/travis/Yeatse/KingfisherWebP.svg?style=flat)](https://travis-ci.org/Yeatse/KingfisherWebP)
+[![CI Status](https://github.com/Yeatse/KingfisherWebP/workflows/unittest/badge.svg)](https://travis-ci.org/Yeatse/KingfisherWebP)
 [![Version](https://img.shields.io/cocoapods/v/KingfisherWebP.svg?style=flat)](http://cocoapods.org/pods/KingfisherWebP)
 [![License](https://img.shields.io/cocoapods/l/KingfisherWebP.svg?style=flat)](http://cocoapods.org/pods/KingfisherWebP)
 [![Platform](https://img.shields.io/cocoapods/p/KingfisherWebP.svg?style=flat)](http://cocoapods.org/pods/KingfisherWebP)
@@ -58,12 +58,30 @@ iOS 8 or above
 
 ## Installation
 
-KingfisherWebP is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+### CocoaPods
+
+KingfisherWebP is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "KingfisherWebP"
 ```
+
+### Swift Package Manager
+
+From Xcode 11, you can use [Swift Package Manager](https://swift.org/package-manager/) to add KingfisherWebP to your project. The "package repository url" of KingfisherWebP is `https://github.com/yeatse/KingfisherWebP.git`.
+
+![SPM screenshot](spm_screenshot.png)
+
+### Carthage
+
+You can also add KingfisherWebP using [Carthage](https://github.com/Carthage/Carthage). Note that KingfisherWebP is built on top of [libwebp](https://chromium.googlesource.com/webm/libwebp) project, so in your `Cartfile` you should add `libwebp` dependency as well:
+
+```
+github "yeatse/KingfisherWebP" ~> 1.3.0
+github "onevcat/Kingfisher" ~> 6.2.0
+github "SDWebImage/libwebp-Xcode" ~> 1.1.0
+```
+
 
 ## Author
 

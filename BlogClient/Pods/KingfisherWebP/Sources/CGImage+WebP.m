@@ -9,10 +9,21 @@
 #import "CGImage+WebP.h"
 
 #import <Accelerate/Accelerate.h>
+#import <CoreFoundation/CoreFoundation.h>
+
+#if __has_include("webp/decode.h") && __has_include("webp/encode.h") && __has_include("webp/demux.h") && __has_include("webp/mux.h")
 #import "webp/decode.h"
 #import "webp/encode.h"
 #import "webp/demux.h"
 #import "webp/mux.h"
+#elif __has_include(<libwebp/decode.h>) && __has_include(<libwebp/encode.h>) && __has_include(<libwebp/demux.h>) && __has_include(<libwebp/mux.h>)
+#import <libwebp/decode.h>
+#import <libwebp/encode.h>
+#import <libwebp/demux.h>
+#import <libwebp/mux.h>
+#else
+@import libwebp;
+#endif
 
 #pragma mark - Helper Functions
 
@@ -268,10 +279,14 @@ CGImageRef WebPImageCreateWithData(CFDataRef webpData) {
     return image;
 }
 
-CFDataRef WebPDataCreateWithImage(CGImageRef image) {
+CFDataRef WebPDataCreateWithImage(CGImageRef image, bool isLossy, float quality) {
     WebPConfig config;
     WebPConfigInit(&config);
-    WebPConfigLosslessPreset(&config, 0);
+    if (isLossy) {
+        WebPConfigPreset(&config, WEBP_PRESET_DEFAULT, quality);
+    } else {
+        WebPConfigLosslessPreset(&config, 0);
+    }
     
     WebPPicture picture;
     WebPPictureInit(&picture);
@@ -394,7 +409,7 @@ CFDictionaryRef WebPAnimatedImageInfoCreateWithData(CFDataRef webpData) {
 
 
 
-CFDataRef WebPDataCreateWithAnimatedImageInfo(CFDictionaryRef imageInfo) {
+CFDataRef WebPDataCreateWithAnimatedImageInfo(CFDictionaryRef imageInfo, bool isLossy, float quality) {
     CFNumberRef loopCount = CFDictionaryGetValue(imageInfo, kWebPAnimatedImageLoopCount);
     CFNumberRef durationRef = CFDictionaryGetValue(imageInfo, kWebPAnimatedImageDuration);
     CFArrayRef imageFrames = CFDictionaryGetValue(imageInfo, kWebPAnimatedImageFrames);
@@ -428,7 +443,11 @@ CFDataRef WebPDataCreateWithAnimatedImageInfo(CFDictionaryRef imageInfo) {
         if (WebPPictureImportCGImage(&frame, (CGImageRef)CFArrayGetValueAtIndex(imageFrames, i))) {
             WebPConfig config;
             WebPConfigInit(&config);
-            WebPConfigLosslessPreset(&config, 0);
+            if (isLossy) {
+                WebPConfigPreset(&config, WEBP_PRESET_DEFAULT, quality);
+            } else {
+                WebPConfigLosslessPreset(&config, 0);
+            }
             WebPAnimEncoderAdd(enc, &frame, (int)(frameDurationInMilliSec * i), &config);
         }
         WebPPictureFree(&frame);
