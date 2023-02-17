@@ -32,7 +32,7 @@ class MeViewController: UIBaseViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if !User.exist() {
+//        if !User.exist() {
             // 如果没有个人信息，则进行请求
             UserService.getUserInfo { (result, status) in
                 switch status {
@@ -46,7 +46,7 @@ class MeViewController: UIBaseViewController {
                     log("获取个人信息失败\(result)")
                 }
             }
-        }
+//        }
     }
 }
 
@@ -65,7 +65,7 @@ extension MeViewController: InitViewProtocol {
         tableFooterView.isHidden = true
         tableView.tableFooterView = tableFooterView
         
-        tableHeadView = MeTableHeadView(frame: CGRect.init(x: 0, y: 0, width: self.view.lc.width, height: isIphoneX() ? 290 : 270))
+        tableHeadView = MeTableHeadView(frame: CGRect.init(x: 0, y: 0, width: self.view.lc.width, height: isIPhoneXSeries() ? 290 : 270))
         tableHeadView.delegate = self
         tableView.tableHeaderView = tableHeadView
         if User.exist() {

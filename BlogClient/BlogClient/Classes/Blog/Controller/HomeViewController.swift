@@ -7,18 +7,36 @@
 //
 
 import UIKit
+import SnapKit
 
 class HomeViewController: UIBaseViewController {
-    var navigationBarView: NavigationBarView!
-    var scrollPageView: ScrollPageView!
+    lazy var navigationBarView: NavigationBarView = {
+        navigationBarView = NavigationBarView(frame: CGRect.zero)
+        navigationBarView.delegate = self
+        return navigationBarView
+    }()
+    
+    lazy var tabMenuView: TabMenuView = {
+        tabMenuView = TabMenuView()
+        tabMenuView.delegate = self
+        return tabMenuView
+    }()
+    
+    lazy var scrollPageView: ScrollPageView = {
+        scrollPageView = ScrollPageView(frame: CGRect.zero)
+        scrollPageView.delegate = self
+        return scrollPageView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = R.color.white_FFFFFF()
         
-        // longxiaochi
         self.setupUI()
-        navigationBarView.loadTabMenu(tabMenu())
+        
+        // 配置数据
+        tabMenuView.setAssociateScrollView(scrollPageView.scrollView)
+        tabMenuView.loadTabMenu(datas:tabMenu(), selectedIndex: 0)
         scrollPageView.loadPage(tabMenu())
     }
     
@@ -30,26 +48,28 @@ class HomeViewController: UIBaseViewController {
 // MARK: - InitViewProtocol
 extension HomeViewController: InitViewProtocol {
     func initView() {
-        navigationBarView = NavigationBarView(frame: CGRect.zero)
-        navigationBarView.delegate = self
         self.view.addSubview(navigationBarView)
-        
-        scrollPageView = ScrollPageView(frame: CGRect.zero)
-        scrollPageView.delegate = self
+        self.view.addSubview(tabMenuView)
         self.view.addSubview(scrollPageView)
     }
     
     func autoLayoutView() {
-        navigationBarView.mas_makeConstraints { (make) in
-            make?.top.mas_equalTo()(self.view)?.offset()(kStatusBarHeight)
-            make?.leading.trailing()?.mas_equalTo()(self.view)?.offset()(0)
-            make?.height.mas_equalTo()(44)
+        navigationBarView.snp.makeConstraints { make in
+            make.top.equalTo(self.view).offset(kStatusBarHeight)
+            make.leading.trailing.equalTo(self.view).offset(0)
+            make.height.equalTo(44)
         }
         
-        scrollPageView.mas_makeConstraints { (make) in
-            make?.top.mas_equalTo()(navigationBarView.mas_bottom)?.offset()(0)
-            make?.leading.trailing()?.mas_equalTo()(self.view)?.offset()(0)
-            make?.bottom.mas_equalTo()(self.view)?.offset()(-kBottomTabBarHeight)
+        tabMenuView.snp.makeConstraints { make in
+            make.top.equalTo(navigationBarView.snp.bottom).offset(0)
+            make.leading.trailing.equalTo(self.view).offset(0)
+            make.height.equalTo(44)
+        }
+        
+        scrollPageView.snp.makeConstraints { make in
+            make.top.equalTo(tabMenuView.snp.bottom).offset(0)
+            make.leading.trailing.equalTo(self.view).offset(0)
+            make.bottom.equalTo(self.view).offset(0)
         }
     }
 }
@@ -63,12 +83,17 @@ extension HomeViewController: NavigationBarViewDelegate {
     func searchAction() {
         // TODO: 处理点击search
     }
-    
+}
+
+
+// MARK: - TabMenuViewDelegate
+extension HomeViewController: TabMenuViewDelegate {
     func selectMenuTitleIndex(_ index: Int, itemModel: TabMenuItemProtocol?) {
         // TODO: 点击菜单回调
-        
+        print("select menu index \(index)")
     }
 }
+
 
 extension HomeViewController: UIScrollViewDelegate {
     

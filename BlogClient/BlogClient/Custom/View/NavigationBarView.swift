@@ -7,19 +7,37 @@
 //
 
 import UIKit
+import SnapKit
 
 @objc protocol NavigationBarViewDelegate: NSObjectProtocol {
     @objc func logoAction()
     @objc func searchAction()
-    @objc func selectMenuTitleIndex(_ index: Int, itemModel: TabMenuItemProtocol?) -> Void
+    
 }
 
 class NavigationBarView: UIBaseView {
     weak var delegate: NavigationBarViewDelegate?
     
-    var leftIcon: UIImageView!
-    var tabMenuView: TabMenuView!
-    var rightIcon: UIImageView!
+    lazy var leftIcon: UIImageView = {
+        leftIcon = UIImageView.lc.initImageView(frame: CGRect.zero, image: R.image.home_logo())
+        leftIcon.lc.addTapGesture(target: self, action: #selector(selectLogo))
+        return leftIcon
+    }()
+    
+    
+    lazy var searchBar: SearchBar = {
+        searchBar = SearchBar.init(frame: CGRect.zero)
+        searchBar.lc.addCorner(17)
+        return searchBar
+    }()
+    
+    
+
+//    lazy var rightIcon: UIImageView = {
+//        rightIcon = UIImageView.lc.initImageView(frame: CGRect.zero, image: R.image.search())
+//        rightIcon.lc.addTapGesture(target: self, action: #selector(selectSearch))
+//        return rightIcon
+//    }()
     
     init() {
         super.init(frame: CGRect.zero)
@@ -28,8 +46,6 @@ class NavigationBarView: UIBaseView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupUI()
-        
-        
     }
     
     required init?(coder: NSCoder) {
@@ -39,54 +55,40 @@ class NavigationBarView: UIBaseView {
 
 // MARK: - Public Method
 extension NavigationBarView {
-    func loadTabMenu(_ datas: [TabMenuItemProtocol]) {
-        tabMenuView.loadTabMenu(datas: datas, selectedIndex: 0)
-    }
+    
+    
+//    func loadTabMenu(_ datas: [TabMenuItemProtocol]) {
+//        tabMenuView.loadTabMenu(datas: datas, selectedIndex: 0)
+//    }
 }
 
 // MARK: - InitViewProtocol
 extension NavigationBarView: InitViewProtocol {
     func initView() {
-        leftIcon = UIImageView.lc.initImageView(frame: CGRect.zero, image: R.image.logo())
-        leftIcon.lc.addTapGesture(target: self, action: #selector(selectLogo))
         self.addSubview(leftIcon)
-        
-        tabMenuView = TabMenuView()
-        tabMenuView.delegate = self
-        self.addSubview(tabMenuView)
-        
-        rightIcon = UIImageView.lc.initImageView(frame: CGRect.zero, image: R.image.search())
-        rightIcon.lc.addTapGesture(target: self, action: #selector(selectSearch))
-        self.addSubview(rightIcon)
+        self.addSubview(searchBar)
+//        self.addSubview(rightIcon)
     }
     
     func autoLayoutView() {
-        leftIcon.mas_makeConstraints { (make) in
-            make?.leading.mas_equalTo()(self)?.offset()(15)
-            make?.centerY.mas_equalTo()(self.mas_centerY)?.offset()(0)
-            make?.size.mas_equalTo()(CGSize(width: 18, height: 18))
+        leftIcon.snp.makeConstraints { make in
+            make.leading.equalTo(self).offset(16)
+            make.centerY.equalTo(self.snp.centerY).offset(0)
+            make.size.equalTo(CGSize(width: 85, height: 28))
         }
         
-        tabMenuView.mas_makeConstraints { (make) in
-            make?.leading.mas_equalTo()(self.leftIcon.mas_trailing)?.offset()(0)
-            make?.trailing.mas_equalTo()(self.rightIcon.mas_leading)?.offset()(-15)
-            make?.top.bottom()?.mas_equalTo()(self)?.offset()(0)
+        searchBar.snp.makeConstraints { make in
+            make.leading.equalTo(self.leftIcon.snp.trailing).offset(8)
+            make.trailing.equalTo(self).offset(-16)
+            make.centerY.equalTo(self).offset(0)
+            make.height.equalTo(34);
         }
         
-        rightIcon.mas_makeConstraints { (make) in
-            make?.trailing.mas_equalTo()(self)?.offset()(-15)
-            make?.centerY.mas_equalTo()(self.mas_centerY)?.offset()(0)
-            make?.size.mas_equalTo()(CGSize(width: 20, height: 20))
-        }
-    }
-}
-
-// MARK: - TabMenuViewDelegate
-extension NavigationBarView: TabMenuViewDelegate {
-    func selectMenuTitleIndex(_ index: Int, itemModel: TabMenuItemProtocol?) {
-        if let _ = delegate?.responds(to: #selector(delegate?.selectMenuTitleIndex(_:itemModel:))) {
-            delegate?.selectMenuTitleIndex(index, itemModel: itemModel)
-        }
+//        rightIcon.snp.makeConstraints { make in
+//            make.trailing.equalTo(self).offset(-16)
+//            make.centerY.equalTo(self).offset(0)
+//            make.size.equalTo(CGSize(width: 20, height: 20))
+//        }
     }
 }
 

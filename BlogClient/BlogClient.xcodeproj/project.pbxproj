@@ -70,6 +70,8 @@
 		FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA52452AF620062BAEE /* NavigationViewController.swift */; };
 		FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA72452B0330062BAEE /* UIBaseViewController.swift */; };
 		FD699AAA2452B0610062BAEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD699AA92452B0610062BAEE /* HomeViewController.swift */; };
+		FD9B2278299F5567008A5737 /* UIDevice+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9B2277299F5567008A5737 /* UIDevice+Extension.swift */; };
+		FD9B227A299F6272008A5737 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9B2279299F6272008A5737 /* SearchBar.swift */; };
 		FD9C897B245AA7BA00C6AC3A /* UITableView+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C897A245AA7BA00C6AC3A /* UITableView+Lc.swift */; };
 		FD9C897D245AAE3C00C6AC3A /* UIBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C897C245AAE3C00C6AC3A /* UIBaseView.swift */; };
 		FD9C8983245AAF5900C6AC3A /* MeTableHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C8982245AAF5900C6AC3A /* MeTableHeadView.swift */; };
@@ -175,6 +177,8 @@
 		FD699AA72452B0330062BAEE /* UIBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		FD699AA92452B0610062BAEE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FD699AB2245318850062BAEE /* BlogClient-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlogClient-Bridging-Header.h"; sourceTree = "<group>"; };
+		FD9B2277299F5567008A5737 /* UIDevice+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extension.swift"; sourceTree = "<group>"; };
+		FD9B2279299F6272008A5737 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		FD9C897A245AA7BA00C6AC3A /* UITableView+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Lc.swift"; sourceTree = "<group>"; };
 		FD9C897C245AAE3C00C6AC3A /* UIBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBaseView.swift; sourceTree = "<group>"; };
 		FD9C8982245AAF5900C6AC3A /* MeTableHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeTableHeadView.swift; path = BlogClient/Base/MeTableHeadView.swift; sourceTree = SOURCE_ROOT; };
@@ -548,6 +552,7 @@
 				FD0ADC54246BCBF900ECEDB1 /* LC */,
 				FD0ADC55246BCC6800ECEDB1 /* UIView+HUD.swift */,
 				FD09A07F247E466C003AC714 /* UIWindow+Extension.swift */,
+				FD9B2277299F5567008A5737 /* UIDevice+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -600,6 +605,7 @@
 				FD0AADEC2473BE3A003CA43B /* TabMenuView */,
 				FD0AADEB2473BE15003CA43B /* ScrollPageView */,
 				FD20AB0B2472837C009E3971 /* NavigationBarView.swift */,
+				FD9B2279299F6272008A5737 /* SearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -816,6 +822,7 @@
 				FD1BE3C32459B3550083711E /* String+Lc.swift in Sources */,
 				D1643F912455563F00DFAA37 /* FlashViewController.swift in Sources */,
 				D14D44BE246FFD4100C5EE81 /* MeTableFooterView.swift in Sources */,
+				FD9B2278299F5567008A5737 /* UIDevice+Extension.swift in Sources */,
 				D10268C324743679007C8C87 /* UILabel+Lc.swift in Sources */,
 				FD09A080247E466C003AC714 /* UIWindow+Extension.swift in Sources */,
 				FD699AA62452AF620062BAEE /* NavigationViewController.swift in Sources */,
@@ -833,6 +840,7 @@
 				FD0AADEA2473B4D5003CA43B /* PageView.swift in Sources */,
 				FD0B3AE624666F3F009CFB7F /* Array+Lc.swift in Sources */,
 				D14D44BC246F917000C5EE81 /* User.swift in Sources */,
+				FD9B227A299F6272008A5737 /* SearchBar.swift in Sources */,
 				FD0ADC58246BF3C400ECEDB1 /* LoginViewController.swift in Sources */,
 				FD0AADE824739F8C003CA43B /* ScrollPageView.swift in Sources */,
 				D16BEA98245A504E00FE779D /* UIScrollView+Lc.swift in Sources */,

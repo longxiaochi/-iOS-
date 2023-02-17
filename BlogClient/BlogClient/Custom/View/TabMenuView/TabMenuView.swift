@@ -48,6 +48,11 @@ class TabMenuView: UIBaseView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    deinit {
+        // 移除监听
+        associateScrollView?.removeObserver(self, forKeyPath: US.keyPath.contentOffset, context: nil)
+    }
 }
 
 // MARK: - InitViewProtocol
@@ -102,7 +107,6 @@ extension TabMenuView {
                     make?.leading.mas_equalTo()(containerView)?.offset()(Self.kItemPadding)
                 }
                 make?.centerY.mas_equalTo()(containerView)
-//                make?.top.bottom()?.mas_equalTo()(containerView)?.offset()(0)
                 make?.width.mas_equalTo()(width)
             }
             previous = itemButton

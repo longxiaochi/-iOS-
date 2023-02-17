@@ -50,7 +50,7 @@ class MeTableHeadView: UIBaseView {
     }
     
     func configUI() {
-        headViewTopConstraint.constant = isIphoneX() ? 100 : 80
+        headViewTopConstraint.constant = isIPhoneXSeries() ? 100 : 80
         middleView.backgroundColor = R.color.white_FFFFFF()
         middleView.lc.addShadow(shadowColor:R.color.black_000000_14(), shadowOffset: CGSize.zero, shadowOpacity: 1, shadowRadius: 5, viewCornerRadius: 10)
         

@@ -9,9 +9,9 @@
 import Foundation
 
 let kAppBundleIdentifier = Bundle.main.bundleIdentifier ?? ""
-let kStatusBarHeight: CGFloat = isIphoneX() ? 44 : 20
-let kNavigationBarHeight: CGFloat = isIphoneX() ? 88 : 64
-let kBottomTabBarHeight: CGFloat = isIphoneX() ? 34+49 : 49
+let kStatusBarHeight: CGFloat = isIPhoneXSeries() ? (isSupportDynamicIsland() ? 55 : 44) : 20
+let kNavigationBarHeight: CGFloat = isIPhoneXSeries() ? (isSupportDynamicIsland() ? 99 : 88) : 64
+let kBottomTabBarHeight: CGFloat = isIPhoneXSeries() ? 34+49 : 49
 let kScreenWidth: CGFloat = UIScreen.main.bounds.size.width    // 暂只支持竖屏
 let kScreenHeight: CGFloat = UIScreen.main.bounds.size.height
 
@@ -33,13 +33,34 @@ func isArrayType(_ type: Any.Type) -> Bool {
 }
 
 // MARK: - 机型判断
-func isIphoneX() -> Bool {
+func isSupportDynamicIsland() -> Bool {
+    var isSupport = false
+    let deviceModel = UIDevice.deviceModel()
+    if deviceModel.count <= 0 {
+        return isSupport
+    }
+    
+    if deviceModel == "iPhone15,2" || deviceModel == "iPhone15,3" {
+        //iPhone15,2 - iPhone14 Pro
+        //iPhone15,3 - iPhone14 Pro Maxs
+        isSupport = true
+    }
+    return isSupport
+}
+
+func isIPhoneXSeries() -> Bool {
     if UIDevice().userInterfaceIdiom == .phone {
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
 
         let maxLength = screenWidth > screenHeight ? screenWidth : screenHeight
-        if maxLength == 812.0 || maxLength == 896.0 {
+        if  maxLength == 780.0 ||
+            maxLength == 812.0 ||
+            maxLength == 896.0 ||
+            maxLength == 844.0 ||
+            maxLength == 926.0 ||
+            maxLength == 852.0 ||
+            maxLength == 932.0 {
             return true
         }
     }
