@@ -38,7 +38,7 @@ class MeViewController: UIBaseViewController {
                 switch status {
                 case .success :
                     guard let user: User = result as? User else { return log("转换个人信息失败") }
-                    KakaJSON.write(user, to: FilePath.userPath)
+                    StoreHelper.write(user, to: FilePath.userPath)
                     self.tableHeadView.updateHeadView(avatarUrl: user.avatarUrl, userName: user.displayName, sign: "加油~")
                     self.tableFooterView.isHidden = false
                     log("获取个人信息成功")
@@ -69,7 +69,7 @@ extension MeViewController: InitViewProtocol {
         tableHeadView.delegate = self
         tableView.tableHeaderView = tableHeadView
         if User.exist() {
-            if let user: User = KakaJSON.read(User.self, from: FilePath.userPath) {
+            if let user: User = StoreHelper.read(User.self, from: FilePath.userPath) {
                 tableHeadView.updateHeadView(avatarUrl: user.avatarUrl, userName: user.displayName, sign: "加油~")
                 tableFooterView.isHidden = false
             }
@@ -88,7 +88,7 @@ extension MeViewController: InitViewProtocol {
 // MARK: - MeTableFooterViewDelegate
 extension MeViewController: MeTableFooterViewDelegate {
     func logout() {
-        KakaJSON.write("", to: FilePath.userPath)
+        StoreHelper.write("", to: FilePath.userPath)
         tableHeadView.updateHeadView(avatarUrl: "", userName: "", sign: "加油~")
         tableFooterView.isHidden = true
     }

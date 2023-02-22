@@ -25,19 +25,18 @@ class LoginViewController: WKWebViewController {
                                  API.rpk.code : StoreHelper.valueForKey(US.key.code) ?? "",
                                  API.rpk.redirect_uri : API.rpv.redirect_uri
                 ]
-                NetworkTool.request(url: API.url.connectToken, method: .post, parameter: parameter) {
-                    response in
-                    
-                    guard let dict = response.value else {
-                        // 请求失败了
-                        return
-                    }
-                    let jsons = SwiftyJSON.JSON(dict).dictionaryValue
-                    let model: OAuth = KakaJSON.model(from: jsons, OAuth.self)
-                    model.expiresDate = Date().addingTimeInterval(model.expiresIn)
-                    KakaJSON.write(model, to: FilePath.oauthFilePath)
-                    DispatchQueue.main.async {
-                        self.navigationController?.popViewController(animated: true)
+                
+                NetworkTool.request(url: API.url.connectToken, method: .post, parameter: parameter, modelType: OAuth.self) { response in
+                    switch response.result {
+                    case .success(let model):
+                        model.expiresDate = Date().addingTimeInterval(model.expiresIn)
+                        StoreHelper.write(model, to: FilePath.oauthFilePath)
+                        DispatchQueue.main.async {
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    case .failure(let error):
+                        log(error)
+                        break
                     }
                 }
             } else {

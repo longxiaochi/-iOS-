@@ -33,7 +33,6 @@ class HomeViewController: UIBaseViewController {
         self.view.backgroundColor = R.color.white_FFFFFF()
         
         self.setupUI()
-        
         // 配置数据
         tabMenuView.setAssociateScrollView(scrollPageView.scrollView)
         tabMenuView.loadTabMenu(datas:tabMenu(), selectedIndex: 0)

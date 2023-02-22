@@ -17,12 +17,10 @@ typealias ServiceCompleteBlock = (Any, RequestStatus) -> Void
 
 class UserService {
     static func getUserInfo(callBack: @escaping ServiceCompleteBlock) {
-        NetworkTool.request(url: API.url.apiUsers, method: .get, parameter: nil) { (response) in
+        NetworkTool.request(url: API.url.apiUsers, method: .get, parameter: nil, modelType: User.self) { (response) in
             switch response.result {
-            case .success(let json):
-                let dic = SwiftyJSON.JSON(json).dictionaryValue
-                let user: User = KakaJSON.model(from: dic, User.self)
-                callBack(user, .success)
+            case .success(let model):
+                callBack(model, .success)
             case .failure(let error):
                 callBack(error, .failure)
             }
