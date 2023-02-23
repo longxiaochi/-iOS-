@@ -8,12 +8,16 @@
 
 import Foundation
 
+//MARK: - 常用常量
 let kAppBundleIdentifier = Bundle.main.bundleIdentifier ?? ""
 let kStatusBarHeight: CGFloat = isIPhoneXSeries() ? (isSupportDynamicIsland() ? 55 : 44) : 20
 let kNavigationBarHeight: CGFloat = isIPhoneXSeries() ? (isSupportDynamicIsland() ? 99 : 88) : 64
 let kBottomTabBarHeight: CGFloat = isIPhoneXSeries() ? 34+49 : 49
 let kScreenWidth: CGFloat = UIScreen.main.bounds.size.width    // 暂只支持竖屏
 let kScreenHeight: CGFloat = UIScreen.main.bounds.size.height
+
+let kAppLanguage: Array = LanguageManager.share.appLanguage
+
 
 // MARK: - Log
 func log<T>(_ msg: T, file: NSString = #file, line: Int = #line, fn: String = #function) {

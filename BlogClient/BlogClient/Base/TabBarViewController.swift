@@ -13,11 +13,11 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addChild(R.string.localizable.blog(), R.image.tabBarItem_blog(), R.image.tabBarItem_blog_selected(), HomeViewController.self)
-        addChild(R.string.localizable.news(), R.image.tabBarItem_news(), R.image.tabBarItem_news_selected(), NewsViewController.self)
-        addChild(R.string.localizable.flash(), R.image.tabBarItem_flash(), R.image.tabBarItem_flash_selected(), FlashViewController.self)
-        addChild(R.string.localizable.library(), R.image.tabBarItem_liberary(), R.image.tabBarItem_liberary_selected(), LibraryViewController.self)
-        addChild(R.string.localizable.me(), R.image.tabBarItem_me(), R.image.tabBarItem_me_selected(), MeViewController.self)
+        addChild(R.string.localizable.blog(preferredLanguages: kAppLanguage), R.image.tabBarItem_blog(), R.image.tabBarItem_blog_selected(), HomeViewController.self)
+        addChild(R.string.localizable.news(preferredLanguages: kAppLanguage), R.image.tabBarItem_news(), R.image.tabBarItem_news_selected(), NewsViewController.self)
+        addChild(R.string.localizable.flash(preferredLanguages: kAppLanguage), R.image.tabBarItem_flash(), R.image.tabBarItem_flash_selected(), FlashViewController.self)
+        addChild(R.string.localizable.library(preferredLanguages: kAppLanguage), R.image.tabBarItem_liberary(), R.image.tabBarItem_liberary_selected(), LibraryViewController.self)
+        addChild(R.string.localizable.me(preferredLanguages: kAppLanguage), R.image.tabBarItem_me(), R.image.tabBarItem_me_selected(), MeViewController.self)
         
         // 处理iOS 13 背景和字体问题
         self.setTabBarFontAndBackgroundColor()

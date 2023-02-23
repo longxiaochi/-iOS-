@@ -9,7 +9,6 @@
 import Foundation
 
 struct StoreHelper {
-    
     // 保存数据到UserDefault、重置数据
     static func storeValue(_ value: Any?, forKey: String) -> Void {
         let key = "\(kAppBundleIdentifier)+.\(forKey)"

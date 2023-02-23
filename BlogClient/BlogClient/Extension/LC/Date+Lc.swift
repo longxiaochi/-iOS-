@@ -87,19 +87,19 @@ extension LC where Base == Date {
         
         var timeInfo = ""
         if deltaSeconds < 5 {
-            timeInfo = R.string.localizable.justNow()
+            timeInfo = R.string.localizable.justNow(preferredLanguages: kAppLanguage)
         } else if deltaSeconds < 60 {
-            timeInfo = R.string.localizable.secondBefore(Int(ceil(deltaSeconds)))
+            timeInfo = R.string.localizable.secondBefore(Int(ceil(deltaSeconds)), preferredLanguages: kAppLanguage)
         } else if deltaSeconds < 120 {
-            timeInfo = R.string.localizable.minuteBefore(1)
+            timeInfo = R.string.localizable.minuteBefore(1, preferredLanguages: kAppLanguage)
         } else if deltaMinutes < 60 {
-            timeInfo = R.string.localizable.minuteBefore(Int(ceil(deltaMinutes)))
+            timeInfo = R.string.localizable.minuteBefore(Int(ceil(deltaMinutes)), preferredLanguages: kAppLanguage)
         } else if deltaMinutes < 120 {
-            timeInfo = R.string.localizable.hoursBefore(1)
+            timeInfo = R.string.localizable.hoursBefore(1, preferredLanguages: kAppLanguage)
         } else if deltaMinutes < (24 * 60) {
-            timeInfo = R.string.localizable.hoursBefore(Int(floor(deltaMinutes/60)))
+            timeInfo = R.string.localizable.hoursBefore(Int(floor(deltaMinutes/60)), preferredLanguages: kAppLanguage)
         } else if deltaMinutes < 2 * 24 * 60 {
-            timeInfo = R.string.localizable.yesterdayTime(Self.formatDateToString(date, format: "HH:mm"))
+            timeInfo = R.string.localizable.yesterdayTime(Self.formatDateToString(date, format: "HH:mm"), preferredLanguages: kAppLanguage)
         } else {
             timeInfo = Self.formatDateToString(date, format: "yyyy-MM-dd HH:mm")
         }

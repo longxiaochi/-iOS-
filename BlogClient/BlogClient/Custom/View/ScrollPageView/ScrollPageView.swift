@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 @objc protocol ScrollPageViewDelegate: NSObjectProtocol {
     // 获取pageView
@@ -39,6 +40,29 @@ class ScrollPageView: UIBaseView {
     }
 }
 
+// MARK: - InitViewProtocol
+extension ScrollPageView: InitViewProtocol {
+    func initView() {
+        scrollView = UIScrollView.lc.initScrollView(frame: CGRect.zero, delegate: self, showIndicator: false, pageEnable: true, bounces: false)
+        self.addSubview(scrollView)
+        
+        containerView = UIView()
+        containerView.backgroundColor = UIColor.clear
+        scrollView.addSubview(containerView)
+    }
+    
+    func autoLayoutView() {
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(self).offset(0)
+        }
+        
+        containerView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView).offset(0)
+            make.height.equalTo(scrollView)
+        }
+    }
+}
+
 // MARK: - Public Method
 extension ScrollPageView {
     // 设置当前的pageIndex
@@ -57,19 +81,31 @@ extension ScrollPageView {
             guard let pageView: PageView = delegate?.pageScrollView(self, pageViewForIndex: index) else { return }
             pageView.pageIndex = index
             containerView.addSubview(pageView)
-            pageView.mas_makeConstraints { (make) in
-                if let preView = previous {
-                    make?.leading.mas_equalTo()(preView.mas_trailing)?.offset()(0)
+//            pageView.mas_makeConstraints { (make) in
+//                if let preView = previous {
+//                    make?.leading.mas_equalTo()(preView.mas_trailing)?.offset()(0)
+//                } else {
+//                    make?.leading.mas_equalTo()(containerView)?.offset()(0)
+//                }
+//                make?.top.bottom()?.mas_equalTo()(containerView)?.offset()(0)
+//                make?.width.mas_equalTo()(kScreenWidth)
+//            }
+            pageView.snp.makeConstraints { make in
+                if let previous = previous {
+                    make.leading.equalTo(previous.snp.trailing).offset(0)
                 } else {
-                    make?.leading.mas_equalTo()(containerView)?.offset()(0)
+                    make.leading.equalTo(containerView).offset(0)
                 }
-                make?.top.bottom()?.mas_equalTo()(containerView)?.offset()(0)
-                make?.width.mas_equalTo()(kScreenWidth)
+                make.top.bottom.equalTo(containerView).offset(0)
+                make.width.equalTo(kScreenWidth)
             }
-        
+            
             if index == datas.count - 1 {
-                containerView.mas_makeConstraints { (make) in
-                    make?.trailing.mas_equalTo()(pageView)
+//                containerView.mas_makeConstraints { (make) in
+//                    make?.trailing.mas_equalTo()(pageView)
+//                }
+                containerView.snp.makeConstraints { make in
+                    make.trailing.equalTo(pageView).offset(0)
                 }
             }
             previous = pageView
@@ -103,27 +139,7 @@ extension ScrollPageView {
 //    }
 }
 
-// MARK: - InitViewProtocol
-extension ScrollPageView: InitViewProtocol {
-    func initView() {
-        scrollView = UIScrollView.lc.initScrollView(frame: CGRect.zero, delegate: self, showIndicator: false, pageEnable: true, bounces: false)
-        self.addSubview(scrollView)
-        
-        containerView = UIView()
-        containerView.backgroundColor = UIColor.clear
-        scrollView.addSubview(containerView)
-    }
-    
-    func autoLayoutView() {
-        scrollView.mas_makeConstraints { (make) in
-            make?.leading.trailing()?.top()?.bottom()?.mas_equalTo()(self)?.offset()(0)
-        }
-        containerView.mas_makeConstraints { (make) in
-            make?.edges.mas_equalTo()(scrollView)?.offset()(0)
-            make?.height.mas_equalTo()(scrollView)
-        }
-    }
-}
+
 
 // MARK: - UIScrollViewDelegate
 extension ScrollPageView: UIScrollViewDelegate {

@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import SnapKit
+
+enum HomePageType: Int {
+    case home     // 首页
+    case essence  // 精选
+}
 
 class HomePageView: PageView {
-    var tableView: UITableView!
+    lazy var tableView: UITableView = {
+        tableView = UITableView.lc.initTableView(frame: CGRect.zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none, showIndicator: true)
+        tableView.refreshDelegate = self
+        tableView.register(HomePageViewCell.self, forCellReuseIdentifier: NSStringFromClass(HomePageViewCell.self))
+        return tableView
+    }()
+    
     var dataSource: [BlogItem] = [BlogItem]()
     var isRequesting: Bool = false
     var curIndex: Int = 1
+    var pageType: HomePageType = .home
     
-    override init(frame: CGRect) {
+    init(frame: CGRect, type: HomePageType) {
         super.init(frame: frame)
+        self.pageType = type
         self.setupUI()
         tableView.lc.enableRefreshHeader()
         tableView.lc.enableRefreshFooter()
@@ -25,6 +39,20 @@ class HomePageView: PageView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+// MARK: - InitViewProtocol
+extension HomePageView: InitViewProtocol {
+    func initView() {
+        self.addSubview(tableView)
+    }
+    
+    func autoLayoutView() {
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(self).offset(0)
+        }
+    }
+}
+
 
 // MARK: - Public Method
 extension HomePageView {
@@ -45,24 +73,22 @@ extension HomePageView {
         }
         isRequesting = true
         let pageIndex = isLoadMore ? curIndex : 1
-        HomeService.getHomeBlogListInfo(pageSize: 20, pageIndex: pageIndex) { [weak self] (result, status) in
+        HomeService.getHomeBlogListInfo(with: self.pageType, pageSize: 20, pageIndex: pageIndex) { [weak self] (result, status) in
             switch status {
             case .success:
                 guard let items = result as? [BlogItem] else { return callBack(false) }
                 if isLoadMore {
                     self?.dataSource.append(contentsOf: items)
-                    self?.curIndex += 1
                 } else {
                     self?.dataSource.removeAll()
                     self?.dataSource = items
-                    self?.curIndex = 2
                 }
+                self?.curIndex += 1
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
                 }
                 callBack(true)
             case .failure:
-                log("fail")
                 callBack(false)
             }
             
@@ -72,22 +98,6 @@ extension HomePageView {
 }
 
 
-// MARK: - InitViewProtocol
-extension HomePageView: InitViewProtocol {
-    func initView() {
-        tableView = UITableView.lc.initTableView(frame: CGRect.zero, style: .plain, delegate: self, dataSource: self, separatorStyle: .none, showIndicator: true)
-        tableView.refreshDelegate = self
-        tableView.register(HomePageViewCell.self, forCellReuseIdentifier: NSStringFromClass(HomePageViewCell.self))
-        self.addSubview(tableView)
-    }
-    
-    func autoLayoutView() {
-        tableView.mas_makeConstraints { (make) in
-            make?.leading.trailing()?.bottom()?.top()?.mas_equalTo()(self)?.offset()(0)
-        }
-    }
-}
-
 // MARK: - RefreshDelegate
 extension HomePageView: RefreshDelegate {
     // 下拉加载
@@ -95,7 +105,7 @@ extension HomePageView: RefreshDelegate {
         requestData(isLoadMore: false, callBack: callBack)
     }
     
-    // 下拉加载
+    // 上拉加载
     func loadMoreRequest(callBack: @escaping CallBack) {
         requestData(isLoadMore: true, callBack: callBack)
     }

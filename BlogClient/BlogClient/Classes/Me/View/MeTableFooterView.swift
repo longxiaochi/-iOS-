@@ -26,7 +26,7 @@ class MeTableFooterView: UIBaseView, InitViewProtocol {
     }
     
     func initView() {
-        logoutButton = UIButton.lc.initButton(frame: CGRect.zero, title: R.string.localizable.logout(), font: R.font.stHeitiSCMedium(size: 14), titleColor: R.color.red_F15A43())
+        logoutButton = UIButton.lc.initButton(frame: CGRect.zero, title: R.string.localizable.logout(preferredLanguages: kAppLanguage), font: R.font.stHeitiSCMedium(size: 14), titleColor: R.color.red_F15A43())
         logoutButton.addTarget(self, action: #selector(logoutAction), for: .touchUpInside)
         logoutButton.lc.addBorderAndCorner(borderWidth: 0.5, borderColor: R.color.black_000000_14(), radius: 25)
         self.addSubview(logoutButton)

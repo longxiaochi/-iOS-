@@ -20,6 +20,8 @@ enum API {
         // MARK: - 博客
         // 首页博文列表
         static let blogpostsSitehome = Self.url("blogposts/@sitehome")
+        // 首页精华列表
+        static let blogpostsPicked = Self.url("blogposts/@picked")
         
         // 根据博文id获取博文内容
         static func blogpostsBody(blogId: String) -> String {

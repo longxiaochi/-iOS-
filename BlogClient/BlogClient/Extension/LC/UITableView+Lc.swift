@@ -14,7 +14,7 @@ protocol RefreshDelegate {
     // 下拉加载
     func refreshRequest(callBack: @escaping CallBack)
     
-    // 下拉加载
+    // 上拉加载
     func loadMoreRequest(callBack: @escaping CallBack)
 }
 

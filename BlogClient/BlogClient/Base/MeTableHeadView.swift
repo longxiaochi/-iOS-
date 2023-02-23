@@ -67,21 +67,21 @@ class MeTableHeadView: UIBaseView {
         // 博客
         blogItem.lc.addTapGesture(target: self, action: #selector(blogItemClick))
         blogItemIcon.image = R.image.accountBlog()
-        blogItemLablel.text = R.string.localizable.myBlogs()
+        blogItemLablel.text = R.string.localizable.myBlogs(preferredLanguages: kAppLanguage)
         blogItemLablel.textColor = R.color.black_444444()
         blogItemLablel.font = R.font.stHeitiSCLight(size: 15)
         
         // 随笔
         essayItem.lc.addTapGesture(target: self, action: #selector(essayItemClick))
         essayItemIcon.image = R.image.accountEssay()
-        essayItemLabel.text = R.string.localizable.essay()
+        essayItemLabel.text = R.string.localizable.essay(preferredLanguages: kAppLanguage)
         essayItemLabel.font = R.font.stHeitiSCLight(size: 15)
         essayItemLabel.textColor = R.color.black_444444()
         
         // 收藏
         faveItem.lc.addTapGesture(target: self, action: #selector(faveItemClick))
         faveItemIcon.image = R.image.accountFave()
-        faveItemLabel.text =  R.string.localizable.fave()
+        faveItemLabel.text =  R.string.localizable.fave(preferredLanguages: kAppLanguage)
         faveItemLabel.font = R.font.stHeitiSCLight(size: 15)
         faveItemLabel.textColor = R.color.black_444444()
     }

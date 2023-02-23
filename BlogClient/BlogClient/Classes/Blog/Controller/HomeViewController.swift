@@ -31,7 +31,6 @@ class HomeViewController: UIBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = R.color.white_FFFFFF()
-        
         self.setupUI()
         
         // 配置数据
@@ -41,7 +40,7 @@ class HomeViewController: UIBaseViewController {
     }
     
     func tabMenu() -> [TabMenuItem] {
-        [TabMenuItem("博客"), TabMenuItem("最新"), TabMenuItem("最近")]
+        [TabMenuItem(R.string.localizable.home(preferredLanguages: kAppLanguage)), TabMenuItem(R.string.localizable.essence(preferredLanguages: kAppLanguage))]
     }
 }
 
@@ -102,9 +101,9 @@ extension HomeViewController: UIScrollViewDelegate {
 extension HomeViewController: ScrollPageViewDelegate {
     func pageScrollView(_ scrollView: ScrollPageView, pageViewForIndex index: Int) -> PageView {
         if index == 0 {
-            return HomePageView()
+            return HomePageView(frame: CGRect.zero, type: .home)
         }
-        return PageView()
+        return HomePageView(frame: CGRect.zero, type: .essence)
     }
     
     func pageScrollview(_ scrollView: ScrollPageView, loadDataForPageView pageView: PageView, index: Int) {

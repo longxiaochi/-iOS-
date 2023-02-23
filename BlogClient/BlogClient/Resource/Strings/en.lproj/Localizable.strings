@@ -28,3 +28,8 @@
 "minuteBefore"="%i minutes ago";
 "hoursBefore"="%i hours ago";
 "yesterdayTime"="Yesterday %@";
+
+
+//MARK: - 首页
+"home" = "首页";
+"essence" = "精选";

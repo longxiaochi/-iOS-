@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 @objc protocol TabMenuViewDelegate: NSObjectProtocol {
     @objc func selectMenuTitleIndex(_ index: Int, itemModel: TabMenuItemProtocol?) -> Void
@@ -67,12 +68,12 @@ extension TabMenuView: InitViewProtocol {
     }
     
     func autoLayoutView() {
-        scrollView.mas_makeConstraints { (make) in
-            make?.leading.trailing()?.top()?.bottom()?.mas_equalTo()(self)?.offset()(0)
+        scrollView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(self).offset(0)
         }
-        containerView.mas_makeConstraints { (make) in
-            make?.edges.mas_equalTo()(scrollView)?.offset()(0)
-            make?.height.mas_equalTo()(scrollView)
+        containerView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView).offset(0)
+            make.height.equalTo(scrollView)
         }
     }
 }

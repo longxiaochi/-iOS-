@@ -10,9 +10,13 @@ import Foundation
 
 class HomeService {
     // 首页博文列表
-    static func getHomeBlogListInfo(pageSize: Int, pageIndex: Int, callBack: @escaping ServiceCompleteBlock) {
+    static func getHomeBlogListInfo(with pageType: HomePageType, pageSize: Int, pageIndex: Int, callBack: @escaping ServiceCompleteBlock) {
         let parameter = [API.rpk.pageIndex : pageIndex, API.rpk.pageSize : pageSize]
-        NetworkTool.request(url: API.url.blogpostsSitehome, parameter: parameter) { (response) in
+        var url = API.url.blogpostsSitehome
+        if pageType == .essence {
+            url = API.url.blogpostsPicked
+        }
+        NetworkTool.request(url: url, parameter: parameter) { (response) in
         
             switch response.result {
             case .success(let result):

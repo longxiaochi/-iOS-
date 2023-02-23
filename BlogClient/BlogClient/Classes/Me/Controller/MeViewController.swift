@@ -16,9 +16,9 @@ class MeViewController: UIBaseViewController {
     var tableFooterView: MeTableFooterView!
     var backgroundImage: UIImageView!
     let dataSource = [
-        [R.image.accountSetting() as Any, R.string.localizable.setting(), R.image.rightArrow() as Any],
-        [R.image.accountFeedback() as Any, R.string.localizable.feedback(), R.image.rightArrow() as Any],
-        [R.image.accountAbout() as Any, R.string.localizable.about(), R.image.rightArrow() as Any]
+        [R.image.accountSetting() as Any, R.string.localizable.setting(preferredLanguages: kAppLanguage), R.image.rightArrow() as Any],
+        [R.image.accountFeedback() as Any, R.string.localizable.feedback(preferredLanguages: kAppLanguage), R.image.rightArrow() as Any],
+        [R.image.accountAbout() as Any, R.string.localizable.about(preferredLanguages: kAppLanguage), R.image.rightArrow() as Any]
     ]
 
     override func viewDidLoad() {
