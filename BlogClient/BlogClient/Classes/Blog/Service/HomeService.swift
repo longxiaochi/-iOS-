@@ -16,28 +16,19 @@ class HomeService {
         if pageType == .essence {
             url = API.url.blogpostsPicked
         }
-        NetworkTool.request(url: url, parameter: parameter) { (response) in
-        
-            switch response.result {
-            case .success(let result):
-                log("success")
-                
-                if let jsonArray = result as? [Any] {
-                    let itemModels = jsonArray.kj.modelArray(type: BlogItem.self)
-                    callBack(itemModels, .success)
-                } else {
-                    callBack([], .success)
-                }
-            case .failure(let error):
-                log("fail")
-                callBack(error, .failure)
+        NetworkTool.request(url: API.url.blogpostsSitehome, parameter: parameter, modelType: [BlogItem].self) { response in
+            guard let blogItems = response.value else {
+                log(response.error)
+                callBack(response.error as Any, .failure)
+                return;
             }
+            callBack(blogItems, .success)
         }
     }
     
     // 首页博文内容
     static func getHomeBlogInfo(url: String, callBack: @escaping ServiceCompleteBlock) {
-        NetworkTool.request(url: url, parameter: nil) { (response) in
+        NetworkTool.request(url: url, parameter: nil, modelType: String.self) { (response) in
             switch response.result {
             case .success(let result):
                 callBack(result, .success)

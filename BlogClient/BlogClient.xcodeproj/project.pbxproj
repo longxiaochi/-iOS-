@@ -79,6 +79,7 @@
 		FD9C8985245AAF6500C6AC3A /* MeTableHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9C8984245AAF6500C6AC3A /* MeTableHeadView.xib */; };
 		FD9C8988245AE27400C6AC3A /* MeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */; };
 		FD9C8989245AE27400C6AC3A /* MeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */; };
+		FD9F0F6129A5E865005D6816 /* DateFormatter+Lc.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD9F0F6029A5E865005D6816 /* DateFormatter+Lc.swift */; };
 		FDC24AAB246A95AD0075867E /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC24AAA246A95AD0075867E /* WKWebViewController.swift */; };
 		FDC792312476578E002222CD /* HKGrotesk-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDC792302476578E002222CD /* HKGrotesk-Light.ttf */; };
 		FDC792352476A0CC002222CD /* TablePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC792342476A0CC002222CD /* TablePageView.swift */; };
@@ -187,6 +188,7 @@
 		FD9C8984245AAF6500C6AC3A /* MeTableHeadView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MeTableHeadView.xib; path = BlogClient/Base/MeTableHeadView.xib; sourceTree = SOURCE_ROOT; };
 		FD9C8986245AE27400C6AC3A /* MeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MeTableViewCell.swift; path = BlogClient/Base/MeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		FD9C8987245AE27400C6AC3A /* MeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MeTableViewCell.xib; path = BlogClient/Base/MeTableViewCell.xib; sourceTree = SOURCE_ROOT; };
+		FD9F0F6029A5E865005D6816 /* DateFormatter+Lc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Lc.swift"; sourceTree = "<group>"; };
 		FDC24AAA246A95AD0075867E /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		FDC792302476578E002222CD /* HKGrotesk-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HKGrotesk-Light.ttf"; sourceTree = "<group>"; };
 		FDC792342476A0CC002222CD /* TablePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablePageView.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 				D14D44BF246FFDDC00C5EE81 /* UIButton+Lc.swift */,
 				D10268C224743679007C8C87 /* UILabel+Lc.swift */,
 				FD1450B0247513DE00FA1CAB /* Date+Lc.swift */,
+				FD9F0F6029A5E865005D6816 /* DateFormatter+Lc.swift */,
 			);
 			path = LC;
 			sourceTree = "<group>";
@@ -834,6 +837,7 @@
 				FD699AA82452B0330062BAEE /* UIBaseViewController.swift in Sources */,
 				FD9C897B245AA7BA00C6AC3A /* UITableView+Lc.swift in Sources */,
 				D1C0D199246F8DD20075EE7E /* UserService.swift in Sources */,
+				FD9F0F6129A5E865005D6816 /* DateFormatter+Lc.swift in Sources */,
 				D1AB424F2457B4890051939B /* UIView+Lc.swift in Sources */,
 				FD1918662469314300AEDF79 /* API.swift in Sources */,
 				D10268C124741DEA007C8C87 /* HomePageViewCell.swift in Sources */,
