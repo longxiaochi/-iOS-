@@ -16,7 +16,7 @@ class HomeService {
         if pageType == .essence {
             url = API.url.blogpostsPicked
         }
-        NetworkTool.request(url: API.url.blogpostsSitehome, parameter: parameter, modelType: [BlogItem].self) { response in
+        NetworkTool.request(url: url, parameter: parameter, modelType: [BlogItem].self) { response in
             guard let blogItems = response.value else {
                 log(response.error)
                 callBack(response.error as Any, .failure)
